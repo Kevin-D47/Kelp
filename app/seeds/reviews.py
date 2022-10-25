@@ -1,8 +1,8 @@
 from app.models import Review, db
 
 def seed_reviews():
-    review_1 = Review(userId=1, businessId= 3, review="Very Nice place", stars=5)
-    review_2 = Review(userId=2, businessId= 2, review="It was okay spot", stars=3)
+    review_1 = Review(userId=1, businessId= 2, review="Very Nice place", stars=5)
+    review_2 = Review(userId=2, businessId= 3, review="It was okay spot", stars=3)
     review_3 = Review(userId=3, businessId= 1, review="This is bad", stars=1)
 
     reviews = [review_1, review_2, review_3]

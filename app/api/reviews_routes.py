@@ -6,7 +6,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 review_routes = Blueprint('reviews', __name__)
 
 # get all reviews
-@review_routes.route('/all-reviews')
+@review_routes.route('/all')
 # @login_required
 def get_all_reviews():
     all_reviews = Review.query.all()

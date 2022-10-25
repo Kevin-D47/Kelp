@@ -17,10 +17,11 @@ class Business(db.Model):
     phone = db.Column(db.VARCHAR(20), nullable=False)
     description = db.Column(db.VARCHAR(2000), nullable=False)
     price = db.Column(db.VARCHAR(50), nullable=False)
-
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    reviews = db.relationship("Review", backref='business', cascade="all, delete-orphan")
 
 
     def to_dict(self):

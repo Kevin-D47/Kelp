@@ -4,9 +4,11 @@ from .auth_routes import validation_errors_to_error_messages
 
 from app.forms.business_form import BusinessForm
 
-from app.models import Business, db
+from app.models import Business, Review, db
 
 business_routes = Blueprint('businesses', __name__)
+
+# businesses routes:
 
 @business_routes.route('/')
 # @login_required
@@ -14,6 +16,7 @@ def get_all_businesses():
     all_businesses = Business.query.all()
     businesses = {'businesses': [business.to_dict() for business in all_businesses]}
     return businesses
+
 
 @business_routes.route("/new-business", methods=["POST"])
 # @login_required
@@ -75,7 +78,7 @@ def edit_business(id):
 
 
 @business_routes.route("/<int:id>/delete", methods=["DELETE"])
-@login_required
+# @login_required
 def delete_business(id):
     business = Business.query.get(id)
     db.session.delete(business)
@@ -84,3 +87,15 @@ def delete_business(id):
     "Message": "Business successfully deleted",
     "statusCode": "200"
     }
+
+
+# comments routes:
+
+# all Reviews by businessId
+@business_routes.route('/<int:businessId>/reviews', methods=["GET"])
+# @login_required
+def get_reviewsByBusiness(businessId):
+    reviews = Review.query.filter_by(businessId=businessId).all()
+    if reviews == None:
+        return "Business has no reviews"
+    return {review.id: review.to_dict() for review in reviews}

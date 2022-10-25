@@ -4,6 +4,7 @@ from .auth_routes import validation_errors_to_error_messages
 
 from app.forms.business_form import BusinessForm
 
+from app.models import Business, db
 
 business_routes = Blueprint('businesses', __name__)
 
@@ -14,17 +15,16 @@ def get_all_businesses():
     businesses = {'businesses': [business.to_dict() for business in all_businesses]}
     return businesses
 
-
 @business_routes.route("/new-business", methods=["POST"])
-@login_required
+# @login_required
 def create_business():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
         new_business = Business(
-            user_id = data['userId'],
-            address = data['address'],
+            userId = form.data['userId'],
+            address = form.data['address'],
             city = data['city'],
             state = data['state'],
             country = data['country'],
@@ -46,7 +46,7 @@ def create_business():
 
 
 @business_routes.route("/<int:id>/edit", methods=["PUT"])
-@login_required
+# @login_required
 def edit_business(id):
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']

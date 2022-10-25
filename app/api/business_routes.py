@@ -39,8 +39,6 @@ def create_business():
             state = data['state'],
             country = data['country'],
             zip = data['zip'],
-            lat = data['lat'],
-            lng = data['lng'],
             name = data['name'],
             description = data['description'],
             phone = data['phone'],
@@ -71,8 +69,6 @@ def edit_business(id):
         old_business.state = data['state']
         old_business.country = data['country']
         old_business.zip = data['zip']
-        old_business.lat = data['lat']
-        old_business.lng = data['lng']
         old_business.name = data['name']
         old_business.description = data['description']
         old_business.phone = data['phone']

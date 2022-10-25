@@ -11,8 +11,6 @@ class Business(db.Model):
     state = db.Column(db.VARCHAR(100), nullable=False)
     country = db.Column(db.VARCHAR(100), nullable=False)
     zip = db.Column(db.INTEGER, nullable=False)
-    lat = db.Column(db.FLOAT, nullable=False)
-    lng = db.Column(db.FLOAT, nullable=False)
     name = db.Column(db.VARCHAR(1000), nullable=False)
     phone = db.Column(db.VARCHAR(20), nullable=False)
     description = db.Column(db.VARCHAR(2000), nullable=False)
@@ -35,8 +33,6 @@ class Business(db.Model):
             'state': self.state,
             'country': self.country,
             'zip': self.zip,
-            'lat': self.lat,
-            'lng': self.lng,
             'name': self.name,
             'phone': self.phone,
             'description': self.description,

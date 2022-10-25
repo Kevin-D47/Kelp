@@ -9,8 +9,6 @@ class BusinessForm(FlaskForm):
     state = StringField('State', validators=[DataRequired()])
     country = StringField('Country', validators=[DataRequired()])
     zip = IntegerField('Zip', validators=[DataRequired()])
-    lat = FloatField('Latitude', validators=[DataRequired()])
-    lng = FloatField('Longitude', validators=[DataRequired()])
     name = StringField("Name", validators=[DataRequired()])
     phone = StringField("Phone", validators=[DataRequired()])
     description = TextAreaField("Description", validators=[DataRequired()])

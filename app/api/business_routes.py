@@ -43,7 +43,7 @@ def create_business():
             description = data['description'],
             phone = data['phone'],
             price = data['price'],
-            previewImagegUrl = data['previewImageUrl']
+            previewImageUrl = data['previewImageUrl']
         )
 
         db.session.add(new_business)
@@ -73,7 +73,7 @@ def edit_business(id):
         old_business.description = data['description']
         old_business.phone = data['phone']
         old_business.price = data['price']
-        old_business.previewImagegUrl = data['previewImageUrl']
+        old_business.previewImageUrl = data['previewImageUrl']
         db.session.commit()
 
         return old_business.to_dict()

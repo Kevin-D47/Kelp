@@ -17,6 +17,7 @@ class Business(db.Model):
     phone = db.Column(db.VARCHAR(20), nullable=False)
     description = db.Column(db.VARCHAR(2000), nullable=False)
     price = db.Column(db.VARCHAR(50), nullable=False)
+    previewImageUrl = db.Column(db.VARCHAR, nullable=False)
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -39,6 +40,7 @@ class Business(db.Model):
             'phone': self.phone,
             'description': self.description,
             'price': self.price,
+            'previewImageUrl': self.previewImageUrl,
             # timestamps
             'created_at': self.created_at,
             'updated_at': self.updated_at,

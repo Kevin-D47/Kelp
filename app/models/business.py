@@ -12,7 +12,7 @@ class Business(db.Model):
     country = db.Column(db.VARCHAR(100), nullable=False)
     zip = db.Column(db.INTEGER, nullable=False)
     name = db.Column(db.VARCHAR(1000), nullable=False)
-    phone = db.Column(db.VARCHAR(20), nullable=False)
+    phone = db.Column(db.INTEGER, nullable=False)
     description = db.Column(db.VARCHAR(2000), nullable=False)
     price = db.Column(db.VARCHAR(50), nullable=False)
     previewImageUrl = db.Column(db.VARCHAR, nullable=False)

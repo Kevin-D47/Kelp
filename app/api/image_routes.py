@@ -7,7 +7,7 @@ image_routes = Blueprint('images', __name__)
 
 # get all reviews
 @image_routes.route('/all')
-# @login_required
+@login_required
 def get_all_images():
     all_images = Image.query.all()
     images = {image.id: image.to_dict() for image in all_images}
@@ -15,7 +15,7 @@ def get_all_images():
 
 # specific review by id
 @image_routes.route('/<int:id>')
-# @login_required
+@login_required
 def get_single_image(id):
     image = Image.query.get(id)
     if image == None:

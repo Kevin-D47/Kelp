@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [profileImageUrl, setProfileImageUrl] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, first_name, last_name, email, profileImageUrl, password));
       if (data) {
         setErrors(data)
       }
@@ -28,6 +33,18 @@ const SignUpForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateProfileImageUrl = (e) => {
+    setProfileImageUrl(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -59,12 +76,44 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
+        <label>First Name</label>
+        <input
+          type="text"
+          name="first_name"
+          onChange={updateFirstName}
+          value={first_name}
+          autoComplete="first_name"
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="last_name"
+          autoComplete="last_name"
+          onChange={updateLastName}
+          value={last_name}
+          required={true}
+        ></input>
+      </div>
+      <div>
         <label>Email</label>
         <input
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Picture</label>
+        <input
+          type="text"
+          name="previewImageUrl"
+          autoComplete="previewImageUrl"
+          onChange={updateProfileImageUrl}
+          value={profileImageUrl}
         ></input>
       </div>
       <div>

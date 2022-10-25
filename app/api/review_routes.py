@@ -7,7 +7,7 @@ review_routes = Blueprint('reviews', __name__)
 
 # get all reviews
 @review_routes.route('/all')
-# @login_required
+@login_required
 def get_all_reviews():
     all_reviews = Review.query.all()
     reviews = {review.id: review.to_dict() for review in all_reviews}
@@ -15,7 +15,7 @@ def get_all_reviews():
 
 # specific review by id
 @review_routes.route('/<int:id>')
-# @login_required
+@login_required
 def get_single_review(id):
     review = Review.query.get(id)
     if review == None:

@@ -16,7 +16,7 @@ business_routes = Blueprint('businesses', __name__)
 
 # Get business by id
 @business_routes.route('/<int:id>')
-# @login_required
+@login_required
 def get_business(id):
      business = Business.query.get(id)
      if business == None:
@@ -26,7 +26,7 @@ def get_business(id):
 
 # Create a business
 @business_routes.route("/new", methods=["POST"])
-# @login_required
+@login_required
 def create_business():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -56,7 +56,7 @@ def create_business():
 
 # Edit a business
 @business_routes.route("/<int:id>/edit", methods=["PUT"])
-# @login_required
+@login_required
 def edit_business(id):
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -84,7 +84,7 @@ def edit_business(id):
 
 # Delete a business
 @business_routes.route("/<int:id>/delete", methods=["DELETE"])
-# @login_required
+@login_required
 def delete_business(id):
     business = Business.query.get(id)
     db.session.delete(business)
@@ -100,7 +100,7 @@ def delete_business(id):
 
 # All reviews by businessId
 @business_routes.route('/<int:businessId>/reviews', methods=["GET"])
-# @login_required
+@login_required
 def get_reviewsByBusiness(businessId):
     reviews = Review.query.filter_by(businessId=businessId).all()
     if reviews == None:
@@ -110,7 +110,7 @@ def get_reviewsByBusiness(businessId):
 
 # Post a review
 @business_routes.route('/<int:businessId>/reviews/new', methods=['POST'])
-# @login_required
+@login_required
 def create_review(businessId):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -136,7 +136,7 @@ def create_review(businessId):
 
 # Edit a review
 @business_routes.route('/<int:businessId>/reviews/<int:id>/edit', methods=['GET','PUT'])
-# @login_required
+@login_required
 def edit_review(businessId, id):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -156,7 +156,7 @@ def edit_review(businessId, id):
 
 # Delete a review
 @business_routes.route('/<int:businessId>/reviews/<int:id>/delete', methods=['GET', 'DELETE'])
-# @login_required
+@login_required
 def delete_comment(businessId, id):
     review = Review.query.get(id)
     db.session.delete(review)
@@ -172,7 +172,7 @@ def delete_comment(businessId, id):
 
 # All images by businessId
 @business_routes.route('/<int:businessId>/images', methods=["GET"])
-# @login_required
+@login_required
 def get_imagesByBusiness(businessId):
     images = Image.query.filter_by(businessId=businessId).all()
     if images == None:
@@ -182,7 +182,7 @@ def get_imagesByBusiness(businessId):
 
 # Post a image
 @business_routes.route('/<int:businessId>/images/new', methods=['POST'])
-# @login_required
+@login_required
 def create_image(businessId):
     form = ImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -207,7 +207,7 @@ def create_image(businessId):
 
 # Delete a image
 @business_routes.route('/<int:businessId>/images/<int:id>/delete', methods=['GET', 'DELETE'])
-# @login_required
+@login_required
 def delete_image(businessId, id):
     image = Image.query.get(id)
     db.session.delete(image)

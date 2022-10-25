@@ -4,8 +4,9 @@ from .auth_routes import validation_errors_to_error_messages
 
 from app.forms.business_form import BusinessForm
 from app.forms.review_form import ReviewForm
+from app.forms.image_form import ImageForm
 
-from app.models import Business, Review, db
+from app.models import Business, Review, Image, db
 
 
 business_routes = Blueprint('businesses', __name__)
@@ -108,7 +109,7 @@ def delete_business(id):
 
 # Review routes:
 
-# All Reviews by businessId
+# All reviews by businessId
 @business_routes.route('/<int:businessId>/reviews', methods=["GET"])
 # @login_required
 def get_reviewsByBusiness(businessId):
@@ -173,5 +174,56 @@ def delete_comment(businessId, id):
     db.session.commit()
     return {
     "Message": "Review successfully deleted",
+    "statusCode": "200"
+    }
+
+
+
+# Images routes
+
+# All images by businessId
+@business_routes.route('/<int:businessId>/images', methods=["GET"])
+# @login_required
+def get_imagesByBusiness(businessId):
+    images = Image.query.filter_by(businessId=businessId).all()
+    if images == None:
+        return "Business has no images"
+    return {image.id: image.to_dict() for image in images}
+
+
+# Post a image
+@business_routes.route('/<int:businessId>/images/new', methods=['POST'])
+# @login_required
+def create_image(businessId):
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_image = Image(
+
+            # validate user login, comeback to test when frontend is being built
+            # grab businessId onclick on front end
+            # userId=current_user.id,
+            userId = data['userId'],
+            businessId = data['businessId'],
+            imgUrl = data['imgUrl']
+        )
+        db.session.add(new_image)
+        db.session.commit()
+        return new_image.to_dict()
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    # return render_template("test.html", form=form)
+
+
+# Delete a image
+@business_routes.route('/<int:businessId>/images/<int:id>/delete', methods=['GET', 'DELETE'])
+# @login_required
+def delete_image(businessId, id):
+    image = Image.query.get(id)
+    db.session.delete(image)
+    db.session.commit()
+    return {
+    "Message": "Image successfully deleted",
     "statusCode": "200"
     }

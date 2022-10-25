@@ -19,5 +19,5 @@ def get_all_reviews():
 def get_single_review(id):
     review = Review.query.get(id)
     if review == None:
-        return "No comments found"
+        return "No review found"
     return review.to_dict()

@@ -22,8 +22,9 @@ class Business(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
+    # one-to-many; business has many reviews, images
     reviews = db.relationship("Review", backref='business', cascade="all, delete-orphan")
-
+    images = db.relationship('Image', backref='business', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

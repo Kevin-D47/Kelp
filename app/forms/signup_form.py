@@ -19,9 +19,13 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+def valid_image(form, field):
+    profileImageUrl = field.data
+    if profileImageUrl == None or not profileImageUrl.startswith("https://") or not profileImageUrl.startswith("http://"):
+        field.data = "https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg"
+
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
+    username = StringField('username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[DataRequired()])

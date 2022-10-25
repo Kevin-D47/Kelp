@@ -8,6 +8,7 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
+from .api.restaurants_routes import restaurants_routes
 from .api.business_routes import business_routes
 from .api.review_routes import review_routes
 from .api.image_routes import image_routes
@@ -37,6 +38,7 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 # businesses
+app.register_blueprint(restaurants_routes, url_prefix='/api/restaurants')
 app.register_blueprint(business_routes, url_prefix='/api/businesses')
 # reviews
 app.register_blueprint(review_routes, url_prefix='/api/reviews')

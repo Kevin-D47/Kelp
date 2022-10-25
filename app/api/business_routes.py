@@ -11,16 +11,8 @@ from app.models import Business, Review, Image, db
 
 business_routes = Blueprint('businesses', __name__)
 
+
 # Businesses routes:
-
-# Get all businesses
-@business_routes.route('/')
-# @login_required
-def get_all_businesses():
-    all_businesses = Business.query.all()
-    businesses = {'businesses': [business.to_dict() for business in all_businesses]}
-    return businesses
-
 
 # Get business by id
 @business_routes.route('/<int:id>')

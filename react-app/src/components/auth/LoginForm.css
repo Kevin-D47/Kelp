@@ -1,0 +1,88 @@
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-form-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70rem;
+    height: 50rem;
+    /* border: 2px solid green; */
+}
+
+
+.login-form-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    height: 40rem;
+    /* border: 2px solid red; */
+}
+
+.new-to-kelp {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+.new-to-kelp-link {
+    color: #2384c4;
+    margin-left: 5px;
+}
+
+.login-form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-input-field {
+    display: flex;
+    justify-content: center;
+}
+
+.login-input-field input {
+    width: 20rem;
+    height: 2rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    border: solid .1rem black;
+}
+
+.login-input-field:focus {
+    border-color: #348fdc;
+    color: #348fdc;
+}
+
+.login-form-bttn {
+    height: 2.5rem;
+    width: 20.5rem;
+    color: white;
+    background-color: #d32323;
+    border-radius: 5px;
+    border: solid 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.login-form-left {
+    display: flex;
+    justify-content: center;
+    width: 30rem;
+    height: 40rem;
+    /* border: 2px solid blue; */
+}
+
+.login-form-pic {
+    width: 25rem;
+    height: 23rem;
+    margin-top: 30px;
+}

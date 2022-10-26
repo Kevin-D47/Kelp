@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 
+import HomePage from "./components/HomePage/home";
 import GetAllBusinesses from './components/RestaurantsPage/restaurants';
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path="/" exact={true}>
+          <HomePage />
+        </Route>
         <Route path="/restaurants" exact={true}>
           <GetAllBusinesses />
         </Route>

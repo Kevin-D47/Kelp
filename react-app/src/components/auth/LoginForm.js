@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './LoginForm.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,34 +32,52 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className='login-form-container'>
+      <div className='login-form-wrapper'>
+        <div className='login-form-right'>
+          <h2 style={{ color: '#d32323' }}>Login to Kelp</h2>
+          <div className='new-to-kelp'>
+            <div>new to Kelp?</div>
+            <div>
+              <NavLink className='new-to-kelp-link' to='/sign-up'>Sign Up</NavLink>
+            </div>
+          </div>
+          <form className='login-form-inputs' onSubmit={onLogin}>
+            <div className='login-form-errors'>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div className='login-input-field'>
+              <input
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div className='login-input-field'>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+            <button className='login-form-bttn' type='submit'>Login</button>
+            <button className='login-form-bttn' onClick={(e) => {
+              setEmail('demo@aa.io');
+              setPassword('password')
+            }}>Demo Login</button>
+          </form>
+        </div>
+        <div className='login-form-left'>
+            <img className='login-form-pic' src='https://s3-media0.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png'></img>
+        </div>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 

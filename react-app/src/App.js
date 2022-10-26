@@ -33,14 +33,14 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/" exact={true}>
-          <HomePage />
+        <Route path="/businesses/:businessId" exact={true}>
+          <BusinessDetails />
         </Route>
         <Route path="/restaurants" exact={true}>
           <GetAllBusinesses />
         </Route>
-        <Route path="/businesses/:id" exact={true}>
-          <BusinessDetails />
+        <Route path="/" exact={true}>
+          <HomePage />
         </Route>
         <Route path="/new" exact={true}>
           <CreateBusinessForm />

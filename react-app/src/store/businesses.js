@@ -13,9 +13,9 @@ const getAllBusinesses = (businesses) => ({
     businesses
 });
 
-const getOneBusiness = (businessId) => ({
+const getOneBusiness = (business) => ({
     type: GET_ONE_BUSINESS,
-    businessId,
+    business,
 });
 
 const newBusiness = (business) => ({
@@ -104,8 +104,11 @@ const businessReducer = (state = initialState, action) => {
             return newState;
         }
         case GET_ONE_BUSINESS: {
-            const newState = { ...action.businessId };
-            return newState;
+            // const newState = { ...action.businessId };
+            // return newState;
+            const newState = { ...state }
+            newState[action.business.id] = action.business
+            return newState
         }
         case NEW_BUSINESS: {
             const newState = { ...state };

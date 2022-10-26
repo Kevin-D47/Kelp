@@ -16,19 +16,26 @@ const BusinessDetails = () => {
 
     const { businessId } = useParams()
 
+
     const sessionUser = useSelector(state => state.session.user)
     const currBusiness = useSelector(state => state.businesses[businessId])
 
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    console.log('Current Business------', currBusiness)
+
 
     useEffect(() => {
-        dispatch(getOneBusinessThunk(businessId))
+        dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
     return (
-        <div >
-            <h2> Business Details Page</h2 >
-            <h2>{currBusiness.name}</h2>
-        </div>
+        isLoaded && (
+            <div >
+                <h2> Business Details Page</h2 >
+                <h2>{currBusiness.name}</h2>
+            </div>
+        )
     )
 
 

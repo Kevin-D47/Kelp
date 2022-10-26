@@ -38,12 +38,12 @@ const CreateBusinessForm = () => {
     useEffect(() => {
         const errors = [];
 
+        if (!name) errors.push("Please provide a business name");
         if (!address) errors.push("Please provide an address");
         if (!city) errors.push("Please provide a city");
         if (!state) errors.push("Please provide a state");
         if (!country) errors.push("Please provide a country");
         if (!zip || zip.length > 5 || zip.length < 5) errors.push("Please provide a valid 5-digit zip code")
-        if (!name) errors.push("Please provide a business name");
         if (!phone || phone.length > 10 || phone.length < 10) errors.push("Please provide a valid 10-digit phone number");
         if (!description) errors.push("Please provide a description");
         if (!price) errors.push("Please provide a price range");

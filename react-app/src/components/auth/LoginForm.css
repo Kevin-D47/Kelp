@@ -26,7 +26,7 @@
     /* border: 2px solid red; */
 }
 
-.new-to-kelp {
+.login-message {
     display: flex;
     justify-content: center;
     margin-top: -10px;
@@ -71,6 +71,11 @@
     border: solid 0;
     font-size: 1rem;
     font-weight: bold;
+}
+
+.login-form-bttn:hover{
+    opacity: .9;
+    cursor: pointer;
 }
 
 .login-form-left {

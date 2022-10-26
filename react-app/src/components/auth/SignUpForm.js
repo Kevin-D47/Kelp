@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import "./SignUpForm.css";
 
@@ -60,83 +60,105 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className='signup-form-container'>
+      <div className='signup-form-wrapper'>
+        <div className='signup-form-right'>
+          <h2 style={{ color: '#d32323' }}>Sign Up for Kelp</h2>
+          <div className='signup-message'>
+            <div style={{ fontWeight: "500" }}>Connect with great local seafood</div>
+          </div>
+          <form className='signup-form-inputs' onSubmit={onSignUp}>
+            <div className='signup-form-errors'>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div className='signup-first-last-input'>
+              <div className='signup-input-field-first-last'>
+                <input
+                  type="text"
+                  name="first_name"
+                  placeholder='First Name'
+                  onChange={updateFirstName}
+                  value={first_name}
+                  autoComplete="first_name"
+                  required={true}
+                ></input>
+              </div>
+              <div className='signup-input-field-first-last' >
+                <input
+                  type="text"
+                  name="last_name"
+                  placeholder='Last Name'
+                  autoComplete="last_name"
+                  onChange={updateLastName}
+                  value={last_name}
+                  required={true}
+                ></input>
+              </div>
+            </div>
+            <div className='signup-input-field'>
+              <input
+                type='text'
+                name='username'
+                placeholder='User Name'
+                onChange={updateUsername}
+                value={username}
+              ></input>
+            </div>
+            <div className='signup-input-field'>
+              <input
+                type='text'
+                name='email'
+                placeholder='Email'
+                onChange={updateEmail}
+                value={email}
+              ></input>
+            </div>
+            <div className='signup-input-field'>
+              <input
+                type="text"
+                name="previewImageUrl"
+                placeholder='Profile Picture'
+                autoComplete="previewImageUrl"
+                onChange={updateProfileImageUrl}
+                value={profileImageUrl}
+              ></input>
+            </div>
+            <div className='signup-input-field'>
+              <input
+                type='password'
+                name='password'
+                placeholder='Password'
+                onChange={updatePassword}
+                value={password}
+              ></input>
+            </div>
+            <div className='signup-input-field'>
+              <input
+                type='password'
+                name='repeat_password'
+                placeholder='Confirm Password'
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+              ></input>
+            </div>
+            <button className='signup-form-bttn' type='submit'>Sign Up</button>
+            <div className='signup-form-login-message'>
+            <div style={{color: 'gray'}}>Already on Kelp?</div>
+            <div>
+              <NavLink className='new-to-kelp-link' to='/login'>Log in</NavLink>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div className='signup-form-left'>
+          <img className='signup-form-pic' src='https://s3-media0.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png'></img>
+        </div>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>First Name</label>
-        <input
-          type="text"
-          name="first_name"
-          onChange={updateFirstName}
-          value={first_name}
-          autoComplete="first_name"
-          required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type="text"
-          name="last_name"
-          autoComplete="last_name"
-          onChange={updateLastName}
-          value={last_name}
-          required={true}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Profile Picture</label>
-        <input
-          type="text"
-          name="previewImageUrl"
-          autoComplete="previewImageUrl"
-          onChange={updateProfileImageUrl}
-          value={profileImageUrl}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    </div>
+
   );
 };
 

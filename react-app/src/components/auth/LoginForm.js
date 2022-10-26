@@ -35,9 +35,9 @@ const LoginForm = () => {
     <div className='login-form-container'>
       <div className='login-form-wrapper'>
         <div className='login-form-right'>
-          <h2 style={{ color: '#d32323' }}>Login to Kelp</h2>
-          <div className='new-to-kelp'>
-            <div>new to Kelp?</div>
+          <h2 style={{color: '#d32323'}}>Login to Kelp</h2>
+          <div className='login-message'>
+            <div style={{fontWeight:"500"}}>New to Kelp?</div>
             <div>
               <NavLink className='new-to-kelp-link' to='/sign-up'>Sign Up</NavLink>
             </div>

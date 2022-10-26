@@ -1,0 +1,118 @@
+.signup-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.signup-form-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70rem;
+    height: 45rem;
+    /* border: 2px solid green; */
+}
+
+.signup-form-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    height: 40rem;
+    /* border: 2px solid red; */
+}
+
+.signup-message {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
+
+.signup-first-last-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+
+.signup-input-field-first-last{
+    display: flex;
+    justify-content: center;
+}
+
+.signup-input-field-first-last input{
+    width: 9.6rem;
+    height: 2rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    border: solid .1rem black;
+}
+
+.signup-input-field-first-last:focus {
+    border-color: #348fdc;
+    color: #348fdc;
+}
+
+.signup-form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-input-field {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-input-field input {
+    width: 20rem;
+    height: 2rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    border: solid .1rem black;
+}
+
+.signup-input-field:focus {
+    border-color: #348fdc;
+    color: #348fdc;
+}
+
+.signup-form-bttn {
+    height: 2.5rem;
+    width: 20.5rem;
+    color: white;
+    background-color: #d32323;
+    border-radius: 5px;
+    border: solid 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.signup-form-bttn:hover{
+    opacity: .9;
+    cursor: pointer;
+}
+
+.signup-form-login-message{
+    display: flex;
+    justify-content: right;
+    font-size: 12px;
+}
+
+.signup-form-left {
+    display: flex;
+    justify-content: center;
+    width: 30rem;
+    height: 40rem;
+    /* border: 2px solid blue; */
+}
+
+.signup-form-pic {
+    width: 25rem;
+    height: 23rem;
+    margin-top: 80px;
+}

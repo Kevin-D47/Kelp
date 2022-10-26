@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 import HomePage from "./components/HomePage/home";
 import GetAllBusinesses from './components/RestaurantsPage/restaurants';
 import CreateBusinessForm from './components/CreateBusinessFormPage/createBusiness';
+import BusinessDetails from './components/BusinessDetailsPage/businessDetails';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path="/restaurants" exact={true}>
           <GetAllBusinesses />
+        </Route>
+        <Route path="/businesses/:id" exact={true}>
+          <BusinessDetails />
         </Route>
         <Route path="/new" exact={true}>
           <CreateBusinessForm />

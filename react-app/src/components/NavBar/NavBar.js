@@ -9,9 +9,12 @@ import { getAllBusinessesThunk } from '../../store/businesses';
 
 import * as sessionActions from "../../store/session";
 
+import ProfileButton from './ProfileButton'
+
 import LogoutButton from '../auth/LogoutButton'
 
 import "./NavBar.css";
+
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -37,16 +40,17 @@ const NavBar = () => {
     return (
       <nav className='nav-container-auth'>
         <div className='nav-left-container-auth'>
-          <div>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              Home
-            </NavLink>
-          </div>
+          <NavLink to='/restaurants'>
+            <img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/2560px-Yelp_Logo.svg.png'></img>
+          </NavLink>
         </div>
         <div className='nav-right-container-auth'>
-          <button onClick={logout}>
-            Log Out &nbsp; &nbsp; &nbsp; &nbsp;
-          </button>
+          <div className='profile-createBus-container-auth'>
+            <NavLink to="/new">
+              <div className="create-bus-bttn">Start a Business</div>
+            </NavLink>
+            <ProfileButton sessionUser={sessionUser} />
+          </div>
         </div>
       </nav>
     );
@@ -54,23 +58,23 @@ const NavBar = () => {
     return (
       <nav className='nav-container-noAuth'>
         <div className='nav-wrapper-noAuth'>
-           <div className='nav-left-container-noAuth'>
-          <div>
-            <NavLink to='/'>
-              <img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/2560px-Yelp_Logo.svg.png'></img>
-            </NavLink>
+          <div className='nav-left-container-noAuth'>
+            <div>
+              <NavLink to='/'>
+                <img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/2560px-Yelp_Logo.svg.png'></img>
+              </NavLink>
+            </div>
           </div>
-        </div>
-        <div className='nav-right-container-noAuth'>
-          <div className='login-signup-container-noAuth'>
-            <NavLink to='/login' >
-              <div className='login-bttn'>Login</div>
-            </NavLink>
-            <NavLink to='/sign-up'>
-              <div className='signup-bttn'>Sign Up</div>
-            </NavLink>
+          <div className='nav-right-container-noAuth'>
+            <div className='login-signup-container-noAuth'>
+              <NavLink to='/login' >
+                <div className='login-bttn'>Login</div>
+              </NavLink>
+              <NavLink to='/sign-up'>
+                <div className='signup-bttn'>Sign Up</div>
+              </NavLink>
+            </div>
           </div>
-        </div>
         </div>
 
       </nav>

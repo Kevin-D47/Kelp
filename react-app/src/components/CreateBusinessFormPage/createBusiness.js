@@ -6,6 +6,13 @@ import { createBusinessThunk, getAllBusinessesThunk } from '../../store/business
 
 import './createBusiness.css'
 
+const PRICES = [
+    "$",
+    "$$",
+    "$$$",
+    "$$$$"
+];
+
 const CreateBusinessForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -21,7 +28,7 @@ const CreateBusinessForm = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState(PRICES[0]);
     const [previewImageUrl, setPreviewImageUrl] = useState("");
 
     const [errors, setErrors] = useState([]);
@@ -35,8 +42,9 @@ const CreateBusinessForm = () => {
         if (!city) errors.push("Please provide a city");
         if (!state) errors.push("Please provide a state");
         if (!country) errors.push("Please provide a country");
+        if (!zip || zip.length > 5 || zip.length < 5) errors.push("Please provide a valid 5-digit zip code")
         if (!name) errors.push("Please provide a business name");
-        if (!phone || phone.length > 10 || phone.length < 10) errors.push("Please provide a valid phone number");
+        if (!phone || phone.length > 10 || phone.length < 10) errors.push("Please provide a valid 10-digit phone number");
         if (!description) errors.push("Please provide a description");
         if (!price) errors.push("Please provide a price range");
         if (!previewImageUrl) errors.push("Please provide a image");
@@ -142,13 +150,22 @@ const CreateBusinessForm = () => {
                             onChange={(e) => setDescription(e.target.value)}
                         // required
                         />
-                        <input
-                            type="text"
-                            placeholder="Price"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                        // required
-                        />
+                        <label>
+                            Select a Price Range
+                            <select
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                            >
+                                {PRICES.map(price => (
+                                    <option
+                                        key={price}
+                                        value={price}
+                                    >
+                                        {price}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
                         <input
                             type="url"
                             placeholder="Image URL"

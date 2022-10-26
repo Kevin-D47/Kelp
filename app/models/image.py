@@ -7,7 +7,7 @@ class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     businessId = db.Column(db.Integer, db.ForeignKey("businesses.id"), nullable=False)
-    imgUrl = db.Column(db.VARCHAR)
+    imgUrl = db.Column(db.String, nullable=False)
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

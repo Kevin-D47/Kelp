@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 import HomePage from "./components/HomePage/home";
 import GetAllBusinesses from './components/RestaurantsPage/restaurants';
 import CreateBusinessForm from './components/CreateBusinessFormPage/createBusiness';
+import BusinessDetails from './components/BusinessDetailsPage/businessDetails';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,11 +33,14 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path="/" exact={true}>
-          <HomePage />
+        <Route path="/businesses/:businessId" exact={true}>
+          <BusinessDetails />
         </Route>
         <Route path="/restaurants" exact={true}>
           <GetAllBusinesses />
+        </Route>
+        <Route path="/" exact={true}>
+          <HomePage />
         </Route>
         <Route path="/new" exact={true}>
           <CreateBusinessForm />

@@ -22,6 +22,7 @@ const GetAllBusinesses = () => {
 
     return (
         <div>
+             <h2>Restraunts Page</h2>
             {allBusinessesArr.map((business) => {
                 return (
                     <div key={business.id}>

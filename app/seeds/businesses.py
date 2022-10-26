@@ -1,9 +1,9 @@
 from app.models import Business, db
 
 def seed_businesses():
-    business_1 = Business(userId=1, address='1234 Addy', city='Atlanta', state='GA', country='USA', zip=30087, name='Krusty Krab', description='something', phone='6783490689', price='$', previewImageUrl='previewURL1')
-    business_2 = Business(userId=2, address='4567 Addy', city='New York City', state='NY', country='USA', zip=50023, name='Mussle City', description='something1', phone='9775271337', price='$$', previewImageUrl='previewURL2')
-    business_3 = Business(userId=3, address='7890 Addy', city='Los Angeles', state='CA', country='USA', zip=90025, name='Big Fish Dinner', description='something2', phone='2335041994', price='$$$$', previewImageUrl='previewURL3')
+    business_1 = Business(userId=1, address='1234 Addy', city='Atlanta', state='GA', country='USA', zip=30087, name='Krusty Krab', description='something', phone=6783490689, price='$', previewImageUrl='previewURL1')
+    business_2 = Business(userId=2, address='4567 Addy', city='New York City', state='NY', country='USA', zip=50023, name='Mussle City', description='something1', phone=9775271337, price='$$', previewImageUrl='previewURL2')
+    business_3 = Business(userId=3, address='7890 Addy', city='Los Angeles', state='CA', country='USA', zip=90025, name='Big Fish Dinner', description='something2', phone=2335041994, price='$$$$', previewImageUrl='previewURL3')
 
     businesses = [business_1, business_2, business_3]
     for business in businesses:

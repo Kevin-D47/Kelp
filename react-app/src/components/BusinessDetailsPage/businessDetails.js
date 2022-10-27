@@ -32,6 +32,8 @@ const BusinessDetails = () => {
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
+    //TEST
+
 
     return (
         isLoaded && (

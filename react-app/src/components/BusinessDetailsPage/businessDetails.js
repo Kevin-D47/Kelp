@@ -33,6 +33,13 @@ const BusinessDetails = () => {
     }, [dispatch, businessId])
 
     //TEST
+    let phonesString
+
+    if (isLoaded) {
+        phonesString = JSON.stringify(currBusiness.phone)
+    }
+
+    // console.log(typeof phonesString)
 
 
     return (
@@ -84,7 +91,7 @@ const BusinessDetails = () => {
                             </div>
                             <div className='business-phone-location'>
                                 <div className='details-phone'>
-                                    ({currBusiness.phone.slice(0, 3)}) {currBusiness.phone.slice(4, 7)}-{currBusiness.phone.slice(5, 9)}
+                                    ({phonesString.slice(0, 3)}) {phonesString.slice(4, 7)}-{phonesString.slice(5, 9)}
                                     <img className='phone-sign-icon' src={phoneIcon}></img>
                                 </div>
 

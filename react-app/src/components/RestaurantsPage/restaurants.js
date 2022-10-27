@@ -20,6 +20,8 @@ const GetAllBusinesses = () => {
         return null
     }
 
+    // TEST
+
     return (
         <div className="restraunts-container">
             <div className="restraunts-wrapper">

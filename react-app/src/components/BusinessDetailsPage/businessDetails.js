@@ -5,6 +5,7 @@ import { useParams, NavLink, useHistory } from "react-router-dom";
 
 import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
+import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
 
 import { getAllBusinessesThunk } from '../../store/businesses';
 import { getOneBusinessThunk } from '../../store/businesses';
@@ -29,6 +30,7 @@ const BusinessDetails = () => {
 
     const [isLoaded, setIsLoaded] = useState(false)
     const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
+    const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
 
     useEffect(() => {
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
@@ -85,10 +87,15 @@ const BusinessDetails = () => {
                                     <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Owner Options: </div>
                                     <div className='owner-options-bttns'>
                                         <button className='review-bttn' onClick={() => setShowUpdateBusiness(true)}>Edit Business</button>
-                                        <button className='review-bttn'>Delete Business</button>
+                                        <button className='review-bttn' onClick={() => setShowDeleteBusiness(true)}>Delete Business</button>
                                         {showUpdateBusiness && (
                                             <Modal onClose={() => setShowUpdateBusiness(false)}>
                                                 <EditBusinessForm businessId={businessId} setShowUpdateBusiness={setShowUpdateBusiness} />
+                                            </Modal>
+                                        )}
+                                        {showDeleteBusiness && (
+                                            <Modal onClose={() => setShowDeleteBusiness(false)}>
+                                                <DeleteBusinessForm businessId={businessId} setShowDeleteBusiness={setShowDeleteBusiness} />
                                             </Modal>
                                         )}
                                     </div>

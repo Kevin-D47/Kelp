@@ -22,8 +22,6 @@ const BusinessDetails = () => {
 
     const [isLoaded, setIsLoaded] = useState(false)
 
-    console.log('Current Business------', currBusiness)
-
 
     useEffect(() => {
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
@@ -31,9 +29,15 @@ const BusinessDetails = () => {
 
     return (
         isLoaded && (
-            <div >
-                <h2> Business Details Page</h2 >
-                <h2>{currBusiness.name}</h2>
+            <div className='business-details-container'>
+                <div className='business-photos-container'>
+                    <img className='business-image' src={currBusiness.previewImageUrl}></img>
+                </div>
+                <div className='business-details-header-container'>
+                    <div className='profile-pic-name'>
+                        <div style={{ fontSize: '36px', color: 'red', fontWeight: 'bold' }}>{currBusiness.name}</div>
+                    </div>
+                </div>
             </div>
         )
     )

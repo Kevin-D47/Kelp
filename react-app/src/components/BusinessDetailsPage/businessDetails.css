@@ -1,0 +1,34 @@
+.business-details-container {
+    display: flex;
+    flex-direction: column;
+    height:100%;
+}
+
+.business-images-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.business-image {
+    width: 100%;
+    height: 30em;
+    z-index: -1;
+    position: relative;
+    object-fit: cover;
+}
+
+.business-details-header-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    z-index: 2;
+    margin-top: -7.3em;
+}
+
+.profile-pic-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

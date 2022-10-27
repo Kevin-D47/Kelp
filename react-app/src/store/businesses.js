@@ -68,7 +68,7 @@ export const createBusinessThunk = (userId, address, city, state, country, zip, 
     }
 };
 
-export const updateBusinessThunk = (userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, businessId) => async (dispatch) => {
+export const updateBusinessThunk = (businessId, userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl) => async (dispatch) => {
     const response = await fetch(`/api/businesses/${businessId}/edit`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -117,7 +117,7 @@ const businessReducer = (state = initialState, action) => {
         }
         case UPDATE_BUSINESS: {
             const newState = { ...state };
-            newState[action.updated.id] = action.updated
+            newState[action.business.id] = action.business
             return newState;
         }
         case DELETE_BUSINESS: {

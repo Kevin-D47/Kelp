@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink, useHistory } from "react-router-dom";
 
+import { Modal } from "../../context/Modal";
+import EditBusinessForm from '../BusinessForms/editBusinessForm';
+
 import { getAllBusinessesThunk } from '../../store/businesses';
 import { getOneBusinessThunk } from '../../store/businesses';
 import { getAllUsersThunk } from '../../store/users';
@@ -21,25 +24,21 @@ const BusinessDetails = () => {
 
     const { businessId } = useParams()
 
-
     const sessionUser = useSelector(state => state.session.user)
     const currBusiness = useSelector(state => state.businesses[businessId])
 
     const [isLoaded, setIsLoaded] = useState(false)
-
+    const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
 
     useEffect(() => {
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
-    //TEST
-    let phonesString
 
+    let phonesString
     if (isLoaded) {
         phonesString = JSON.stringify(currBusiness.phone)
     }
-
-    // console.log(typeof phonesString)
 
 
     return (
@@ -81,14 +80,21 @@ const BusinessDetails = () => {
                             </div>
                         </div>
                         <div className='business-details-bttm-right'>
-                            <div className='owner-options'>
-                                <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Owner Options: </div>
-                                <div className='owner-options-bttns'>
-                                    <button className='review-bttn'>Edit Business</button>
-                                    <button className='review-bttn'>Delete Business</button>
+                            {currBusiness.userId === sessionUser?.id && (
+                                <div className='owner-options'>
+                                    <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Owner Options: </div>
+                                    <div className='owner-options-bttns'>
+                                        <button className='review-bttn' onClick={() => setShowUpdateBusiness(true)}>Edit Business</button>
+                                        <button className='review-bttn'>Delete Business</button>
+                                        {showUpdateBusiness && (
+                                            <Modal onClose={() => setShowUpdateBusiness(false)}>
+                                                <EditBusinessForm businessId={businessId} setShowUpdateBusiness={setShowUpdateBusiness} />
+                                            </Modal>
+                                        )}
+                                    </div>
                                 </div>
+                            )}
 
-                            </div>
                             <div className='business-phone-location'>
                                 <div className='details-phone'>
                                     ({phonesString.slice(0, 3)}) {phonesString.slice(4, 7)}-{phonesString.slice(5, 9)}

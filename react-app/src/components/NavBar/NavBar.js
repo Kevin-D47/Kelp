@@ -13,6 +13,8 @@ import ProfileButton from './ProfileButton'
 
 import LogoutButton from '../auth/LogoutButton'
 
+import kelpLogo from "../../icons/kelp-logo-title.png";
+
 import "./NavBar.css";
 
 
@@ -41,7 +43,7 @@ const NavBar = () => {
       <nav className='nav-container-auth'>
         <div className='nav-left-container-auth'>
           <NavLink to='/restaurants'>
-            <img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/2560px-Yelp_Logo.svg.png'></img>
+            <img className='nav-logo' src={kelpLogo}></img>
           </NavLink>
         </div>
         <div className='nav-right-container-auth'>
@@ -61,7 +63,7 @@ const NavBar = () => {
           <div className='nav-left-container-noAuth'>
             <div>
               <NavLink to='/'>
-                <img className='nav-logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/2560px-Yelp_Logo.svg.png'></img>
+                <img className='nav-logo' src={kelpLogo}></img>
               </NavLink>
             </div>
           </div>

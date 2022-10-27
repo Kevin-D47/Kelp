@@ -30,6 +30,7 @@ def get_business(id):
 def create_business():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    
     if form.validate_on_submit():
         data = form.data
         new_business = Business(
@@ -64,7 +65,7 @@ def edit_business(id):
     if form.validate_on_submit():
         old_business = Business.query.get(id)
         data = form.data
-      
+
         old_business.address = data['address']
         old_business.city = data['city']
         old_business.state = data['state']

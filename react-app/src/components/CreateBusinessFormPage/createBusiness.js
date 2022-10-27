@@ -28,7 +28,7 @@ const CreateBusinessForm = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [description, setDescription] = useState('');
-    const [price, setPrice] = useState(PRICES[0]);
+    const [price, setPrice] = useState('');
     const [previewImageUrl, setPreviewImageUrl] = useState("");
 
     const [errors, setErrors] = useState([]);
@@ -152,12 +152,15 @@ const CreateBusinessForm = () => {
                             onChange={(e) => setDescription(e.target.value)}
                         // required
                         />
-                        <label>
-                            Select a Price Range
+                        {/* <label>
+                            Select a Price Range */}
                             <select
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
                             >
+                                <option selected disabled value="">
+                                    Select a Price Range
+                                </option>
                                 {PRICES.map(price => (
                                     <option
                                         key={price}
@@ -167,7 +170,7 @@ const CreateBusinessForm = () => {
                                     </option>
                                 ))}
                             </select>
-                        </label>
+                        {/* </label> */}
                         <input
                             type="url"
                             placeholder="Image URL"

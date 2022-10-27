@@ -21,7 +21,7 @@ def username_exists(form, field):
 
 def valid_image(form, field):
     profileImageUrl = field.data
-    if profileImageUrl == None or not profileImageUrl.startswith("https://") or not profileImageUrl.startswith("http://"):
+    if not profileImageUrl.startswith('http'):
         field.data = "https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg"
 
 

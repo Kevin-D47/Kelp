@@ -67,7 +67,7 @@ def sign_up():
             first_name=form.data['first_name'],
             last_name=form.data['last_name'],
             email=form.data['email'],
-            profileImageUrl=form.data['profileImageUrl'] or "https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg",
+            profileImageUrl=form.data['profileImageUrl'],
             password=form.data['password']
         )
         db.session.add(user)

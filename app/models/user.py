@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(50), nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    profileImageUrl = db.Column(db.String, nullable=False, default="https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg")
+    profileImageUrl = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     hashed_password = db.Column(db.String(255), nullable=False)
 

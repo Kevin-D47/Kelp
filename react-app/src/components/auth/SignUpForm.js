@@ -56,13 +56,13 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/restaurants' />;
   }
 
   return (
     <div className='signup-form-container'>
       <div className='signup-form-wrapper'>
-        <div className='signup-form-right'>
+        <div className='signup-form-left'>
           <h2 style={{ color: '#d32323' }}>Sign Up for Kelp</h2>
           <div className='signup-message'>
             <div style={{ fontWeight: "500" }}>Connect with great local seafood</div>

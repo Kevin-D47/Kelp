@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBusinessReviewsThunk, } from '../../store/reviews'
-import { getOneBusinessThunk } from '../../store/businesses'
 import { getAllUsersThunk } from '../../store/users'
 
 import './businessReviews.css'
 
 const BusinessReviews = ({ businessId }) => {
     const dispatch = useDispatch();
-
-
-    const sessionUser = useSelector(state => state.session.user)
 
     const allReviews = useSelector(state => state.reviews)
     const getAllReviewArr = Object.values(allReviews)

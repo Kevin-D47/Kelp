@@ -36,11 +36,25 @@ const BusinessDetails = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
     const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
+    const [disableCreateReview, setDisableCreateReview] = useState(true);
 
     useEffect(() => {
         dispatch(getBusinessReviewsThunk(businessId))
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
+
+
+    const addReview = (e, businessId) => {
+        e.preventDefault();
+        history.push(`/businesses/${businessId}/reviews/new`)
+    }
+
+    const sessionUserReview = !sessionUser ? null : getAllReviewsArr.find((review) => review.userId === sessionUser.id)
+
+    useEffect(() => {
+        setDisableCreateReview(!!sessionUserReview)
+    })
+
 
 
     let phonesString
@@ -74,10 +88,18 @@ const BusinessDetails = () => {
                     <div className='business-details-bttm-wrapper'>
                         <div className='business-details-bttm-left'>
                             <div className='upload-bttn-container'>
-                                <button className='review-bttn'>
-                                    <img className='star-icon' src={starIcon}></img>
-                                    Write a review
-                                </button>
+                                {!sessionUser ? null : currBusiness.userId !== sessionUser.id &&
+                                    <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)} disabled={disableCreateReview}>
+                                        <img className='star-icon' src={starIcon}></img>
+                                        Write a review
+                                    </button>
+                                }
+                                {disableCreateReview && (
+                                    <div className='add-review-disable-bttn-container'>
+                                        <img className='star-icon' src={starIcon}></img>
+                                        <div>Write a review</div>
+                                    </div>
+                                )}
                                 <button className='add-photo-bttn'>
                                     <img className='camera-icon' src={cameraIcon}></img>
                                     Add photo
@@ -86,7 +108,7 @@ const BusinessDetails = () => {
                             <div className='reviews-container'>
                                 <h2>REVIEWS HERE</h2>
                                 <div className='details-reviews-wrapper'>
-                                    <BusinessReviews businessId={businessId} sessionUser={sessionUser}/>
+                                    <BusinessReviews businessId={businessId} sessionUser={sessionUser} />
                                 </div>
                             </div>
                         </div>

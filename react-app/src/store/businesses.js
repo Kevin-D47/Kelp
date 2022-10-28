@@ -104,8 +104,6 @@ const businessReducer = (state = initialState, action) => {
             return newState;
         }
         case GET_ONE_BUSINESS: {
-            // const newState = { ...action.businessId };
-            // return newState;
             const newState = { ...state }
             newState[action.business.id] = action.business
             return newState

@@ -88,6 +88,7 @@
 .upload-bttn-container{
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 10px;
     padding-bottom: 30px;
     gap: 20px;
@@ -120,6 +121,18 @@
     width: 28px;
     height: 28px;
     margin-right: 6px;
+}
+
+.add-review-disable-bttn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 11rem;
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
 }
 
 .add-photo-bttn {

@@ -92,6 +92,7 @@ export const deleteReviewThunk = (businessId, id) => async (dispatch) => {
 }
 
 
+// reducer
 const initialState = {}
 
 const reviewReducer = (state = initialState, action) => {

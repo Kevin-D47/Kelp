@@ -6,9 +6,9 @@ def seed_users():
     demo = User(
         username='Demo', first_name='Demo', last_name='User', email='demo@aa.io', profileImageUrl="https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg", password='password')
     marnie = User(
-        username='marnie', first_name='Marnie', last_name='Sims', email='marnie@aa.io', profileImageUrl='profileURL1', password='password')
+        username='marnie', first_name='Marnie', last_name='Sims', email='marnie@aa.io', profileImageUrl="https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg", password='password')
     bobbie = User(
-        username='bobbie', first_name='Bobbie', last_name='Johnson', email='bobbie@aa.io', profileImageUrl='profileURL2', password='password')
+        username='bobbie', first_name='Bobbie', last_name='Johnson', email='bobbie@aa.io', profileImageUrl="https://millingtontownship.com/wp-content/uploads/2021/01/default.jpg", password='password')
 
     db.session.add(demo)
     db.session.add(marnie)

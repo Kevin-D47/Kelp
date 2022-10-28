@@ -149,8 +149,7 @@
 
 .reviews-container{
     display: flex;
-    justify-content: center;
-    align-content: center;
+    flex-direction: column;
     height: 20rem;
     border: 1px solid black;
 }

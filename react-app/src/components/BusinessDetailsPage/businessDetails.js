@@ -6,10 +6,12 @@ import { useParams, NavLink, useHistory } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
 import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
+import BusinessReviews from '../BusinessReviews/businessReviews';
 
 import { getAllBusinessesThunk } from '../../store/businesses';
 import { getOneBusinessThunk } from '../../store/businesses';
 import { getAllUsersThunk } from '../../store/users';
+import { getBusinessReviewsThunk } from '../../store/reviews';
 
 import phoneIcon from "../../icons/phone-icon.png";
 import directionIcon from "../../icons/direction-icon.png";
@@ -28,11 +30,15 @@ const BusinessDetails = () => {
     const sessionUser = useSelector(state => state.session.user)
     const currBusiness = useSelector(state => state.businesses[businessId])
 
+    const allReviews = useSelector(state => state.reviews)
+    const getAllReviewsArr = Object.values(allReviews)
+
     const [isLoaded, setIsLoaded] = useState(false)
     const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
     const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
 
     useEffect(() => {
+        dispatch(getBusinessReviewsThunk(businessId))
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
@@ -78,7 +84,10 @@ const BusinessDetails = () => {
                                 </button>
                             </div>
                             <div className='reviews-container'>
-                                <div>REVIEWS HERE</div>
+                                <h2>REVIEWS HERE</h2>
+                                <div className='details-reviews-wrapper'>
+                                    <BusinessReviews businessId={businessId} sessionUser={sessionUser}/>
+                                </div>
                             </div>
                         </div>
                         <div className='business-details-bttm-right'>

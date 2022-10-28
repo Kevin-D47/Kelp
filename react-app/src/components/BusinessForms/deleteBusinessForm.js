@@ -20,11 +20,11 @@ function DeleteBusinessForm({ businessId, setShowDeleteBusiness }) {
 
     return (
         <div>
-        <div className='delete-container'>
-          <p>Warning! This business will be deleted permently. Are you sure you want to proceed? </p>
+        <div className='delete-business-container'>
+          <h3>Warning! This business will be deleted permently. Are you sure you want to proceed? </h3>
           <div className="delete-buttons-container">
-            <button className="delete-button yes-button" onClick={onSubmit}>YES</button>
-            <button className="delete-button" onClick={() => setShowDeleteBusiness(false)}>NO</button>
+            <button className="delete-business-button-yes" onClick={onSubmit}>YES</button>
+            <button className="delete-business-button-no" onClick={() => setShowDeleteBusiness(false)}>NO</button>
           </div>
         </div>
       </div>

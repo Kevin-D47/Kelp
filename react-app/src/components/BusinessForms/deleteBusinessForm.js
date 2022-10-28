@@ -18,8 +18,6 @@ function DeleteBusinessForm({ businessId, setShowDeleteBusiness }) {
             .then(() => history.push("/restaurants"))
     };
 
-    // Test
-
     return (
         <div>
         <div className='delete-container'>

@@ -4,6 +4,8 @@ import { useHistory, Redirect } from "react-router-dom";
 
 import { createBusinessThunk, getAllBusinessesThunk } from '../../store/businesses'
 
+import restaurantPic from '../../icons/seafood-restaurant.png'
+
 import './createBusiness.css'
 
 const PRICES = [
@@ -83,78 +85,83 @@ const CreateBusinessForm = () => {
 
     return (
         <div className='create-business-container'>
-            <div className="Image-Container">
-                <h2>Add Your Business</h2>
-                <div className="create-bus-errors">
-                    {hasSubmitted && errors.length > 0 && (
-                        <ul>
-                            {errors.map((error) => (
-                                <li key={error}>{error}</li>
-                            ))}
-                        </ul>
-                    )}
-                </div>
-                <form onSubmit={onSubmit}>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="text"
-                            placeholder="Address"
-                            value={address}
-                            onChange={(e) => setAddress(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="text"
-                            placeholder="City"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="text"
-                            placeholder="State"
-                            value={state}
-                            onChange={(e) => setState(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="text"
-                            placeholder="Country"
-                            value={country}
-                            onChange={(e) => setCountry(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="number"
-                            placeholder="Zip Code"
-                            value={zip}
-                            onChange={(e) => setZip(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="number"
-                            placeholder="Phone Number"
-                            value={phone}
-                            onChange={(e) => setPhone(e.target.value)}
-                        // required
-                        />
-                        <input
-                            type="text"
-                            placeholder="Description"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        // required
-                        />
-                        {/* <label>
+            <div className="create-business-container-left">
+                <div className="create-bus-form-container">
+                    <h2 className="create-bus-title">Add Your Business</h2>
+                    <div className="create-bus-message">Fill out the form with informations about your business below.</div>
+                    <form onSubmit={onSubmit}>
+                        <div className="create-bus-form-wrapper" >
+                            <div className="create-bus-input-field">
+                                <input
+                                    type="text"
+                                    placeholder=" Business Name"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                // required
+                                />
+                                <input
+                                    className="create-bus-input-field"
+                                    type="text"
+                                    placeholder="Address"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                // required
+                                />
+                            </div>
+                            <div className="city-state-zip">
+                                <input
+                                    className="city-input-field"
+                                    type="text"
+                                    placeholder="City"
+                                    value={city}
+                                    onChange={(e) => setCity(e.target.value)}
+                                // required
+                                />
+                                <input
+                                    className="state-input-field"
+                                    type="text"
+                                    placeholder="State"
+                                    value={state}
+                                    onChange={(e) => setState(e.target.value)}
+                                // required
+                                />
+                                <input
+                                    className="zip-input-field"
+                                    type="number"
+                                    placeholder="Zip Code"
+                                    value={zip}
+                                    onChange={(e) => setZip(e.target.value)}
+                                // required
+                                />
+                            </div>
+                            <div className="create-bus-input-field">
+                                <input
+                                    type="text"
+                                    placeholder="Country"
+                                    value={country}
+                                    onChange={(e) => setCountry(e.target.value)}
+                                // required
+                                />
+                                <input
+                                    type="number"
+                                    placeholder="Phone Number"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                // required
+                                />
+                            </div>
+                            <textarea
+                                className="description-input-field"
+                                type="text"
+                                placeholder="Description"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            // required
+                            />
+                            {/* <label>
                             Select a Price Range */}
                             <select
+                                className="price-input-field"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
                             >
@@ -170,22 +177,41 @@ const CreateBusinessForm = () => {
                                     </option>
                                 ))}
                             </select>
-                        {/* </label> */}
-                        <input
-                            type="url"
-                            placeholder="Image URL"
-                            value={previewImageUrl}
-                            onChange={(e) => setPreviewImageUrl(e.target.value)}
-                        // required
-                        />
-                    </div>
-                    <div>
-                        <button type="submit"
-                            disabled={hasSubmitted && errors.length > 0}
-                        >Submit Business
-                        </button>
-                    </div>
-                </form>
+                            {/* </label> */}
+                            <div className="create-bus-input-field">
+                                <input
+                                    type="url"
+                                    placeholder="Image URL"
+                                    value={previewImageUrl}
+                                    onChange={(e) => setPreviewImageUrl(e.target.value)}
+                                // required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                className="create-bus-form-bttn"
+                                type="submit"
+                                disabled={hasSubmitted && errors.length > 0}
+                            >Submit Business
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div className="create-business-container-right">
+                <img className="restaurant-img" src={restaurantPic}></img>
+                <div className="error-create-bus">
+                    {hasSubmitted && errors.length > 0 && (
+                        <ul className="create-bus-errors">
+                            {errors.map((error) => (
+                                <li key={error}>{error}</li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+
+
             </div>
         </div>
     )

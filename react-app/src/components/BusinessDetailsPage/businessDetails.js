@@ -16,6 +16,7 @@ import { getBusinessReviewsThunk } from '../../store/reviews';
 import phoneIcon from "../../icons/phone-icon.png";
 import directionIcon from "../../icons/direction-icon.png";
 import starIcon from "../../icons/star-icon.png";
+import starIconBlack from "../../icons/star-icon-black.png";
 import cameraIcon from "../../icons/camera-icon.png";
 
 import './businessDetails.css'
@@ -49,13 +50,11 @@ const BusinessDetails = () => {
         history.push(`/businesses/${businessId}/reviews/new`)
     }
 
-    const sessionUserReview = !sessionUser ? null : getAllReviewsArr.find((review) => review.userId === sessionUser.id)
+    // const sessionUserReview = !sessionUser ? null : getAllReviewsArr.find((review) => review.userId === sessionUser.id)
 
-    useEffect(() => {
-        setDisableCreateReview(!!sessionUserReview)
-    })
-
-
+    // useEffect(() => {
+    //     setDisableCreateReview(!!sessionUserReview)
+    // })
 
     let phonesString
     if (isLoaded) {
@@ -88,18 +87,22 @@ const BusinessDetails = () => {
                     <div className='business-details-bttm-wrapper'>
                         <div className='business-details-bttm-left'>
                             <div className='upload-bttn-container'>
-                                {!sessionUser ? null : currBusiness.userId !== sessionUser.id &&
-                                    <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)} disabled={disableCreateReview}>
+                                {/* {!sessionUser ? null : currBusiness.userId !== sessionUser.id && */}
+                                    <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)}>
                                         <img className='star-icon' src={starIcon}></img>
                                         Write a review
                                     </button>
-                                }
-                                {disableCreateReview && (
-                                    <div className='add-review-disable-bttn-container'>
-                                        <img className='star-icon' src={starIcon}></img>
-                                        <div>Write a review</div>
+                                {/* } */}
+                                {/* {disableCreateReview && (
+                                    <div className='review-diabled-container'>
+                                        <div className='add-review-disable-bttn'>
+                                            <img className='star-icon' src={starIcon}></img>
+                                            <div>Write a review</div>
+                                        </div>
+                                        <div style={{fontSize: '14px', color: 'gray'}}>You have already made review</div>
                                     </div>
-                                )}
+
+                                )} */}
                                 <button className='add-photo-bttn'>
                                     <img className='camera-icon' src={cameraIcon}></img>
                                     Add photo

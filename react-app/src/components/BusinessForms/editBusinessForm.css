@@ -1,0 +1,25 @@
+.edit-business-container{
+    display: flex;
+    justify-content: center;
+    width: 50rem;
+    height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.edit-business-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.edit-bus-form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-bus-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

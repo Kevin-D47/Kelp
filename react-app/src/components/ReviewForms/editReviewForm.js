@@ -17,8 +17,6 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id
 
-    // console.log('TEST-----', currReview)
-
     const [review, setReview] = useState(currReview.review)
     const [stars, setStars] = useState(currReview.stars)
 
@@ -41,6 +39,7 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
     }, [review, stars]);
 
 
+
     if (sessionUser === null) {
         alert("You must be logged in to edit a review");
         return <Redirect to="/" />;
@@ -59,51 +58,44 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
     }
 
     const errorList = errors.map((error) => (
-        <p key={error}>{error}</p>
+        <p className='edit-review-single-error' key={error}>{error}</p>
     ))
 
     return (
-        <div className="create-review-container">
-            <div className="create-review-container-left">
-                <form className="create-review-form" onSubmit={onSubmit}>
-                    <div className="create-review-header-container">
-                        <h3 className="create-review-header">Create a Review</h3>
+        <div className="edit-review-container">
+            <div className="edit-review-wrapper">
+                <div className="edit-review-header-container">
+                    <div style={{fontSize: '30px'}}>Edit your Review</div>
+                    <div>Update your review inputs below.</div>
+                </div>
+                <div className="edit-review-errors">
+                    {hasSubmitted && errorList}
+                </div>
+                <form className="edit-review-form" onSubmit={onSubmit}>
+                    <div className="edit-rating-container">
+                        <input
+                            className="rating-input"
+                            type="number"
+                            minLength="1"
+                            maxLength="5"
+                            step="1"
+                            value={stars}
+                            onChange={(e) => setStars(e.target.value)}
+                        />
+                        <div style={{fontSize:'20px'}}>Select your rating</div>
                     </div>
-                    <div className="create-review-errors">
-                        {hasSubmitted && errorList}
+                    <div className="edit-review-input-container">
+                        <div className='edit-review-input-title'>Review:</div>
+                        <textarea
+                            className="edit-review-input"
+                            type="string"
+                            value={review}
+                            onChange={(e) => setReview(e.target.value)}
+                        />
                     </div>
-                    <div className="modal-body">
-                        <label className="create-review-label">
-                            Write a review here:
-                            <div className="create-review-input-container">
-                                <textarea
-                                    className="review-input"
-                                    type="string"
-                                    placeholder="What was it like to stay here?"
-                                    value={review}
-                                    onChange={(e) => setReview(e.target.value)}
-                                />
-                            </div>
-                        </label>
-                        <label className="create-review-label">
-                            Rating:
-                            <div className="rating-input-container">
-                                <input
-                                    className="rating-input"
-                                    type="number"
-                                    placeholder="1 - 5 stars"
-                                    minLength="1"
-                                    maxLength="5"
-                                    step="1"
-                                    value={stars}
-                                    onChange={(e) => setStars(e.target.value)}
-                                />
-                            </div>
-                        </label>
-                    </div>
-                    <div className="review-submit-container">
+                    <div className="edit-review-submit-container">
                         <button
-                            className="create-review-button"
+                            className="edit-review-form-button"
                             type="submit"
                             disabled={hasSubmitted && errors.length > 0}
                         >

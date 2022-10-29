@@ -16,7 +16,6 @@ const PRICES = [
 
 const EditBusinessForm = ({ setShowUpdateBusiness }) => {
     const dispatch = useDispatch()
-    const history = useHistory()
 
     const { businessId } = useParams()
 

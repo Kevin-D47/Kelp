@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+
 import { getBusinessReviewsThunk, } from '../../store/reviews'
 import { getAllUsersThunk } from '../../store/users'
+import { updateReviewThunk } from "../../store/reviews";
+import { getOneBusinessThunk } from '../../store/businesses'
+
+import { Modal } from '../../context/Modal';
+import EditReviewForm from '../ReviewForms/editReviewForm';
 
 import './businessReviews.css'
 
 const BusinessReviews = ({ businessId }) => {
     const dispatch = useDispatch();
+
+    const sessionUser = useSelector(state => state.session.user)
 
     const allReviews = useSelector(state => state.reviews)
     const getAllReviewArr = Object.values(allReviews)
@@ -15,10 +23,13 @@ const BusinessReviews = ({ businessId }) => {
     const allUsersArr = Object.values(allUsers)
 
     const [isLoaded, setIsLoaded] = useState(false)
+    const [showUpdateReview, setShowUpdateReview] = useState(false)
+    const [currReview, setCurrReview] = useState(false)
 
     useEffect(() => {
         dispatch(getAllUsersThunk())
     }, [dispatch])
+
 
     useEffect(() => {
         dispatch(getBusinessReviewsThunk(businessId)).then(() => setIsLoaded(true))
@@ -50,6 +61,19 @@ const BusinessReviews = ({ businessId }) => {
                                                 )
                                             })}
                                         </div>
+                                    </div>
+                                    <div>
+                                        {!sessionUser ? null : sessionUser.id === review.userId && (
+                                            <div>
+                                                <button className='edit-review-button' onClick={() => {setShowUpdateReview(true); setCurrReview(review)}}>Edit Review</button>
+                                                {showUpdateReview && (
+                                                    <Modal onClose={() => setShowUpdateReview(false)}>
+                                                        <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
+                                                    </Modal>
+                                                )}
+                                            </div>
+
+                                        )}
                                     </div>
                                 </div>
                                 <div className='stars'>

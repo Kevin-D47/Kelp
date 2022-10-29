@@ -7,6 +7,7 @@ import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
 import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
 import BusinessReviews from '../BusinessReviews/businessReviews';
+import EditReviewForm from '../ReviewForms/editReviewForm';
 
 import { getAllBusinessesThunk } from '../../store/businesses';
 import { getOneBusinessThunk } from '../../store/businesses';

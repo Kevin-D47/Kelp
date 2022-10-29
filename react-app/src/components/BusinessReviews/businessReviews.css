@@ -1,4 +1,64 @@
+.all-reviews-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 5rem;
+}
+
+.single-review-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid blue;
+}
+
+.user-pic-name-options-conatiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-pic-name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
 .reviewUserPic{
     width: 50px;
     height: 50px;
+    border-radius: 30px;
+}
+
+.review-options-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.review-body{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+}
+
+.review-rating-date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars{
+    font-size: 18px;
+    border: 1px solid red;
+    width: 8rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
 }

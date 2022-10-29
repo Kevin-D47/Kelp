@@ -177,8 +177,7 @@
 .reviews-container{
     display: flex;
     flex-direction: column;
-    height: 20rem;
-    border: 1px solid black;
+    height: 100%;
 }
 
 .business-details-bttm-right{
@@ -240,4 +239,20 @@
 .phone-sign-icon{
     width: 25px;
     height: 25px;
+}
+
+.reviews-header-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.avg-rating-placeholder{
+    font-size: 26px;
+    border: 1px solid red;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
 }

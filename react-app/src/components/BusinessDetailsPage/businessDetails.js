@@ -125,7 +125,13 @@ const BusinessDetails = () => {
                                 </button>
                             </div>
                             <div className='reviews-container'>
-                                <h2>REVIEWS HERE</h2>
+                                <h2>Recommended Reviews</h2>
+                                <div className='reviews-header-info'>
+                                    <div style={{ fontSize: '18px', fontWeight: 'bold' }}>Overall rating</div>
+                                    <div className='avg-rating-placeholder'>{avgRating} kelp</div>
+                                    <div style={{ fontSize: '18px', color:'gray' }}>{numOfReviews} reviews</div>
+                                    <div></div>
+                                </div>
                                 <div className='details-reviews-wrapper'>
                                     <BusinessReviews businessId={businessId} sessionUser={sessionUser} />
                                 </div>

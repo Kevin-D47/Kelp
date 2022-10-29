@@ -158,8 +158,6 @@ const CreateBusinessForm = () => {
                                 onChange={(e) => setDescription(e.target.value)}
                             // required
                             />
-                            {/* <label>
-                            Select a Price Range */}
                             <select
                                 className="price-input-field"
                                 value={price}
@@ -177,7 +175,6 @@ const CreateBusinessForm = () => {
                                     </option>
                                 ))}
                             </select>
-                            {/* </label> */}
                             <div className="create-bus-input-field">
                                 <input
                                     type="url"

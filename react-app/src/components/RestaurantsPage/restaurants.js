@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllBusinessesThunk } from "../../store/businesses";
 import { NavLink } from 'react-router-dom'
+
+import imgNotFound from '../../icons/image-not-found.png'
+
 import './restaurants.css'
 
 
@@ -31,6 +34,13 @@ const GetAllBusinesses = () => {
                             <NavLink className="single-rest-container" to={`/businesses/${business.id}`}>
                                 <div className="single-rest-container-left">
                                     <img className="restraunt-img" src={business.previewImageUrl}></img>
+                                    {/* handles broken image urls but not working */}
+                                    {/* <img
+                                        className="restraunt-img"
+                                        src={business.previewImageUrl}
+                                        alt={imgNotFound}
+                                        onError={e => { e.currentTarget.src={imgNotFound}; }}
+                                    /> */}
                                 </div>
                                 <div className="single-rest-container-right">
                                     <div className="restraunt-name">{business.name}</div>

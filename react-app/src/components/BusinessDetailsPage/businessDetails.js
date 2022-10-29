@@ -53,11 +53,30 @@ const BusinessDetails = () => {
     //     setDisableCreateReview(!!sessionUserReview)
     // })
 
-    let phonesString
+    // const allRatings = getAllReviewsArr.map(review => {
+    //     return review.stars
+    // })
+
+    let phonesString;
     if (isLoaded) {
         phonesString = JSON.stringify(currBusiness.phone)
     }
 
+    let numOfReviews;
+    if (isLoaded) {
+        numOfReviews = JSON.stringify(getAllReviewsArr.length)
+    }
+
+    let avgRating;
+    if (isLoaded) {
+        const allRatings = getAllReviewsArr.map(review => {
+            return review.stars
+        })
+
+        let sum = 0;
+        allRatings.forEach((rating) => { sum += rating });
+        avgRating = sum / allRatings.length;
+    }
 
     return (
         isLoaded && (
@@ -69,8 +88,8 @@ const BusinessDetails = () => {
                     <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
-                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>RATINGS HERE</div>
-                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>#REVIEWS</div>
+                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>Rating: {avgRating} kelp</div>
+                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
                             <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
                         </div>
                         <div>
@@ -85,10 +104,10 @@ const BusinessDetails = () => {
                         <div className='business-details-bttm-left'>
                             <div className='upload-bttn-container'>
                                 {/* {!sessionUser ? null : currBusiness.userId !== sessionUser.id && */}
-                                    <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)}>
-                                        <img className='star-icon' src={starIcon}></img>
-                                        Write a review
-                                    </button>
+                                <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)}>
+                                    <img className='star-icon' src={starIcon}></img>
+                                    Write a review
+                                </button>
                                 {/* } */}
                                 {/* {disableCreateReview && (
                                     <div className='review-diabled-container'>

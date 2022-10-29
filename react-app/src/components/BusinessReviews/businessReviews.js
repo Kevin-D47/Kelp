@@ -3,11 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { getBusinessReviewsThunk, } from '../../store/reviews'
 import { getAllUsersThunk } from '../../store/users'
-import { updateReviewThunk } from "../../store/reviews";
-import { getOneBusinessThunk } from '../../store/businesses'
 
 import { Modal } from '../../context/Modal';
 import EditReviewForm from '../ReviewForms/editReviewForm';
+import DeleteReviewForm from '../ReviewForms/deleteReviewForm';
 
 import './businessReviews.css'
 
@@ -23,8 +22,10 @@ const BusinessReviews = ({ businessId }) => {
     const allUsersArr = Object.values(allUsers)
 
     const [isLoaded, setIsLoaded] = useState(false)
-    const [showUpdateReview, setShowUpdateReview] = useState(false)
     const [currReview, setCurrReview] = useState(false)
+    const [showUpdateReview, setShowUpdateReview] = useState(false)
+    const [showDeleteReview, setShowDeleteReview] = useState(false)
+
 
     useEffect(() => {
         dispatch(getAllUsersThunk())
@@ -33,7 +34,7 @@ const BusinessReviews = ({ businessId }) => {
 
     useEffect(() => {
         dispatch(getBusinessReviewsThunk(businessId)).then(() => setIsLoaded(true))
-    }, [dispatch, businessId])
+    }, [dispatch, businessId, showDeleteReview])
 
     if (!getAllReviewArr.length) {
         return null
@@ -66,9 +67,15 @@ const BusinessReviews = ({ businessId }) => {
                                         {!sessionUser ? null : sessionUser.id === review.userId && (
                                             <div>
                                                 <button className='edit-review-button' onClick={() => {setShowUpdateReview(true); setCurrReview(review)}}>Edit Review</button>
+                                                <button className='edit-review-button' onClick={() => {setShowDeleteReview(true); setCurrReview(review)}}>Delete Review</button>
                                                 {showUpdateReview && (
                                                     <Modal onClose={() => setShowUpdateReview(false)}>
                                                         <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
+                                                    </Modal>
+                                                )}
+                                                {showDeleteReview && (
+                                                    <Modal onClose={() => setShowDeleteReview(false)}>
+                                                        <DeleteReviewForm businessId={businessId} currReview={currReview} setShowDeleteReview={setShowDeleteReview} />
                                                     </Modal>
                                                 )}
                                             </div>

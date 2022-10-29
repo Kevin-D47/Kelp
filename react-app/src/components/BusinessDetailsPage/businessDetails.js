@@ -7,17 +7,13 @@ import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
 import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
 import BusinessReviews from '../BusinessReviews/businessReviews';
-import EditReviewForm from '../ReviewForms/editReviewForm';
 
-import { getAllBusinessesThunk } from '../../store/businesses';
 import { getOneBusinessThunk } from '../../store/businesses';
-import { getAllUsersThunk } from '../../store/users';
 import { getBusinessReviewsThunk } from '../../store/reviews';
 
 import phoneIcon from "../../icons/phone-icon.png";
 import directionIcon from "../../icons/direction-icon.png";
 import starIcon from "../../icons/star-icon.png";
-import starIconBlack from "../../icons/star-icon-black.png";
 import cameraIcon from "../../icons/camera-icon.png";
 
 import './businessDetails.css'

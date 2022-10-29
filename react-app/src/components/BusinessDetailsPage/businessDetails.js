@@ -34,7 +34,7 @@ const BusinessDetails = () => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
     const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
-    const [disableCreateReview, setDisableCreateReview] = useState(true);
+    const [disableCreateReview, setDisableCreateReview] = useState(false);
 
     useEffect(() => {
         dispatch(getBusinessReviewsThunk(businessId))
@@ -47,11 +47,19 @@ const BusinessDetails = () => {
         history.push(`/businesses/${businessId}/reviews/new`)
     }
 
-    // const sessionUserReview = !sessionUser ? null : getAllReviewsArr.find((review) => review.userId === sessionUser.id)
+    let sessionUserReview;
 
-    // useEffect(() => {
-    //     setDisableCreateReview(!!sessionUserReview)
-    // })
+    if (sessionUser) {
+        sessionUserReview = getAllReviewsArr.find((review) => review.userId === sessionUser.id)
+    }
+
+    useEffect(() => {
+        if (sessionUserReview !== undefined) {
+            setDisableCreateReview(true)
+        } else {
+            setDisableCreateReview(false)
+        }
+    }, [sessionUser, sessionUserReview])
 
     // const allRatings = getAllReviewsArr.map(review => {
     //     return review.stars
@@ -88,7 +96,7 @@ const BusinessDetails = () => {
                     <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
-                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>Rating: {avgRating} kelp</div>
+                            <div className='avg-rating-placeholder-2'>AvgRating: {avgRating} kelp</div>
                             <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
                             <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
                         </div>
@@ -103,22 +111,21 @@ const BusinessDetails = () => {
                     <div className='business-details-bttm-wrapper'>
                         <div className='business-details-bttm-left'>
                             <div className='upload-bttn-container'>
-                                {/* {!sessionUser ? null : currBusiness.userId !== sessionUser.id && */}
-                                <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)}>
-                                    <img className='star-icon' src={starIcon}></img>
-                                    Write a review
-                                </button>
-                                {/* } */}
-                                {/* {disableCreateReview && (
+                                {disableCreateReview === false && sessionUser && (
+                                    <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)}>
+                                        <img className='star-icon' src={starIcon}></img>
+                                        Write a review
+                                    </button>
+                                )}
+                                {disableCreateReview && (
                                     <div className='review-diabled-container'>
                                         <div className='add-review-disable-bttn'>
                                             <img className='star-icon' src={starIcon}></img>
                                             <div>Write a review</div>
                                         </div>
-                                        <div style={{fontSize: '14px', color: 'gray'}}>You have already made review</div>
+                                        <div style={{ fontSize: '12.5px', color: 'gray' }}>You have already made a review</div>
                                     </div>
-
-                                )} */}
+                                )}
                                 <button className='add-photo-bttn'>
                                     <img className='camera-icon' src={cameraIcon}></img>
                                     Add photo
@@ -127,9 +134,9 @@ const BusinessDetails = () => {
                             <div className='reviews-container'>
                                 <h2>Recommended Reviews</h2>
                                 <div className='reviews-header-info'>
-                                    <div style={{ fontSize: '18px', fontWeight: 'bold' }}>Overall rating</div>
+                                    <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Overall rating</div>
                                     <div className='avg-rating-placeholder'>{avgRating} kelp</div>
-                                    <div style={{ fontSize: '18px', color:'gray' }}>{numOfReviews} reviews</div>
+                                    <div style={{ fontSize: '18px', color: 'gray' }}>{numOfReviews} reviews</div>
                                     <div></div>
                                 </div>
                                 <div className='details-reviews-wrapper'>

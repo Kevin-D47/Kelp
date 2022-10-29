@@ -49,7 +49,7 @@ const BusinessReviews = ({ businessId }) => {
                 {getAllReviewArr.map(review => {
                     return (
                         <div className='single-review-container' key={review.id}>
-                            <div className='user-pic-name-options-conatiner' style={{ fontSize: '16px', fontWeight: 'bold' }}>
+                            <div className='user-pic-name-options-conatiner' style={{ fontSize: '18px', fontWeight: 'bold' }}>
                                 <div className='box'>
                                     <div className='user-name'>
                                         {allUsersArr && allUsersArr.map(user => {
@@ -84,13 +84,13 @@ const BusinessReviews = ({ businessId }) => {
                             </div>
                             <div className='review-body'>
                                 <div className='review-rating-date'>
-                                    <div className='stars'>
+                                    <div className='stars-placeholder'>
                                         {review.stars} kelp
                                     </div>
                                     <div>{review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
                                 </div>
                                 <div className='review'>
-                                    COMMENT: {review.review}
+                                    {review.review}
                                 </div>
                             </div>
 

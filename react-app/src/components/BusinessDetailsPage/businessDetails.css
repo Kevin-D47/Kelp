@@ -26,7 +26,7 @@
     flex-direction: column;
     position: relative;
     z-index: 3;
-    margin-top: -8em;
+    margin-top: -8rem;
     margin-left: 10rem;
 }
 
@@ -41,6 +41,7 @@
 .business-details-header-info-inner{
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
     padding-top: 15px;
 }
@@ -255,4 +256,15 @@
     width: 12rem;
     display: flex;
     justify-content: center;
+}
+
+.avg-rating-placeholder-2{
+    font-size: 26px;
+    color: white;
+    border: 1px solid red;
+    width: 14rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

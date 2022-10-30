@@ -97,7 +97,7 @@ const BusinessDetails = () => {
                     <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
-                            <div className='avg-rating-placeholder-2'>AvgRating: {avgRating} kelp</div>
+                            <div className='avg-rating-placeholder-2'>{Number(avgRating).toFixed(1)} kelp</div>
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
 
@@ -142,7 +142,7 @@ const BusinessDetails = () => {
                                 <h2>Recommended Reviews</h2>
                                 <div className='reviews-header-info'>
                                     <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Overall rating</div>
-                                    <div className='avg-rating-placeholder'>{avgRating} kelp</div>
+                                    <div className='avg-rating-placeholder'>{Number(avgRating).toFixed(1)} kelp</div>
                                     <div style={{ fontSize: '18px', color: 'gray' }}>{numOfReviews} reviews</div>
                                     <div></div>
                                 </div>

@@ -103,7 +103,7 @@
     font-size: 12px;
 }
 
-.signup-form-left {
+.signup-form-right {
     display: flex;
     justify-content: center;
     width: 30rem;
@@ -115,4 +115,14 @@
     width: 25rem;
     height: 23rem;
     margin-top: 80px;
+}
+
+.signup-form-errors{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: red;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }

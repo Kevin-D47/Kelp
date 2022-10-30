@@ -78,18 +78,18 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
         <div className='edit-business-container'>
             <div className="edit-business-wrapper">
                 <div className="edit-bus-form-container">
-                    <h2 className="create-bus-title" >Edit Your Business</h2>
+                    <div className="edit-bus-title" >Edit Your Business</div>
                     <div className="create-bus-message">Update your informations about your business below.</div>
                     <form
                         onSubmit={onSubmit}
                         autoComplete="off"
                     >
                         <div className="edit-bus-form-wrapper" >
-                            <div className="create-bus-errors">
+                            <div className="edit-bus-errors-container">
                                 {errors.length > 0 && (
-                                    <ul>
+                                    <ul className="edit-bus-error-2">
                                         {errors.map((error) => (
-                                            <li key={error}>{error}</li>
+                                            <li className="edit-bus-error" key={error}>{error}</li>
                                         ))}
                                     </ul>
                                 )}
@@ -191,6 +191,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                             </div>
                             <div>
                                 <button
+                                    id="edit-bus-form-bttn"
                                     className="create-bus-form-bttn"
                                     type="submit"
                                     // onClick={handleSubmit}

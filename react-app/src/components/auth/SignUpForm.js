@@ -82,7 +82,7 @@ const SignUpForm = () => {
                   onChange={updateFirstName}
                   value={first_name}
                   autoComplete="first_name"
-                  required={true}
+                  // required={true}
                 ></input>
               </div>
               <div className='signup-input-field-first-last' >
@@ -93,7 +93,7 @@ const SignUpForm = () => {
                   autoComplete="last_name"
                   onChange={updateLastName}
                   value={last_name}
-                  required={true}
+                  // required={true}
                 ></input>
               </div>
             </div>
@@ -141,7 +141,7 @@ const SignUpForm = () => {
                 placeholder='Confirm Password'
                 onChange={updateRepeatPassword}
                 value={repeatPassword}
-                required={true}
+                // required={true}
               ></input>
             </div>
             <button className='signup-form-bttn' type='submit'>Sign Up</button>
@@ -153,7 +153,7 @@ const SignUpForm = () => {
           </div>
           </form>
         </div>
-        <div className='signup-form-left'>
+        <div className='signup-form-right'>
           <img className='signup-form-pic' src='https://s3-media0.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png'></img>
         </div>
       </div>

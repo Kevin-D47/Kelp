@@ -1,6 +1,7 @@
 from datetime import datetime
 from .db import db
 
+
 class Business(db.Model):
     __tablename__ = 'businesses'
 
@@ -24,6 +25,7 @@ class Business(db.Model):
     reviews = db.relationship("Review", backref='business', cascade="all, delete-orphan")
     images = db.relationship('Image', backref='business', cascade="all, delete-orphan")
 
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -41,4 +43,5 @@ class Business(db.Model):
             # timestamps
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'reviews': [review.to_dict() for review in self.reviews]
         }

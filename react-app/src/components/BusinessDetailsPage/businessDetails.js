@@ -15,6 +15,7 @@ import phoneIcon from "../../icons/phone-icon.png";
 import directionIcon from "../../icons/direction-icon.png";
 import starIcon from "../../icons/star-icon.png";
 import cameraIcon from "../../icons/camera-icon.png";
+import checkMark from "../../icons/check-mark-icon.png"
 
 import './businessDetails.css'
 
@@ -97,14 +98,20 @@ const BusinessDetails = () => {
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
                             <div className='avg-rating-placeholder-2'>AvgRating: {avgRating} kelp</div>
-                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
-                            <div style={{ fontSize: '16px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
+                            <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
+                            <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
+
                         </div>
+
                         <div>
                             {/* <NavLink to= > */}
                             <div className='all-photos-bttn'>See All Photos</div>
                             {/* </NavLink> */}
                         </div>
+                    </div>
+                    <div className='claimed-conatiner'>
+                      <img className='check-mark' src={checkMark}></img>
+                      <div>Claimed</div>
                     </div>
                 </div>
                 <div className='business-details-bttm-container'>

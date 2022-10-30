@@ -64,7 +64,8 @@
 .restraunt-info-container{
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    align-items: center;
+    gap: 20px;
     color: black;
 }
 
@@ -74,4 +75,18 @@
 
 .restraunt-description{
     color: gray;
+}
+
+.ratingSum-hide{
+    display: none;
+}
+
+.avgReviews-placeholder{
+    font-size: 18px;
+    border: 1px solid red;
+    width: 10rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

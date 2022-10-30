@@ -40,9 +40,7 @@ const BusinessReviews = ({ businessId }) => {
         return null
     }
 
-
-
-
+    
     return (
         isLoaded && (
             <div className='all-reviews-container'>

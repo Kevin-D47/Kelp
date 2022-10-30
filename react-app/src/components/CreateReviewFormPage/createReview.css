@@ -1,0 +1,129 @@
+.create-review-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.create-review-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.create-review-container-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+    margin: 3rem;
+    margin-right: -2rem;
+}
+
+.create-review-header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    position: fixed;
+    width: 30rem;
+    margin-bottom: 27rem;
+    gap: 10px;
+}
+
+.create-review-errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 30rem;
+    color: red;
+}
+
+.create-review-single-error {
+    margin-top: 3px;
+}
+
+.create-review-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    gap: 10px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    width: 28rem;
+    padding: 2rem;
+    margin-right: 5px;
+}
+
+.create-rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.rating-input {
+    width: 10.5rem;
+    height: 2rem;
+}
+
+.create-review-input-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.create-review-input {
+    width: 21.5rem;
+    height: 5rem;
+    min-width: 21.5rem;
+    max-width: 21.5rem;
+    min-height: 5rem;
+    max-height: 15rem;
+    font-size: 16px;
+}
+
+.create-review-submit-container {
+    display: flex;
+    justify-content: left;
+    width: 21.5rem;
+    margin-bottom: 20px;
+}
+
+.create-review-form-button {
+    height: 2.5rem;
+    width: 10rem;
+    color: white;
+    background-color: #e00707;
+    border-radius: 4px;
+    border: solid 0;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.create-review-container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    position: relative;
+    gap: 30px;
+    width: 30rem;
+    height: 100%;
+    margin: 2rem;
+    padding: 2rem;
+    margin-top: -2.5px;
+    margin-left: 1px;
+    border-left: 2px solid lightgray;
+}
+
+.create-single-review-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 2px solid lightgray;
+    padding-bottom: 20px;
+}

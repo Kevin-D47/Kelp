@@ -36,7 +36,7 @@ const deleteBusiness = (businessId) => ({
 
 // thunks
 export const getAllBusinessesThunk = () => async (dispatch) => {
-    const response = await fetch("/api/restaurants/");
+    const response = await fetch("/api/restaurants/all");
 
     if (response.ok) {
         const businesses = await response.json();

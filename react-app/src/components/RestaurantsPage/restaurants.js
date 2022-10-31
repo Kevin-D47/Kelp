@@ -9,7 +9,7 @@ import imgNotFound from '../../icons/image-not-found.png'
 import './restaurants.css'
 
 
-const GetAllBusinesses = ({ businessId }) => {
+const GetAllBusinesses = () => {
 
     const dispatch = useDispatch();
 
@@ -23,13 +23,13 @@ const GetAllBusinesses = ({ businessId }) => {
     const getAllReviewsArr = Object.values(allReviews)
 
     useEffect(() => {
-        dispatch(getAllBusinessesThunk())
+        dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(getBusinessReviewsThunk(businessId))
-        dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
-    }, [dispatch, businessId])
+    // useEffect(() => {
+    //     dispatch(getBusinessReviewsThunk(businessId))
+    //     dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
+    // }, [dispatch])
 
 
     if (!allBusinessesArr.length) {

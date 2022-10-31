@@ -6,7 +6,7 @@ from app.models import Business, db
 restaurants_routes = Blueprint('restaurants', __name__)
 
 # Get all businesses
-@restaurants_routes.route('/')
+@restaurants_routes.route('/all')
 @login_required
 def get_all_businesses():
     all_businesses = Business.query.all()

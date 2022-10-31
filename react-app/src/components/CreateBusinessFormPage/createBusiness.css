@@ -117,6 +117,11 @@
     background-color: #dd2a2a;
 }
 
+.create-bus-form-bttn:disabled {
+    pointer-events: none;
+    background-color: grey;
+}
+
 .create-business-container-right {
     display: flex;
     flex-direction: column;

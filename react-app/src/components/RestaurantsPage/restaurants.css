@@ -13,6 +13,12 @@
     /* border: 2px solid red; */
 }
 
+.restraunts-title-results-container{
+   display: flex;
+   flex-direction: column;
+   border: 2px solid red;
+}
+
 .all-restraunts-container{
     margin-left: 15px;
 }

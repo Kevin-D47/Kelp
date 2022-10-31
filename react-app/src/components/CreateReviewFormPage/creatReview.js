@@ -44,8 +44,16 @@ function CreateReviewForm() {
     useEffect(() => {
         const newErrors = [];
 
-        if (review.length <= 0) {
+        if (!review) {
             newErrors.push("Please write a review.");
+        }
+
+        if (review.length > 1000) {
+            newErrors.push("Review cannot be over 1000 characters long");
+        }
+
+        if (!stars) {
+            newErrors.push("Please provide a rating.");
         }
 
         if (stars < 1 || stars > 5) {

@@ -29,11 +29,11 @@ ul.profile-list {
     display: flex;
     flex-direction: column;
     position: absolute;
-    width: 11.5em;
-    height: 5.0em;
+    width: 12rem;
+    height: 5rem;
     background-color: white;
     box-shadow: 0px 0px 6px rgb(195, 195, 195);
-    top: 7%;
+    top: 80%;
     right: 2%;
     padding: 1rem;
     border-radius: .3rem;

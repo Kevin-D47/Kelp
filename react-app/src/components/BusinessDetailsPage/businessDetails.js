@@ -11,6 +11,7 @@ import BusinessReviews from '../BusinessReviews/businessReviews';
 import { getOneBusinessThunk } from '../../store/businesses';
 import { getBusinessReviewsThunk } from '../../store/reviews';
 
+import imgNotFound from '../../icons/image-not-found.png'
 import phoneIcon from "../../icons/phone-icon.png";
 import directionIcon from "../../icons/direction-icon.png";
 import starIcon from "../../icons/star-icon.png";
@@ -76,7 +77,7 @@ const BusinessDetails = () => {
         numOfReviews = JSON.stringify(getAllReviewsArr.length)
     }
 
-    let avgRating;
+    let avgRating = 0
     if (isLoaded) {
         const allRatings = getAllReviewsArr.map(review => {
             return review.stars
@@ -91,7 +92,12 @@ const BusinessDetails = () => {
         isLoaded && (
             <div className='business-details-container'>
                 <div className='business-images-container'>
-                    <img className='business-image' src={currBusiness.previewImageUrl}></img>
+                    <img
+                        className='business-image'
+                        src={currBusiness.previewImageUrl}
+                        alt={imgNotFound}
+                        onError={e => { e.currentTarget.src = imgNotFound }}
+                    />
                 </div>
                 <div className='business-details-header-container'>
                     <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
@@ -110,8 +116,8 @@ const BusinessDetails = () => {
                         </div>
                     </div>
                     <div className='claimed-conatiner'>
-                      <img className='check-mark' src={checkMark}></img>
-                      <div>Claimed</div>
+                        <img className='check-mark' src={checkMark}></img>
+                        <div>Claimed</div>
                     </div>
                 </div>
                 <div className='business-details-bttm-container'>

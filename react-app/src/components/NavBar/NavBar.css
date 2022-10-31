@@ -87,6 +87,8 @@ a:link {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    z-index: 5;
     background: #FFFFFF;
     border-bottom: 2px solid lightgray;
     width: 100%;

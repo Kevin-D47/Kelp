@@ -41,13 +41,19 @@ const CreateBusinessForm = () => {
         const errors = [];
 
         if (!name) errors.push("Please provide a business name");
+        if (name.length > 50) errors.push("Business name cannot be over 50 characters long");
         if (!address) errors.push("Please provide an address");
+        if (address.length > 100) errors.push("Address cannot be over 100 characters long");
         if (!city) errors.push("Please provide a city");
+        if (city.length > 50) errors.push("City cannot be over 50 characters long");
         if (!state) errors.push("Please provide a state");
+        if (state.length > 50) errors.push("State cannot be over 50 characters long");
         if (!country) errors.push("Please provide a country");
+        if (country.length > 50) errors.push("Country cannot be over 50 characters long");
         if (!zip || zip.length > 5 || zip.length < 5) errors.push("Please provide a valid 5-digit zip code")
         if (!phone || phone.length > 10 || phone.length < 10) errors.push("Please provide a valid 10-digit phone number");
         if (!description) errors.push("Please provide a description");
+        if (description.length > 800) errors.push("State cannot be over 800 characters long");
         if (!price) errors.push("Please provide a price range");
         if (!previewImageUrl) errors.push("Please provide a image");
 

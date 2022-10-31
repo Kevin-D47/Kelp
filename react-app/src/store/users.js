@@ -7,7 +7,7 @@ const allUsers = (users) => ({
 });
 
 export const getAllUsersThunk = () => async (dispatch) => {
-    const response = await fetch('/api/users/')
+    const response = await fetch('/api/users')
     if (response.ok) {
         const data = await response.json();
         await dispatch(allUsers(data));

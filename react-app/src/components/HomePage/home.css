@@ -1,0 +1,138 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.homepage-images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50rem;
+    margin-top: -7.5rem;
+    z-index: -1;
+    background-color: black
+}
+
+.homepage-image {
+    width: 100%;
+    height: 50em;
+    position: relative;
+    object-fit: cover;
+    opacity: .7;
+}
+
+.homepage-title-container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    gap: 20px;
+    z-index: 2;
+    width: 40rem;
+    height: 10rem;
+    margin-top: -30em;
+    margin-left: 10rem;
+}
+
+.homepage-title{
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+.homepage-signup-bttn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 3rem;
+    border: 2px solid red;
+    border-radius: 5px;
+    background: red;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+.homepage-signup-bttn:hover {
+    border: 2px solid rgb(255, 65, 65);
+    background: rgb(255, 65, 65);
+}
+
+.hompage-footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 15rem;
+}
+
+.hompage-footer-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.about-footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.developer-footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 10px;
+}
+
+.footer-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.footer-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: rgb(80, 80, 80);
+}
+
+.footer-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.kevin-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.copyright-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.coyright-icon {
+    width: 60px;
+    height: 25px;
+}
+
+.coyright-icon-2 {
+    width: 23px;
+    height: 23px;
+}

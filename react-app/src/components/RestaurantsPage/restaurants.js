@@ -26,16 +26,10 @@ const GetAllBusinesses = () => {
         dispatch(getAllBusinessesThunk()).then(() => setIsLoaded(true))
     }, [dispatch])
 
-    // useEffect(() => {
-    //     dispatch(getBusinessReviewsThunk(businessId))
-    //     dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
-    // }, [dispatch])
-
 
     if (!allBusinessesArr.length) {
         return null
     }
-
 
     return (
         isLoaded && (
@@ -48,14 +42,14 @@ const GetAllBusinesses = () => {
                             <div className="all-restraunts-container" key={business.id}>
                                 <NavLink className="single-rest-container" to={`/businesses/${business.id}`}>
                                     <div className="single-rest-container-left">
-                                        <img className="restraunt-img" src={business.previewImageUrl}></img>
+                                        {/* <img className="restraunt-img" src={business.previewImageUrl}></img> */}
                                         {/* handles broken image urls but not working */}
-                                        {/* <img
-                                        className="restraunt-img"
-                                        src={business.previewImageUrl}
-                                        alt={imgNotFound}
-                                        onError={e => { e.currentTarget.src={imgNotFound}; }}
-                                    /> */}
+                                        <img
+                                            className="restraunt-img"
+                                            src={business.previewImageUrl}
+                                            alt={imgNotFound}
+                                            onError={e => { e.currentTarget.src = { imgNotFound }; }}
+                                        />
                                     </div>
                                     <div className="single-rest-container-right">
                                         <div className="restraunt-name">{business.name}</div>

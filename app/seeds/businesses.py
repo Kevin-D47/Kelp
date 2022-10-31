@@ -12,7 +12,7 @@ def seed_businesses():
         description='Who lives in a pineapple under the sea? SpongeBob SquarePants! Absorbent and yellow and porous is he SpongeBob SquarePants!',
         phone=6783490689,
         price='$',
-        previewImageUrl='https://i.pinimg.com/originals/33/e9/31/33e9318abad9a87418c3eace3effae30.jpg'
+        previewImageUrl='https://images.spot.im/v1/production/sleaikuscaczuzq1ivdn'
     )
 
     business_2 = Business(

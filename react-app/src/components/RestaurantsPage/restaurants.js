@@ -59,15 +59,15 @@ const GetAllBusinesses = ({ businessId }) => {
                                     </div>
                                     <div className="single-rest-container-right">
                                         <div className="restraunt-name">{business.name}</div>
-                                        <div className="restraunt-info-container">
-                                            {/* placeholder for ratings and #reviews */}
+                                        {/* <div className="restraunt-info-container">
                                             {business.reviews.map((review) => {
                                                 { ratingSum += review.stars }
                                             })}
                                             <div className="avgReviews-placeholder">{Number(ratingSum / business.reviews.length).toFixed(1)} kelp</div>
                                             <div>{business.reviews.length} Reviews</div>
                                             <div>{business.price}</div>
-                                        </div><div className="ratingSum-hide">{ratingSum = 0}</div>
+                                        </div>
+                                        <div className="ratingSum-hide">{ratingSum = 0}</div> */}
                                         <div className="restraunt-location">
                                             {business.city}, {business.state}
                                         </div>

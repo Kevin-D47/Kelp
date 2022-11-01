@@ -7,6 +7,9 @@ import { getOneBusinessThunk } from '../../store/businesses'
 import { getBusinessReviewsThunk, } from '../../store/reviews'
 import { getAllUsersThunk } from '../../store/users'
 
+import starChecked from '../../icons/rating-checked.png'
+import starUnchecked from '../../icons/rating-unchecked.png'
+
 import './createReview.css'
 
 
@@ -93,6 +96,7 @@ function CreateReviewForm() {
         }
     };
 
+
     const errorList = errors.map((error) => (
         <p className='create-review-single-error' key={error}>{error}</p>
     ))
@@ -111,17 +115,24 @@ function CreateReviewForm() {
                         </div>
                         <form className="create-review-form" onSubmit={onSubmit}>
                             <div className="create-rating-container">
-                                <input
-                                    className="rating-input"
-                                    type="number"
-                                    placeholder="1 - 5 stars"
-                                    minLength="1"
-                                    maxLength="5"
-                                    step="1"
-                                    value={stars}
-                                    onChange={(e) => setStars(e.target.value)}
-                                />
-                                <div style={{ fontSize: '20px' }}>Select your rating</div>
+                                <div class="star-wrapper">
+                                    <div onClick={() => setStars(1)} value='5'>
+                                        {stars >= 1 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                    </div>
+                                    <div onClick={() => setStars(2)} value={stars}>
+                                        {stars >= 2 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                    </div>
+                                    <div onClick={() => setStars(3)} value={stars}>
+                                        {stars >= 3 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                    </div>
+                                    <div onClick={() => setStars(4)} value={stars}>
+                                        {stars >= 4 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                    </div>
+                                    <div onClick={() => setStars(5)} value={stars}>
+                                        {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                    </div>
+                                </div>
+                                <div style={{ fontSize: '15px' }}>Select your rating</div>
                             </div>
                             <div className="create-review-input-container">
                                 <div className='create-review-input-title'>Review:</div>

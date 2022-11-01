@@ -5,6 +5,9 @@ import { useParams, Redirect } from 'react-router-dom';
 
 import { updateReviewThunk } from "../../store/reviews";
 
+import starChecked from '../../icons/rating-checked.png'
+import starUnchecked from '../../icons/rating-unchecked.png'
+
 import "./editReviewForm.css"
 
 
@@ -65,7 +68,7 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
         <div className="edit-review-container">
             <div className="edit-review-wrapper">
                 <div className="edit-review-header-container">
-                    <div style={{fontSize: '30px'}}>Edit your Review</div>
+                    <div style={{ fontSize: '30px' }}>Edit your Review</div>
                     <div>Update your review inputs below.</div>
                 </div>
                 <div className="edit-review-errors">
@@ -73,16 +76,24 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
                 </div>
                 <form className="edit-review-form" onSubmit={onSubmit}>
                     <div className="edit-rating-container">
-                        <input
-                            className="rating-input"
-                            type="number"
-                            minLength="1"
-                            maxLength="5"
-                            step="1"
-                            value={stars}
-                            onChange={(e) => setStars(e.target.value)}
-                        />
-                        <div style={{fontSize:'20px'}}>Select your rating</div>
+                        <div class="star-wrapper">
+                            <div onClick={() => setStars(1)} value='5'>
+                                {stars >= 1 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                            </div>
+                            <div onClick={() => setStars(2)} value={stars}>
+                                {stars >= 2 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                            </div>
+                            <div onClick={() => setStars(3)} value={stars}>
+                                {stars >= 3 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                            </div>
+                            <div onClick={() => setStars(4)} value={stars}>
+                                {stars >= 4 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                            </div>
+                            <div onClick={() => setStars(5)} value={stars}>
+                                {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                            </div>
+                        </div>
+                        <div style={{ fontSize: '16px' }}>Select your rating</div>
                     </div>
                     <div className="edit-review-input-container">
                         <div className='edit-review-input-title'>Review:</div>

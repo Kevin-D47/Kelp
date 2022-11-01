@@ -7,6 +7,7 @@ import { getOneBusinessThunk } from '../../store/businesses'
 import { getBusinessReviewsThunk, } from '../../store/reviews'
 import { getAllUsersThunk } from '../../store/users'
 
+import imgNotFound from '../../icons/image-not-found.png'
 import starChecked from '../../icons/rating-checked.png'
 import starUnchecked from '../../icons/rating-unchecked.png'
 
@@ -75,9 +76,9 @@ function CreateReviewForm() {
         dispatch(getBusinessReviewsThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
-    if (!getAllReviewArr.length) {
-        return null
-    }
+    // if (!getAllReviewArr.length) {
+    //     return null
+    // }
 
 
     const onSubmit = async (e) => {
@@ -96,6 +97,27 @@ function CreateReviewForm() {
         }
     };
 
+    const ratingCount = (int) => {
+        let ratings = []
+        for (let num = 1; num <= 5; num++) {
+            if (num <= int) {
+                ratings.push(
+                    <div>
+                        <img className='rating-showcase' src={starChecked}></img>
+                    </div>
+                )
+            } else {
+                ratings.push(
+                    <div>
+                        <img className='rating-showcase' src={starUnchecked}></img>
+                    </div>
+                )
+            }
+        }
+        return ratings.map(rating => {
+            return rating
+        })
+    }
 
     const errorList = errors.map((error) => (
         <p className='create-review-single-error' key={error}>{error}</p>
@@ -138,7 +160,7 @@ function CreateReviewForm() {
                                 <div className='create-review-input-title'>Review:</div>
                                 <textarea
                                     className="create-review-input"
-                                    type="string"
+                                    type="text"
                                     placeholder="What was it like to stay here?"
                                     value={review}
                                     onChange={(e) => setReview(e.target.value)}
@@ -167,7 +189,12 @@ function CreateReviewForm() {
                                                     return (
                                                         <> {review.userId === user.id ? (
                                                             <div className='create-user-pic-name' key={review.userId === user.id ? user.id : ''}>
-                                                                <img className='reviewUserPic' src={review.userId === user.id ? user.profileImageUrl : ''}></img>
+                                                                <img
+                                                                    className='reviewUserPic'
+                                                                    src={review.userId === user.id ? user.profileImageUrl : ''}
+                                                                    alt={imgNotFound}
+                                                                    onError={e => { e.currentTarget.src = imgNotFound }}
+                                                                ></img>
                                                                 {review.userId === user.id ? user.first_name : ''}&nbsp;
                                                                 {review.userId === user.id ? user.last_name : ''}
                                                             </div>) : ''}
@@ -179,8 +206,8 @@ function CreateReviewForm() {
                                     </div>
                                     <div className='create-review-body'>
                                         <div className='review-rating-date'>
-                                            <div className='stars-placeholder'>
-                                                {review.stars} kelp
+                                            <div className='rating-showcase-container'>
+                                                {ratingCount(review.stars)}
                                             </div>
                                             <div>{review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
                                         </div>
@@ -193,7 +220,6 @@ function CreateReviewForm() {
                         })}
                     </div>
                 </div>
-
             </div>
         )
     );

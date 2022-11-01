@@ -119,7 +119,7 @@ const SignUpForm = () => {
               <input
                 type="text"
                 name="previewImageUrl"
-                placeholder='Profile Picture'
+                placeholder='Profile Picture (Optional)'
                 autoComplete="previewImageUrl"
                 onChange={updateProfileImageUrl}
                 value={profileImageUrl}

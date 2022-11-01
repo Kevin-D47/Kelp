@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
     margin-right: 20px;
 }
 
@@ -59,16 +59,41 @@
     gap: 10px;
 }
 
-.stars-placeholder{
-    font-size: 18px;
-    border: 1px solid red;
-    width: 8rem;
-    height: 1.5rem;
+.rating-showcase-container{
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 10rem;
+    height: 2.5rem;
+}
+
+.rating-showcase{
+    height: 28px;
+    width: 28px;
+    border-radius: 7px;
 }
 
 .review{
     font-size: 16px;
     margin-top: 10px;
+}
+
+.edit-review-bttn{
+    width: 25px;
+    height: 25px;
+}
+
+.edit-review-bttn:hover{
+   cursor: pointer;
+}
+
+.delete-review-bttn{
+    width: 25px;
+    height: 25px;
+}
+
+.delete-review-bttn:hover{
+  cursor: pointer;
 }

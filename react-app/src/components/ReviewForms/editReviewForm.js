@@ -76,23 +76,23 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
                 </div>
                 <form className="edit-review-form" onSubmit={onSubmit}>
                     <div className="edit-rating-container">
-                        <div class="star-wrapper">
-                            <div onClick={() => setStars(1)} value='5'>
-                                {stars >= 1 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                            </div>
-                            <div onClick={() => setStars(2)} value={stars}>
-                                {stars >= 2 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                            </div>
-                            <div onClick={() => setStars(3)} value={stars}>
-                                {stars >= 3 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                            </div>
-                            <div onClick={() => setStars(4)} value={stars}>
-                                {stars >= 4 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                            </div>
-                            <div onClick={() => setStars(5)} value={stars}>
-                                {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                            </div>
+
+                        <div onClick={() => setStars(1)} value='5'>
+                            {stars >= 1 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
                         </div>
+                        <div onClick={() => setStars(2)} value={stars}>
+                            {stars >= 2 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                        </div>
+                        <div onClick={() => setStars(3)} value={stars}>
+                            {stars >= 3 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                        </div>
+                        <div onClick={() => setStars(4)} value={stars}>
+                            {stars >= 4 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                        </div>
+                        <div onClick={() => setStars(5)} value={stars}>
+                            {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                        </div>
+
                         <div style={{ fontSize: '16px' }}>Select your rating</div>
                     </div>
                     <div className="edit-review-input-container">

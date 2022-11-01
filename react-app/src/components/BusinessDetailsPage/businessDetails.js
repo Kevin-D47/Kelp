@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, NavLink, useHistory } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 
 import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
@@ -44,11 +44,6 @@ const BusinessDetails = () => {
     }, [dispatch, businessId])
 
 
-    const addReview = (e, businessId) => {
-        e.preventDefault();
-        history.push(`/businesses/${businessId}/reviews/new`)
-    }
-
     let sessionUserReview;
 
     if (sessionUser) {
@@ -63,9 +58,7 @@ const BusinessDetails = () => {
         }
     }, [sessionUser, sessionUserReview])
 
-    // const allRatings = getAllReviewsArr.map(review => {
-    //     return review.stars
-    // })
+
 
     let phonesString;
     if (isLoaded) {
@@ -103,16 +96,15 @@ const BusinessDetails = () => {
                     <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
-                            <div className='avg-rating-placeholder-2'>{Number(avgRating).toFixed(1)} kelp</div>
+                            {!avgRating ? <div className='avg-rating-placeholder-2'>0 kelp</div> : <div className='avg-rating-placeholder-2'>{Number(avgRating).toFixed(1)} kelp</div>}
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
 
                         </div>
-
                         <div>
-                            {/* <NavLink to= > */}
+                            {/* <NavLink to= >
                             <div className='all-photos-bttn'>See All Photos</div>
-                            {/* </NavLink> */}
+                            </NavLink> */}
                         </div>
                     </div>
                     <div className='claimed-conatiner'>
@@ -125,10 +117,13 @@ const BusinessDetails = () => {
                         <div className='business-details-bttm-left'>
                             <div className='upload-bttn-container'>
                                 {disableCreateReview === false && sessionUser && (
-                                    <button className='review-bttn' onClick={(e) => addReview(e, currBusiness.id)}>
-                                        <img className='star-icon' src={starIcon}></img>
-                                        Write a review
-                                    </button>
+                                    <Link to={`/businesses/${businessId}/reviews/new`}>
+                                        <button className='review-bttn'>
+                                            <img className='star-icon' src={starIcon}></img>
+                                            Write a review
+                                        </button>
+                                    </Link>
+
                                 )}
                                 {disableCreateReview && (
                                     <div className='review-diabled-container'>
@@ -139,16 +134,16 @@ const BusinessDetails = () => {
                                         <div style={{ fontSize: '12.5px', color: 'gray' }}>You have already made a review</div>
                                     </div>
                                 )}
-                                <button className='add-photo-bttn'>
+                                {/* <button className='add-photo-bttn'>
                                     <img className='camera-icon' src={cameraIcon}></img>
                                     Add photo
-                                </button>
+                                </button> */}
                             </div>
                             <div className='reviews-container'>
                                 <h2>Recommended Reviews</h2>
                                 <div className='reviews-header-info'>
                                     <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Overall rating</div>
-                                    <div className='avg-rating-placeholder'>{Number(avgRating).toFixed(1)} kelp</div>
+                                    {!avgRating ? <div className='avg-rating-placeholder-2' style={{color: 'black'}}>0 kelp</div> : <div className='avg-rating-placeholder-2'>{Number(avgRating).toFixed(1)} kelp</div>}
                                     <div style={{ fontSize: '18px', color: 'gray' }}>{numOfReviews} reviews</div>
                                     <div></div>
                                 </div>

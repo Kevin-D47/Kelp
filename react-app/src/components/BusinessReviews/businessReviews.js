@@ -8,6 +8,12 @@ import { Modal } from '../../context/Modal';
 import EditReviewForm from '../ReviewForms/editReviewForm';
 import DeleteReviewForm from '../ReviewForms/deleteReviewForm';
 
+import imgNotFound from '../../icons/image-not-found.png'
+import editButton from '../../icons/edit-icon.png'
+import deleteButton from '../../icons/delete-icon.png'
+import starChecked from '../../icons/rating-checked.png'
+import starUnchecked from '../../icons/rating-unchecked.png'
+
 import './businessReviews.css'
 
 const BusinessReviews = ({ businessId }) => {
@@ -36,10 +42,28 @@ const BusinessReviews = ({ businessId }) => {
         dispatch(getBusinessReviewsThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId, showDeleteReview])
 
-    if (!getAllReviewArr.length) {
-        return null
-    }
 
+    const ratingCount = (int) => {
+        let ratings = []
+        for (let num = 1; num <= 5; num++) {
+            if (num <= int) {
+                ratings.push(
+                    <div>
+                        <img className='rating-showcase' src={starChecked}></img>
+                    </div>
+                )
+            } else {
+                ratings.push(
+                    <div>
+                        <img className='rating-showcase' src={starUnchecked}></img>
+                    </div>
+                )
+            }
+        }
+        return ratings.map(rating => {
+            return rating
+        })
+    }
 
     return (
         isLoaded && (
@@ -54,7 +78,12 @@ const BusinessReviews = ({ businessId }) => {
                                             return (
                                                 <> {review.userId === user.id ? (
                                                     <div className='user-pic-name' key={review.userId === user.id ? user.id : ''}>
-                                                        <img className='reviewUserPic' src={review.userId === user.id ? user.profileImageUrl : ''}></img>
+                                                        <img
+                                                            className='reviewUserPic'
+                                                            src={review.userId === user.id ? user.profileImageUrl : ''}
+                                                            alt={imgNotFound}
+                                                            onError={e => { e.currentTarget.src = imgNotFound }}
+                                                        ></img>
                                                         {review.userId === user.id ? user.first_name : ''}&nbsp;
                                                         {review.userId === user.id ? user.last_name : ''}
                                                     </div>) : ''}
@@ -65,8 +94,8 @@ const BusinessReviews = ({ businessId }) => {
                                 </div>
                                 {!sessionUser ? null : sessionUser.id === review.userId && (
                                     <div className='review-options-container'>
-                                        <button className='edit-review-button' onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}>Edit Review</button>
-                                        <button className='edit-review-button' onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}>Delete Review</button>
+                                        <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}></img>
+                                        <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}></img>
                                         {showUpdateReview && (
                                             <Modal onClose={() => setShowUpdateReview(false)}>
                                                 <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
@@ -82,8 +111,8 @@ const BusinessReviews = ({ businessId }) => {
                             </div>
                             <div className='review-body'>
                                 <div className='review-rating-date'>
-                                    <div className='stars-placeholder'>
-                                        {review.stars} kelp
+                                    <div className='rating-showcase-container'>
+                                        {ratingCount(review.stars)}
                                     </div>
                                     <div>{review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
                                 </div>

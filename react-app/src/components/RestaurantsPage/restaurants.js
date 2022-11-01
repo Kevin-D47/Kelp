@@ -55,7 +55,7 @@ const GetAllBusinesses = () => {
                                             {business.reviews.map((review) => {
                                                 { ratingSum += review.stars }
                                             })}
-                                            <div className="avgReviews-placeholder">{Number(ratingSum / business.reviews.length).toFixed(1)} kelp</div>
+                                            {!(ratingSum / business.reviews.length) ? <div className='avgReviews-placeholder'>0 kelp</div> : <div className='avgReviews-placeholder'>{Number(ratingSum / business.reviews.length).toFixed(1)} kelp</div>}
                                             <div>{business.reviews.length} Reviews</div>
                                             <div>{business.price}</div>
                                         </div>

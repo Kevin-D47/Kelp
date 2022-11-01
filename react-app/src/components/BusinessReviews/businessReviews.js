@@ -40,7 +40,7 @@ const BusinessReviews = ({ businessId }) => {
         return null
     }
 
-    
+
     return (
         isLoaded && (
             <div className='all-reviews-container'>
@@ -55,7 +55,7 @@ const BusinessReviews = ({ businessId }) => {
                                                 <> {review.userId === user.id ? (
                                                     <div className='user-pic-name' key={review.userId === user.id ? user.id : ''}>
                                                         <img className='reviewUserPic' src={review.userId === user.id ? user.profileImageUrl : ''}></img>
-                                                        {review.userId === user.id ? user.first_name : ''}
+                                                        {review.userId === user.id ? user.first_name : ''}&nbsp;
                                                         {review.userId === user.id ? user.last_name : ''}
                                                     </div>) : ''}
                                                 </>

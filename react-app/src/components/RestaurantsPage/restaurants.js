@@ -5,6 +5,8 @@ import { getBusinessReviewsThunk } from "../../store/reviews";
 import { NavLink } from 'react-router-dom'
 
 import imgNotFound from '../../icons/image-not-found.png'
+import starChecked from '../../icons/rating-checked.png'
+import starUnchecked from '../../icons/rating-unchecked.png'
 
 import './restaurants.css'
 
@@ -27,9 +29,35 @@ const GetAllBusinesses = () => {
     }, [dispatch])
 
 
-    if (!allBusinessesArr.length) {
-        return null
+    const ratingCount = (int) => {
+        let ratings = []
+        for (let num = 1; num <= 5; num++) {
+            if (num <= int) {
+                ratings.push(
+                    <div>
+                        <img className='rating-restraunts-showcase' src={starChecked}></img>
+                    </div>
+                )
+            } else {
+                ratings.push(
+                    <div>
+                        <img className='rating-restraunts-showcase' src={starUnchecked}></img>
+                    </div>
+                )
+            }
+        }
+        return ratings.map(rating => {
+            return rating
+        })
     }
+
+    const emptyRating = <div className='single-rest-avgRating-containter'>
+        <img className='rating-restraunts-showcase' src={starUnchecked}></img>
+        <img className='rating-restraunts-showcase' src={starUnchecked}></img>
+        <img className='rating-restraunts-showcase' src={starUnchecked}></img>
+        <img className='rating-restraunts-showcase' src={starUnchecked}></img>
+        <img className='rating-restraunts-showcase' src={starUnchecked}></img>
+    </div>
 
     return (
         isLoaded && (
@@ -55,7 +83,7 @@ const GetAllBusinesses = () => {
                                             {business.reviews.map((review) => {
                                                 { ratingSum += review.stars }
                                             })}
-                                            {!(ratingSum / business.reviews.length) ? <div className='avgReviews-placeholder'>0 kelp</div> : <div className='avgReviews-placeholder'>{Number(ratingSum / business.reviews.length).toFixed(1)} kelp</div>}
+                                            {!(ratingSum / business.reviews.length) ? <div>{emptyRating}</div> : <div className="single-rest-avgRating-containter"> {ratingCount(Math.round(ratingSum / business.reviews.length))}</div>}
                                             <div>{business.reviews.length} Reviews</div>
                                             <div>{business.price}</div>
                                         </div>

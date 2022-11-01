@@ -12,9 +12,10 @@ import kelpTitleLogo from '../../icons/kelp-logo-title.png'
 const HomePage = () => {
     const img1 = 'https://s3-media0.fl.yelpcdn.com/bphoto/Zg95QGwmay_PpgV0Xecb6A/o.jpg'
     const img2 = 'https://s3-media0.fl.yelpcdn.com/bphoto/3PVczqE9frDnDmdcjXed-Q/o.jpg'
-    const img3 = 'https://i.ndtvimg.com/i/2015-10/mussels-625_625x350_61444640859.jpg'
+    const img3 = 'https://www.washingtonpost.com/resizer/S0uE7ze24z1spZwWS_XsFyN5YBc=/arc-anglerfish-washpost-prod-washpost/public/E37EMGFVZYI6ZA2YECVBMNK7WQ.jpg'
+    const img4 = 'https://media.istockphoto.com/photos/octopus-picture-id1324632301?b=1&k=20&m=1324632301&s=170667a&w=0&h=45KkZRjC19LMbQh5ewcPI0MQHnuTtaBZmav2cfe0kxE='
 
-    const carouselArr = [img1, img2, img3]
+    const carouselArr = [img1, img2, img3, img4]
 
     const [image, setImage] = useState(carouselArr[0])
     const [counter, setCounter] = useState(0)
@@ -25,7 +26,7 @@ const HomePage = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setCounter((counter) => counter === 2 ? 0 : counter + 1)
+            setCounter((counter) => counter === 3 ? 0 : counter + 1)
         }, 3000)
         return () => clearInterval(timer)
     }, [])

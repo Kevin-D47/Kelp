@@ -10,6 +10,7 @@ import BusinessReviews from '../BusinessReviews/businessReviews';
 
 import { getOneBusinessThunk } from '../../store/businesses';
 import { getBusinessReviewsThunk } from '../../store/reviews';
+import { getAllUsersThunk } from '../../store/users'
 
 import imgNotFound from '../../icons/image-not-found.png'
 import phoneIcon from "../../icons/phone-icon.png";
@@ -17,6 +18,8 @@ import directionIcon from "../../icons/direction-icon.png";
 import starIcon from "../../icons/star-icon.png";
 import cameraIcon from "../../icons/camera-icon.png";
 import checkMark from "../../icons/check-mark-icon.png"
+import starChecked from '../../icons/rating-checked.png'
+import starUnchecked from '../../icons/rating-unchecked.png'
 
 import './businessDetails.css'
 
@@ -33,10 +36,17 @@ const BusinessDetails = () => {
     const allReviews = useSelector(state => state.reviews)
     const getAllReviewsArr = Object.values(allReviews)
 
+    const allUsers = useSelector(state => state.users)
+    const allUsersArr = Object.values(allUsers)
+
     const [isLoaded, setIsLoaded] = useState(false)
     const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
     const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
     const [disableCreateReview, setDisableCreateReview] = useState(false);
+
+    useEffect(() => {
+        dispatch(getAllUsersThunk())
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(getBusinessReviewsThunk(businessId))
@@ -81,6 +91,40 @@ const BusinessDetails = () => {
         avgRating = sum / allRatings.length;
     }
 
+
+    const roundedAvgRating = Math.round(avgRating)
+
+    const ratingCount = (int) => {
+        let ratings = []
+        for (let num = 1; num <= 5; num++) {
+            if (num <= int) {
+                ratings.push(
+                    <div>
+                        <img className='rating-details-showcase' src={starChecked}></img>
+                    </div>
+                )
+            } else {
+                ratings.push(
+                    <div>
+                        <img className='rating-details-showcase' src={starUnchecked}></img>
+                    </div>
+                )
+            }
+        }
+        return ratings.map(rating => {
+            return rating
+        })
+    }
+
+    const emptyRating = <div className='details-overall-rating'>
+        <img className='rating-details-showcase' src={starUnchecked}></img>
+        <img className='rating-details-showcase' src={starUnchecked}></img>
+        <img className='rating-details-showcase' src={starUnchecked}></img>
+        <img className='rating-details-showcase' src={starUnchecked}></img>
+        <img className='rating-details-showcase' src={starUnchecked}></img>
+    </div>
+
+
     return (
         isLoaded && (
             <div className='business-details-container'>
@@ -96,10 +140,9 @@ const BusinessDetails = () => {
                     <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
-                            {!avgRating ? <div className='avg-rating-placeholder-2'>0 kelp</div> : <div className='avg-rating-placeholder-2'>{Number(avgRating).toFixed(1)} kelp</div>}
+                            {!avgRating ? <div>{emptyRating}</div> : <div className='details-overall-rating'>{ratingCount(roundedAvgRating)}</div>}
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
-
                         </div>
                         <div>
                             {/* <NavLink to= >
@@ -123,7 +166,6 @@ const BusinessDetails = () => {
                                             Write a review
                                         </button>
                                     </Link>
-
                                 )}
                                 {disableCreateReview && (
                                     <div className='review-diabled-container'>
@@ -139,11 +181,39 @@ const BusinessDetails = () => {
                                     Add photo
                                 </button> */}
                             </div>
+                            <div className='description-container'>
+                                <div className='description-title'>About Business</div>
+                                <div className='user-name'>
+                                    {allUsersArr && allUsersArr.map(user => {
+                                        return (
+                                            <> {currBusiness.userId === user.id ? (
+                                                <div className='user-pic-name' key={currBusiness.userId === user.id ? user.id : ''}>
+                                                    <img
+                                                        className='reviewUserPic'
+                                                        src={currBusiness.userId === user.id ? user.profileImageUrl : ''}
+                                                        alt={imgNotFound}
+                                                        onError={e => { e.currentTarget.src = imgNotFound }}
+                                                    ></img>
+                                                    <div>
+                                                        <div style={{ fontWeight: 'bold', fontSize: '20px' }}>
+                                                            {currBusiness.userId === user.id ? user.first_name : ''}&nbsp;
+                                                            {currBusiness.userId === user.id ? user.last_name : ''}
+                                                        </div>
+                                                        <div style={{ color: 'gray' }}>Business Owner</div>
+                                                    </div>
+
+                                                </div>) : ''}
+                                            </>
+                                        )
+                                    })}
+                                </div>
+                                <div>{currBusiness.description}</div>
+                            </div>
                             <div className='reviews-container'>
                                 <h2>Recommended Reviews</h2>
                                 <div className='reviews-header-info'>
                                     <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Overall rating</div>
-                                    {!avgRating ? <div className='avg-rating-placeholder-2' style={{color: 'black'}}>0 kelp</div> : <div className='avg-rating-placeholder-2'>{Number(avgRating).toFixed(1)} kelp</div>}
+                                    {!avgRating ? <div>{emptyRating}</div> : <div className='details-overall-rating'>{ratingCount(roundedAvgRating)}</div>}
                                     <div style={{ fontSize: '18px', color: 'gray' }}>{numOfReviews} reviews</div>
                                     <div></div>
                                 </div>

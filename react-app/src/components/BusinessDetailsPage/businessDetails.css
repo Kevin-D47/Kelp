@@ -26,7 +26,7 @@
     flex-direction: column;
     position: relative;
     z-index: 3;
-    margin-top: -10.5rem;
+    margin-top: -11.5rem;
     margin-left: 10rem;
 }
 
@@ -244,7 +244,9 @@
 
 .details-location{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    gap: 5px;
     align-items: center;
     width: 20rem;
     padding-top: 5px;
@@ -282,4 +284,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.description-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+    padding-bottom: 40px;
+    margin-bottom: 2rem;
+}
+
+.description-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.details-overall-rating{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.rating-details-showcase{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
 }

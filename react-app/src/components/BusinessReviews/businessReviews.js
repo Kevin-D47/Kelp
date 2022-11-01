@@ -93,20 +93,23 @@ const BusinessReviews = ({ businessId }) => {
                                     </div>
                                 </div>
                                 {!sessionUser ? null : sessionUser.id === review.userId && (
-                                    <div className='review-options-container'>
-                                        <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}></img>
-                                        <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}></img>
-                                        {showUpdateReview && (
-                                            <Modal onClose={() => setShowUpdateReview(false)}>
-                                                <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
-                                            </Modal>
-                                        )}
-                                        {showDeleteReview && (
-                                            <Modal onClose={() => setShowDeleteReview(false)}>
-                                                <DeleteReviewForm businessId={businessId} currReview={currReview} setShowDeleteReview={setShowDeleteReview} />
-                                            </Modal>
-                                        )}
+                                    <div className='viewThisResult'>
+                                        <div className='review-options-container'>
+                                            <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}></img>
+                                            <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}></img>
+                                            {showUpdateReview && (
+                                                <Modal onClose={() => setShowUpdateReview(false)}>
+                                                    <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
+                                                </Modal>
+                                            )}
+                                            {showDeleteReview && (
+                                                <Modal onClose={() => setShowDeleteReview(false)}>
+                                                    <DeleteReviewForm businessId={businessId} currReview={currReview} setShowDeleteReview={setShowDeleteReview} />
+                                                </Modal>
+                                            )}
+                                        </div>
                                     </div>
+
                                 )}
                             </div>
                             <div className='review-body'>

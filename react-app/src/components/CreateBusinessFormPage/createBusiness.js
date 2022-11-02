@@ -87,8 +87,6 @@ const CreateBusinessForm = () => {
         }
     }
 
-    // TEST FOR HEROKU
-
     return (
         <div className='create-business-container'>
             <div className="create-business-container-left">
@@ -213,8 +211,6 @@ const CreateBusinessForm = () => {
                         </ul>
                     )}
                 </div>
-
-
             </div>
         </div>
     )

@@ -11,6 +11,10 @@
     opacity: .9;
 }
 
+.profile-icon:active {
+    transform: scale(.98);
+}
+
 ul.profile-list {
     list-style-type: none;
 
@@ -53,6 +57,8 @@ ul.profile-list {
 }
 
 .user-name-li {
+    display: flex;
+    flex-direction: row;
     font-size: 16px;
     font-weight: 450;
     padding-bottom: 16px;

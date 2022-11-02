@@ -73,7 +73,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
 
         setHasSubmitted(true)
 
-        if (errors.length > 0) return alert('invalid submission')
+        if (errors.length > 0) return alert('There was an error with your submission, Please recheck your inputs')
 
         dispatch(updateBusinessThunk(businessId, userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl))
         setShowUpdateBusiness(false)

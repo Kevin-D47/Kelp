@@ -18,7 +18,7 @@
     height: 2.5rem;
     width: 7rem;
     color: white;
-    background-color: #d32323;
+    background-color: #7eb312;
     border-radius: 5px;
     border: solid 0;
     font-size: 1rem;
@@ -28,6 +28,10 @@
 .delete-business-button-yes:hover{
     opacity: .9;
     cursor: pointer;
+}
+
+.delete-business-button-yes:active {
+    transform: scale(.98);
 }
 
 .delete-business-button-no {
@@ -44,4 +48,8 @@
 .delete-business-button-no:hover{
     background: lightgrey;
     cursor: pointer;
+}
+
+.delete-business-button-no:active {
+    transform: scale(.98);
 }

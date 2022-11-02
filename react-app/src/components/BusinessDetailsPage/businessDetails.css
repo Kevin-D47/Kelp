@@ -120,7 +120,7 @@
     height: 2.5rem;
     width: 11rem;
     color: white;
-    background-color: #e00707;
+    background-color: #7eb312;
     border-radius: 4px;
     border: solid 0;
     font-size: 1rem;
@@ -129,7 +129,11 @@
 
 .review-bttn:hover {
     cursor: pointer;
-    background-color: #dd2a2a;
+    opacity: 0.9;
+}
+
+.review-bttn:active {
+    transform: scale(.98);
 }
 
 .star-icon{

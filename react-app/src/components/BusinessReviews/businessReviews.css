@@ -1,45 +1,45 @@
-.all-reviews-container{
+.all-reviews-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
     margin-bottom: 5rem;
 }
 
-.user-pic-name-options-conatiner{
+.user-pic-name-options-conatiner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.user-pic-name{
+.user-pic-name {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 }
 
-.reviewUserPic{
+.reviewUserPic {
     width: 50px;
     height: 50px;
     border-radius: 30px;
 }
 
-.review-body{
+.review-body {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 5px;
 }
 
-.review-rating-date{
+.review-rating-date {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 }
 
-.rating-showcase-container{
+.rating-showcase-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -49,48 +49,58 @@
     height: 2.5rem;
 }
 
-.rating-showcase{
+.rating-showcase {
     height: 28px;
     width: 28px;
     border-radius: 7px;
 }
 
-.review{
+.review {
     font-size: 16px;
     margin-top: 10px;
 }
 
-.edit-review-bttn{
+.edit-review-bttn {
     width: 25px;
     height: 25px;
 }
 
-.edit-review-bttn:hover{
-   cursor: pointer;
+.edit-review-bttn:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
-.delete-review-bttn{
+.edit-review-bttn:active {
+    transform: scale(.85);
+}
+
+.delete-review-bttn {
     width: 25px;
     height: 25px;
 }
 
-.delete-review-bttn:hover{
-  cursor: pointer;
+.delete-review-bttn:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
-.single-review-container{
+.delete-review-bttn:active {
+    transform: scale(.85);
+}
+
+.single-review-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 10px;
 }
 
-.single-review-container:hover{
+.single-review-container:hover {
     box-shadow: 0px 0px 6px rgb(195, 195, 195);
     border-radius: 5px;
 }
 
-.review-options-container{
+.review-options-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -98,7 +108,7 @@
     margin-right: 20px;
 }
 
-.viewThisResult{
+.viewThisResult {
     display: flex;
 }
 

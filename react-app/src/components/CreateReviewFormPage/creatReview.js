@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { NavLink, Redirect, useHistory, useParams } from "react-router-dom";
 
 import { createReviewThunk } from '../../store/reviews'
 import { getOneBusinessThunk } from '../../store/businesses'
@@ -87,7 +87,7 @@ function CreateReviewForm() {
         setHasSubmitted(true)
 
         if (errors.length > 0) {
-            return alert("invalid submission");
+            return alert("There was an error with your submission, Please recheck your inputs");
         }
 
         const createdReview = dispatch(createReviewThunk(userId, businessId, review, stars));
@@ -128,6 +128,9 @@ function CreateReviewForm() {
             <div className="create-review-container">
                 <div className="create-review-wrapper">
                     <div className="create-review-container-left">
+                        <NavLink className='back-to-business' to={`/businesses/${businessId}`}>
+                            back to&nbsp;<div style={{color:'#7eb312'}}>{currBusiness.name}</div>
+                        </NavLink>
                         <div className="create-review-header-container">
                             <div style={{ fontSize: '30px' }}>Create a Review</div>
                             <div>Create a review by filling out the inputs below.</div>

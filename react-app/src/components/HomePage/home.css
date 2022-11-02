@@ -50,17 +50,21 @@
     align-items: center;
     width: 12rem;
     height: 3rem;
-    border: 2px solid red;
+    border: 2px solid #7eb312;
     border-radius: 5px;
-    background: red;
+    background: #7eb312;
     text-decoration: none;
     font-size: 20px;
     color: white;
 }
 
 .homepage-signup-bttn:hover {
-    border: 2px solid rgb(255, 65, 65);
-    background: rgb(255, 65, 65);
+    border: 2px solid #84bd11;
+    background: #84bd11;
+}
+
+.homepage-signup-bttn:active {
+    transform: scale(.98);
 }
 
 .hompage-footer-container {

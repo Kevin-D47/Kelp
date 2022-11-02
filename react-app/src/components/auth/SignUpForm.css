@@ -85,7 +85,7 @@
     height: 2.5rem;
     width: 20.5rem;
     color: white;
-    background-color: #d32323;
+    background-color: #7eb312;
     border-radius: 5px;
     border: solid 0;
     font-size: 1rem;
@@ -95,6 +95,10 @@
 .signup-form-bttn:hover{
     opacity: .9;
     cursor: pointer;
+}
+
+.signup-form-bttn:active {
+    transform: scale(.98);
 }
 
 .signup-form-login-message{

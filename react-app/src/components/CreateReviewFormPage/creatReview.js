@@ -20,7 +20,7 @@ function CreateReviewForm() {
     const history = useHistory();
 
     const { businessId } = useParams();
-    const currBusiness = useSelector((state) => state.businesses[businessId]);
+    const currBusiness = useSelector((state) => state.businesses[businessId])
 
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser.id
@@ -34,7 +34,6 @@ function CreateReviewForm() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [review, setReview] = useState("");
     const [stars, setStars] = useState("");
-    const [currReview, setCurrReview] = useState(false)
 
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -46,25 +45,25 @@ function CreateReviewForm() {
 
 
     useEffect(() => {
-        const newErrors = [];
+        const errors = [];
 
         if (!review) {
-            newErrors.push("Please write a review.");
+            errors.push("Please write a review.");
         }
 
         if (review.length > 1000) {
-            newErrors.push("Review cannot be over 1000 characters long");
+            errors.push("Review cannot be over 1000 characters long");
         }
 
         if (!stars) {
-            newErrors.push("Please provide a rating.");
+            errors.push("Please provide a rating.");
         }
 
         if (stars < 1 || stars > 5) {
-            newErrors.push("Rating must be an integer from 1 to 5.");
+            errors.push("Rating must be an integer from 1 to 5.");
         }
 
-        setErrors(newErrors);
+        setErrors(errors);
     }, [review, stars]);
 
 
@@ -72,13 +71,10 @@ function CreateReviewForm() {
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
-    useEffect(() => {
-        dispatch(getBusinessReviewsThunk(businessId)).then(() => setIsLoaded(true))
-    }, [dispatch, businessId])
 
-    // if (!getAllReviewArr.length) {
-    //     return null
-    // }
+    useEffect(() => {
+        dispatch(getBusinessReviewsThunk(businessId))
+    }, [dispatch, businessId])
 
 
     const onSubmit = async (e) => {
@@ -96,6 +92,7 @@ function CreateReviewForm() {
             history.push(`/businesses/${businessId}`);
         }
     };
+
 
     const ratingCount = (int) => {
         let ratings = []
@@ -119,20 +116,25 @@ function CreateReviewForm() {
         })
     }
 
+
     const errorList = errors.map((error) => (
         <p className='create-review-single-error' key={error}>{error}</p>
     ))
+
 
     return (
         isLoaded && (
             <div className="create-review-container">
                 <div className="create-review-wrapper">
                     <div className="create-review-container-left">
-                        <NavLink className='back-to-business' to={`/businesses/${businessId}`}>
-                            back to&nbsp;<div style={{color:'#7eb312'}}>{currBusiness.name}</div>
-                        </NavLink>
+                        <div className='back-to-business'>
+                            <NavLink to={`/businesses/${businessId}`}>
+                                <div className="back-to">back to</div><div className="currBus-name">{currBusiness.name}</div>
+                            </NavLink>
+                        </div>
+
                         <div className="create-review-header-container">
-                            <div style={{ fontSize: '30px' }}>Create a Review</div>
+                            <div className="create-review-form-title">Create a Review</div>
                             <div>Create a review by filling out the inputs below.</div>
                         </div>
                         <div className="create-review-errors">
@@ -157,7 +159,7 @@ function CreateReviewForm() {
                                         {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
                                     </div>
                                 </div>
-                                <div style={{ fontSize: '15px' }}>Select your rating</div>
+                                <div style={{ fontSize: '20px' }}>Select your rating</div>
                             </div>
                             <div className="create-review-input-container">
                                 <div className='create-review-input-title'>Review:</div>
@@ -198,8 +200,10 @@ function CreateReviewForm() {
                                                                     alt={imgNotFound}
                                                                     onError={e => { e.currentTarget.src = imgNotFound }}
                                                                 ></img>
-                                                                {review.userId === user.id ? user.first_name : ''}&nbsp;
-                                                                {review.userId === user.id ? user.last_name : ''}
+                                                                <div className="create-review-username">
+                                                                    {review.userId === user.id ? user.first_name : ''}&nbsp;
+                                                                    {review.userId === user.id ? user.last_name : ''}
+                                                                </div>
                                                             </div>) : ''}
                                                         </>
                                                     )

@@ -58,7 +58,7 @@ const ProfileButton = () => {
                     {sessionUser && (
                         <div className="profile-list">
                             <div className="user-name-li">
-                                Hello&nbsp;<div style={{color:'#7eb312'}}>{sessionUser.username}</div>
+                                Hello&nbsp;<div className='drop-down-username'>{sessionUser.username}</div>
                             </div>
                             <div className="hover-link logout-li" onClick={logout}>
                                 Log Out

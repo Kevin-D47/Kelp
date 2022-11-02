@@ -34,6 +34,14 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
             errors.push("Please write a review.");
         }
 
+        if (review.length > 1000) {
+            errors.push("Review cannot be over 1000 characters long");
+        }
+
+        if (!stars) {
+            errors.push("Please provide a rating.");
+        }
+
         if (stars < 1 || stars > 5) {
             errors.push("Rating must be an integer from 1 to 5.");
         }

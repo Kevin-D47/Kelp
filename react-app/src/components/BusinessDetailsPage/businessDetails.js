@@ -195,7 +195,7 @@ const BusinessDetails = () => {
                                                         onError={e => { e.currentTarget.src = imgNotFound }}
                                                     ></img>
                                                     <div>
-                                                        <div style={{ fontWeight: 'bold', fontSize: '20px' }}>
+                                                        <div className='business-details-owner-name' style={{ fontWeight: 'bold', fontSize: '20px' }}>
                                                             {currBusiness.userId === user.id ? user.first_name : ''}&nbsp;
                                                             {currBusiness.userId === user.id ? user.last_name : ''}
                                                         </div>
@@ -207,7 +207,7 @@ const BusinessDetails = () => {
                                         )
                                     })}
                                 </div>
-                                <div>{currBusiness.description}</div>
+                                <div className='business-details-description'>{currBusiness.description}</div>
                             </div>
                             <div className='reviews-container'>
                                 <h2>Recommended Reviews</h2>
@@ -251,7 +251,9 @@ const BusinessDetails = () => {
 
                                 <div className='directions-title'>Get Directions</div>
                                 <div className='details-location'>
-                                    {currBusiness.address} {currBusiness.city}, {currBusiness.state} {currBusiness.zip}
+                                    <div className='business-address'>
+                                        {currBusiness.address} {currBusiness.city}, {currBusiness.state} {currBusiness.zip}
+                                    </div>
                                     <img className='phone-sign-icon' src={directionIcon}></img>
                                 </div>
                             </div>

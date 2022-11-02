@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom';
+
 import { signUp } from '../../store/session';
+
+import signUpImage from '../../icons/login-signup-img.png';
+
 import "./SignUpForm.css";
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const sessionUser = useSelector(state => state.session.user);
+
   const [username, setUsername] = useState('');
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
@@ -13,17 +21,54 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
 
-  const dispatch = useDispatch();
+  const [errors, setErrors] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  useEffect(() => {
+    let errors = [];
+
+    if (!first_name) errors.push("Please provide a first name");
+    if (first_name.length > 50) errors.push("Username cannot be over 50 characters long")
+    if (!last_name) errors.push("Please provide a last name");
+    if (last_name.length > 50) errors.push("Username cannot be over 50 characters long")
+    if (!username) errors.push("Please provide a username");
+    if (username.length > 50) errors.push("Username cannot be over 50 characters long")
+    if (!email) errors.push("Please provide a email");
+    if (!password.length) errors.push("Password is required");
+    if (password.length < 5 || password.length > 30) errors.push("Password must be between 5 to 30 characters")
+    if (!repeatPassword.length) errors.push("Please confirm the password")
+    // if (password !== repeatPassword) errors.push("Passwords do not match");
+
+    setErrors(errors)
+
+  }, [username, first_name, last_name, password, repeatPassword, email])
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
+    setHasSubmitted(true);
+
+    if (errors.length > 0) {
+      return alert(
+        "There was an error with your submission, Please recheck your inputs"
+      );
+    }
+
+    if (!email.includes("@")) {
+      return setErrors(["Please enter a valid email address"]);
+    }
+
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, first_name, last_name, email, profileImageUrl, password));
+      const data = await dispatch(
+        signUp(username, first_name, last_name, email, profileImageUrl, password)
+      );
       if (data) {
         setErrors(data)
       }
+    } else {
+      return setErrors(['Passwords do not match'])
     }
   };
 
@@ -55,7 +100,7 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  if (user) {
+  if (sessionUser) {
     return <Redirect to='/restaurants' />;
   }
 
@@ -63,13 +108,13 @@ const SignUpForm = () => {
     <div className='signup-form-container'>
       <div className='signup-form-wrapper'>
         <div className='signup-form-left'>
-          <h2 style={{ color: '#d32323' }}>Sign Up for Kelp</h2>
+          <h2 style={{ color: '#7db40f' }}>Sign Up for Kelp</h2>
           <div className='signup-message'>
             <div style={{ fontWeight: "500" }}>Connect with great local seafood</div>
           </div>
           <form className='signup-form-inputs' onSubmit={onSignUp}>
             <div className='signup-form-errors'>
-              {errors.map((error, ind) => (
+              {hasSubmitted && errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
             </div>
@@ -82,7 +127,7 @@ const SignUpForm = () => {
                   onChange={updateFirstName}
                   value={first_name}
                   autoComplete="first_name"
-                  // required={true}
+                // required={true}
                 ></input>
               </div>
               <div className='signup-input-field-first-last' >
@@ -93,7 +138,7 @@ const SignUpForm = () => {
                   autoComplete="last_name"
                   onChange={updateLastName}
                   value={last_name}
-                  // required={true}
+                // required={true}
                 ></input>
               </div>
             </div>
@@ -141,20 +186,27 @@ const SignUpForm = () => {
                 placeholder='Confirm Password'
                 onChange={updateRepeatPassword}
                 value={repeatPassword}
-                // required={true}
+              // required={true}
               ></input>
             </div>
-            <button className='signup-form-bttn' type='submit'>Sign Up</button>
-            <div className='signup-form-login-message'>
-            <div style={{color: 'gray'}}>Already on Kelp?</div>
-            <div>
-              <NavLink className='new-to-kelp-link' to='/login'>Log in</NavLink>
+            <div className='signup-form-bttn-container'>
+              <button
+                className='signup-form-bttn'
+                type='submit'
+                disabled={hasSubmitted && errors.length > 0}
+              >Sign Up
+              </button>
             </div>
-          </div>
+            <div className='signup-form-login-message'>
+              <div style={{ color: 'gray' }}>Already on Kelp?</div>
+              <div>
+                <NavLink className='new-to-kelp-link' to='/login'>Log in</NavLink>
+              </div>
+            </div>
           </form>
         </div>
         <div className='signup-form-right'>
-          <img className='signup-form-pic' src='https://s3-media0.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png'></img>
+          <img className='signup-form-pic' src={signUpImage}></img>
         </div>
       </div>
     </div>

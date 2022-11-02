@@ -34,7 +34,7 @@ ul.profile-list {
     flex-direction: column;
     position: absolute;
     width: 12rem;
-    height: 5rem;
+    height: 7rem;
     background-color: white;
     box-shadow: 0px 0px 6px rgb(195, 195, 195);
     top: 80%;
@@ -76,4 +76,10 @@ ul.profile-list {
     padding-bottom: 5px;
     width: 100%;
     opacity: 0.8;
+}
+
+.drop-down-username{
+    color: #7eb312;
+    width: 10rem;
+    word-wrap: break-word;
 }

@@ -317,3 +317,18 @@
     height: 50px;
     border-radius: 5px;
 }
+
+.business-details-owner-name{
+    width: 32rem;
+    word-wrap: break-word;
+}
+
+.business-details-description{
+    width: 40rem;
+    word-wrap: break-word;
+}
+
+.business-address{
+    width: 16rem;
+    word-wrap: break-word;
+}

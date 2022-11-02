@@ -80,10 +80,14 @@
 
 .restraunt-location{
     color: black;
+    width: 35rem;
+    word-wrap: break-word;
 }
 
 .restraunt-description{
     color: gray;
+    width: 30rem;
+    word-wrap: break-word;
 }
 
 .ratingSum-hide{

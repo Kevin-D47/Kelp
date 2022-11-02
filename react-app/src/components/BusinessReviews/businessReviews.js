@@ -84,8 +84,10 @@ const BusinessReviews = ({ businessId }) => {
                                                             alt={imgNotFound}
                                                             onError={e => { e.currentTarget.src = imgNotFound }}
                                                         ></img>
-                                                        {review.userId === user.id ? user.first_name : ''}&nbsp;
-                                                        {review.userId === user.id ? user.last_name : ''}
+                                                        <div className='single-review-username'>
+                                                            {review.userId === user.id ? user.first_name : ''}&nbsp;
+                                                            {review.userId === user.id ? user.last_name : ''}
+                                                        </div>
                                                     </div>) : ''}
                                                 </>
                                             )

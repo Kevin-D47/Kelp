@@ -91,7 +91,7 @@ DATABASE_URL=sqlite:///dev.db
 * Logged-in users can delete their own Reviews.
 * All users can see how many total Reviews/Ratings are on a Business.
 
-### 4. Images
+### 4. Images (not yet implemented)
 * All users can get all Images for a Business on its details page.
 * Logged-in users can post a Image.
 * Logged-in users can delete their own Images.

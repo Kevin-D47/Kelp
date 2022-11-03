@@ -54,7 +54,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
         if (!zip || zip.length > 5 || zip.length < 5) errors.push("Please provide a valid 5-digit zip code")
         if (!phone || phone.length > 10 || phone.length < 10) errors.push("Please provide a valid 10-digit phone number");
         if (!description) errors.push("Please provide a description");
-        if (description.length > 600) errors.push("State cannot be over 600 characters long");
+        if (description.length > 600) errors.push("Description cannot be over 600 characters long");
         if (!price) errors.push("Please provide a price range");
         if (!previewImageUrl) errors.push("Please provide a image");
 

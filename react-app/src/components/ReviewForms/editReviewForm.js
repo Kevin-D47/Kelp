@@ -30,7 +30,7 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
     useEffect(() => {
         const errors = [];
 
-        if (review.length <= 0) {
+        if (!review) {
             errors.push("Please write a review.");
         }
 
@@ -40,10 +40,6 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
 
         if (!stars) {
             errors.push("Please provide a rating.");
-        }
-
-        if (stars < 1 || stars > 5) {
-            errors.push("Rating must be an integer from 1 to 5.");
         }
 
         setErrors(errors);

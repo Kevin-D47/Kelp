@@ -7,7 +7,7 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     businessId = db.Column(db.Integer, db.ForeignKey("businesses.id"), nullable=False)
-    review = db.Column(db.String(800))
+    review = db.Column(db.String(1000))
     stars = db.Column(db.Integer, nullable=False)
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

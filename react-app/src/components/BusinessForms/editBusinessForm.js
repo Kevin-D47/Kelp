@@ -195,7 +195,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                 // required
                                 />
                             </div>
-                            <div>
+                            <div className="edit-bus-form-bttns-container">
                                 <button
                                     id="edit-bus-form-bttn"
                                     className="create-bus-form-bttn"
@@ -204,6 +204,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                     disabled={hasSubmitted && errors.length > 0}
                                 >Submit Business
                                 </button>
+                                <button className="delete-business-button-no" onClick={() => setShowUpdateBusiness(false)}>Cancel</button>
                             </div>
                         </div>
 

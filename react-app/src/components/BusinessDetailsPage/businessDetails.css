@@ -26,7 +26,7 @@
     flex-direction: column;
     position: relative;
     z-index: 3;
-    margin-top: -11.5rem;
+    margin-top: -14rem;
     margin-left: 10rem;
 }
 
@@ -84,7 +84,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin-top: 1.5rem;
+    margin-top: 4.5rem;
 }
 
 .business-details-bttm-wrapper{
@@ -330,5 +330,10 @@
 
 .business-address{
     width: 16rem;
+    word-wrap: break-word;
+}
+
+.business-details-bus-name{
+    width: 80rem;
     word-wrap: break-word;
 }

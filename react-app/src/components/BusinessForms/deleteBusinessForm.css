@@ -37,7 +37,7 @@
 .delete-business-button-no {
     height: 2.5rem;
     width: 7rem;
-    color: black;
+    color: gray;
     background-color: white;
     border: 2px solid lightgrey;
     border-radius: 5px;

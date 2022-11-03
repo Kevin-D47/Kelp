@@ -7,7 +7,7 @@ import { getOneBusinessThunk } from '../../store/businesses'
 import { getBusinessReviewsThunk, } from '../../store/reviews'
 import { getAllUsersThunk } from '../../store/users'
 
-import imgNotFound from '../../icons/image-not-found.png'
+import brokenImg from '../../icons/broken-img-icon.png'
 import starChecked from '../../icons/rating-checked.png'
 import starUnchecked from '../../icons/rating-unchecked.png'
 
@@ -197,8 +197,8 @@ function CreateReviewForm() {
                                                                 <img
                                                                     className='reviewUserPic'
                                                                     src={review.userId === user.id ? user.profileImageUrl : ''}
-                                                                    alt={imgNotFound}
-                                                                    onError={e => { e.currentTarget.src = imgNotFound }}
+                                                                    alt={brokenImg}
+                                                                    onError={e => { e.currentTarget.src = brokenImg }}
                                                                 ></img>
                                                                 <div className="create-review-username">
                                                                     {review.userId === user.id ? user.first_name : ''}&nbsp;

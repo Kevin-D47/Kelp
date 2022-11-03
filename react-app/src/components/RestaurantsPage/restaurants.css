@@ -68,6 +68,8 @@
     font-weight: 550;
     color: black;
     text-decoration: none;
+    width: 28rem;
+    word-wrap: break-word;
 }
 
 .restraunt-info-container{

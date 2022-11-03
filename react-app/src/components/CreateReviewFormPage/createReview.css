@@ -181,6 +181,8 @@
 .create-review {
     font-size: 16px;
     margin-top: 10px;
+    width: 25rem;
+    word-wrap: break-word;
 }
 
 .star-wrapper {

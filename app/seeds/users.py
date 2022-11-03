@@ -13,7 +13,7 @@ def seed_users():
     )
 
     user_2 = User(
-        username='aquaman',
+        username='Aquaman',
         first_name='Aqua',
         last_name='Man',
         email='aquaman@gmail.com',
@@ -22,7 +22,7 @@ def seed_users():
     )
 
     user_3 = User(
-        username='spongebob',
+        username='Spongebob',
         first_name='SpongeBob',
         last_name='SquarePants',
         email='spongebob@gmail.com',
@@ -31,16 +31,16 @@ def seed_users():
     )
 
     user_4 = User(
-        username='Magikarp',
-        first_name='MagiKarp',
-        last_name='Pokemon',
-        email='magikarp@gmail.com',
-        profileImageUrl="https://i.kym-cdn.com/entries/icons/original/000/002/819/karp.jpg",
+        username='LittleMermaid',
+        first_name='Princess',
+        last_name='Ariel',
+        email='arielp@gmail.com',
+        profileImageUrl="https://lumiere-a.akamaihd.net/v1/images/image_a072d0f3.jpeg?region=0,0,629,354",
         password='password'
     )
 
     user_5 = User(
-        username='KisameH',
+        username='Kisame',
         first_name='Kisame',
         last_name='Hoshigaki',
         email='kisame@gmail.com',
@@ -85,7 +85,17 @@ def seed_users():
     )
 
 
-    users = [demo, user_2, user_3, user_4, user_5, user_6, user_7, user_8, user_9]
+    user_10 = User(
+        username='Mr.Krabs',
+        first_name='Eugene',
+        last_name='Krabs',
+        email='mrkrabs@gmail.com',
+        profileImageUrl="https://i.pinimg.com/originals/1b/2c/77/1b2c77099fb8c4484f6a2b3f2b1e735c.jpg",
+        password='password'
+    )
+
+
+    users = [demo, user_2, user_3, user_4, user_5, user_6, user_7, user_8, user_9, user_10]
     for user in users:
         db.session.add(user)
         db.session.commit()

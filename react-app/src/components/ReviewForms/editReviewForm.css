@@ -94,8 +94,9 @@
 
 .edit-review-submit-container{
     display: flex;
-    justify-content: left;
-    width: 21.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 26rem;
     margin-bottom: 20px;
 }
 
@@ -109,6 +110,7 @@
     font-size: 1rem;
     font-weight: bold;
     margin-top: 10px;
+    margin-left: 25px;
 }
 
 .edit-review-form-button:disabled{
@@ -123,4 +125,11 @@
 
 .edit-review-form-button:active {
     transform: scale(.98);
+}
+
+#edit-review-cancel-button{
+    height: 2.5rem;
+    width: 10rem;
+    margin-top: 10px;
+    margin-left: 60px;
 }

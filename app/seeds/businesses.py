@@ -4,7 +4,7 @@ from app.models import Business, db
 def seed_businesses():
 
     business_1 = Business(
-        userId=2,
+        userId=4,
         address='4567 Broadway',
         city='New York City',
         state='New York',
@@ -32,7 +32,7 @@ def seed_businesses():
     )
 
     business_3 = Business(
-        userId=4,
+        userId=2,
         address='3942 Santa Monica Pier',
         city='Venice',
         state='California',
@@ -61,7 +61,7 @@ def seed_businesses():
 
 
     business_5 = Business(
-        userId=6,
+        userId=10,
         address='3866 Conch Street',
         city='Bikini Bottom',
         state='Hawaii',

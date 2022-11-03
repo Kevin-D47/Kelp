@@ -53,3 +53,9 @@
 #edit-bus-form-bttn{
     margin-top: -1px;
 }
+
+.edit-bus-form-bttns-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -63,6 +63,8 @@
 .review {
     font-size: 16px;
     margin-top: 10px;
+    width: 40rem;
+    word-wrap: break-word;
 }
 
 .edit-review-bttn {

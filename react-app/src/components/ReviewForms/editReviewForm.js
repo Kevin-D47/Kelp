@@ -120,6 +120,7 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
                         >
                             Submit Review
                         </button>
+                        <button id='edit-review-cancel-button' className="delete-business-button-no" onClick={() => setShowUpdateReview(false)}>Cancel</button>
                     </div>
                 </form>
             </div>

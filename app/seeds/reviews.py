@@ -3,11 +3,11 @@ from app.models import Review, db
 def seed_reviews():
     review_1 = Review(userId=8, businessId= 1, review="Nice spot for a date night", stars=5)
     review_2 = Review(userId=6, businessId= 1, review="I think this was a nice experince but I forgot", stars=4)
-    review_3 = Review(userId=4, businessId= 1, review="Very fancy and nice but a little too expensive", stars=4)
-    review_4 = Review(userId=3, businessId= 2, review="Nice atmosphere and vibes but not sure about the food", stars=3)
-    review_5 = Review(userId=5, businessId= 2, review="Great food and great live music", stars=4)
-    review_6 = Review(userId=9, businessId= 2, review="I love the live music food was good as well", stars=4)
-    review_7 = Review(userId=2, businessId= 3, review="Great place for healthy dose of protien", stars=4)
+    review_3 = Review(userId=10, businessId= 1, review="Very fancy and nice but a little too expensive", stars=4)
+    review_4 = Review(userId=5, businessId= 2, review="Great food and great live music", stars=4)
+    review_5 = Review(userId=9, businessId= 2, review="The food was good as but music was tastless", stars=3)
+    review_6 = Review(userId=8, businessId= 2, review="Good food reminds me of home", stars=5)
+    review_7 = Review(userId=2, businessId= 2, review="Great place good and banging live bands", stars=4)
     review_8 = Review(userId=9, businessId= 3, review="Great hardy meals to build strength", stars=5)
     review_9 = Review(userId=8, businessId= 3, review="I like me some steamy mussles", stars=4)
     review_10 = Review(userId=3, businessId= 4, review="Pretty neat spot and experince to have", stars=4)
@@ -21,7 +21,7 @@ def seed_reviews():
     review_18 = Review(userId=6, businessId= 6, review="I forgot but I think they were mean", stars=2)
     review_19 = Review(userId=2, businessId= 7, review="Very intresting food and good size portions", stars=3)
     review_20 = Review(userId=4, businessId= 7, review="The dishes are unique and tasty", stars=4)
-    review_21 = Review(userId=8, businessId= 7, review="Good food reminds me of home", stars=3)
+    review_21 = Review(userId=3, businessId= 7, review="The restraunt decor is old, but the food is fun", stars=4)
 
 
     reviews = [

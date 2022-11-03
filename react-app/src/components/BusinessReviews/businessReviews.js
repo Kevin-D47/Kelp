@@ -8,7 +8,7 @@ import { Modal } from '../../context/Modal';
 import EditReviewForm from '../ReviewForms/editReviewForm';
 import DeleteReviewForm from '../ReviewForms/deleteReviewForm';
 
-import imgNotFound from '../../icons/image-not-found.png'
+import brokenImg from '../../icons/broken-img-icon.png'
 import editButton from '../../icons/edit-icon.png'
 import deleteButton from '../../icons/delete-icon.png'
 import starChecked from '../../icons/rating-checked.png'
@@ -81,8 +81,8 @@ const BusinessReviews = ({ businessId }) => {
                                                         <img
                                                             className='reviewUserPic'
                                                             src={review.userId === user.id ? user.profileImageUrl : ''}
-                                                            alt={imgNotFound}
-                                                            onError={e => { e.currentTarget.src = imgNotFound }}
+                                                            alt={brokenImg}
+                                                            onError={e => { e.currentTarget.src = brokenImg }}
                                                         ></img>
                                                         <div className='single-review-username'>
                                                             {review.userId === user.id ? user.first_name : ''}&nbsp;

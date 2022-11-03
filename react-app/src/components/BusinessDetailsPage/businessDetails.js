@@ -13,6 +13,7 @@ import { getBusinessReviewsThunk } from '../../store/reviews';
 import { getAllUsersThunk } from '../../store/users'
 
 import imgNotFound from '../../icons/image-not-found.png'
+import brokenImg from '../../icons/broken-img-icon.png'
 import phoneIcon from "../../icons/phone-icon.png";
 import directionIcon from "../../icons/direction-icon.png";
 import starIcon from "../../icons/star-icon.png";
@@ -67,7 +68,6 @@ const BusinessDetails = () => {
             setDisableCreateReview(false)
         }
     }, [sessionUser, sessionUserReview])
-
 
 
     let phonesString;
@@ -137,7 +137,7 @@ const BusinessDetails = () => {
                     />
                 </div>
                 <div className='business-details-header-container'>
-                    <div style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
+                    <div className='business-details-bus-name' style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
                     <div className='business-details-header-info'>
                         <div className='business-details-header-info-inner'>
                             {!avgRating ? <div>{emptyRating}</div> : <div className='details-overall-rating'>{ratingCount(roundedAvgRating)}</div>}
@@ -191,8 +191,8 @@ const BusinessDetails = () => {
                                                     <img
                                                         className='reviewUserPic'
                                                         src={currBusiness.userId === user.id ? user.profileImageUrl : ''}
-                                                        alt={imgNotFound}
-                                                        onError={e => { e.currentTarget.src = imgNotFound }}
+                                                        alt={brokenImg}
+                                                        onError={e => { e.currentTarget.src = brokenImg }}
                                                     ></img>
                                                     <div>
                                                         <div className='business-details-owner-name' style={{ fontWeight: 'bold', fontSize: '20px' }}>

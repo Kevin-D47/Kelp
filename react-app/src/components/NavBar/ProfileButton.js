@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
-import imgNotFound from '../../icons/image-not-found.png'
+import brokenImg from '../../icons/broken-img-icon.png'
 
 import "./ProfileButton.css";
 
@@ -49,8 +49,8 @@ const ProfileButton = () => {
                 <img
                     className="profile-icon"
                     src={sessionUser.profileImageUrl}
-                    alt={imgNotFound}
-                    onError={e => { e.currentTarget.src = imgNotFound }}
+                    alt={brokenImg}
+                    onError={e => { e.currentTarget.src = brokenImg }}
                 />
             </div>
             {showMenu && (

@@ -51,8 +51,8 @@ function CreateReviewForm() {
             errors.push("Please write a review.");
         }
 
-        if (review.length > 1000) {
-            errors.push("Review cannot be over 1000 characters long");
+        if (review.length > 800) {
+            errors.push("Review cannot be over 800 characters long");
         }
 
         if (!stars) {

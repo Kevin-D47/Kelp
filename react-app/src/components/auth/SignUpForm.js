@@ -29,13 +29,13 @@ const SignUpForm = () => {
     let errors = [];
 
     if (!first_name) errors.push("Please provide a first name");
-    if (first_name.length > 50) errors.push("First name cannot be over 40 characters long")
+    if (first_name.length > 40) errors.push("First name cannot be over 40 characters long")
     if (!last_name) errors.push("Please provide a last name");
-    if (last_name.length > 50) errors.push("Last name cannot be over 40 characters long")
+    if (last_name.length > 40) errors.push("Last name cannot be over 40 characters long")
     if (!username) errors.push("Please provide a username");
-    if (username.length > 50) errors.push("Username cannot be over 40 characters long")
+    if (username.length > 40) errors.push("Username cannot be over 40 characters long")
     if (!email) errors.push("Please provide a email");
-    if (email.length > 255) errors.push("Email cannot be over 255 characters long")
+    if (email.length > 250) errors.push("Email cannot be over 255 characters long")
     if (!password.length) errors.push("Password is required");
     if (password.length < 5 || password.length > 30) errors.push("Password must be between 5 to 30 characters")
     if (!repeatPassword.length) errors.push("Please confirm the password")

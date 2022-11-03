@@ -159,7 +159,16 @@ const BusinessDetails = () => {
                     <div className='business-details-bttm-wrapper'>
                         <div className='business-details-bttm-left'>
                             <div className='upload-bttn-container'>
-                                {disableCreateReview === false && sessionUser && (
+                                {sessionUser.id === currBusiness.userId ? (
+                                    <div className='review-diabled-container'>
+                                        <div className='add-review-disable-bttn'>
+                                            <img className='star-icon' src={starIcon}></img>
+                                            <div>Write a review</div>
+                                        </div>
+                                        <div style={{ fontSize: '12.5px', color: 'red' }}>Owners cannnot review their own business</div>
+                                    </div>
+                                ) :
+                                disableCreateReview === false && sessionUser && (
                                     <Link to={`/businesses/${businessId}/reviews/new`}>
                                         <button className='review-bttn'>
                                             <img className='star-icon' src={starIcon}></img>
@@ -173,9 +182,10 @@ const BusinessDetails = () => {
                                             <img className='star-icon' src={starIcon}></img>
                                             <div>Write a review</div>
                                         </div>
-                                        <div style={{ fontSize: '12.5px', color: 'gray' }}>You have already made a review</div>
+                                        <div style={{ fontSize: '12.5px', color: 'red' }}>You have already made a review</div>
                                     </div>
                                 )}
+
                                 {/* <button className='add-photo-bttn'>
                                     <img className='camera-icon' src={cameraIcon}></img>
                                     Add photo

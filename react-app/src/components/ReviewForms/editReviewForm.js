@@ -30,7 +30,7 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
     useEffect(() => {
         const errors = [];
 
-        if (!review) {
+        if (!review || !review.split(" ").join("").length) {
             errors.push("Please write a review.");
         }
 

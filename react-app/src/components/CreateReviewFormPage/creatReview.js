@@ -47,7 +47,7 @@ function CreateReviewForm() {
     useEffect(() => {
         const errors = [];
 
-        if (!review) {
+        if (!review || !review.split(" ").join("").length) {
             errors.push("Please write a review.");
         }
 
@@ -117,7 +117,7 @@ function CreateReviewForm() {
         <p className='create-review-single-error' key={error}>{error}</p>
     ))
 
-    
+
     return (
         isLoaded && (
             <div className="create-review-container">

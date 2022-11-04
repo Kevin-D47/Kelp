@@ -41,19 +41,19 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
     useEffect(() => {
         const errors = [];
 
-        if (!name) errors.push("Please provide a business name");
+        if (!name || !name.split(" ").join("").length) errors.push("Please provide a business name");
         if (name.length > 40) errors.push("Business name cannot be over 40 characters long");
-        if (!address) errors.push("Please provide an address");
+        if (!address || !address.split(" ").join("").length) errors.push("Please provide an address");
         if (address.length > 90) errors.push("Address cannot be over 90 characters long");
-        if (!city) errors.push("Please provide a city");
+        if (!city || !city.split(" ").join("").length) errors.push("Please provide a city");
         if (city.length > 40) errors.push("City cannot be over 40 characters long");
-        if (!state) errors.push("Please provide a state");
+        if (!state || !state.split(" ").join("").length) errors.push("Please provide a state");
         if (state.length > 40) errors.push("State cannot be over 40 characters long");
-        if (!country) errors.push("Please provide a country");
+        if (!country || !country.split(" ").join("").length) errors.push("Please provide a country");
         if (country.length > 40) errors.push("Country cannot be over 40 characters long");
         if (!zip || zip.length > 5 || zip.length < 5) errors.push("Please provide a valid 5-digit zip code")
         if (!phone || phone.length > 10 || phone.length < 10) errors.push("Please provide a valid 10-digit phone number");
-        if (!description) errors.push("Please provide a description");
+        if (!description || !description.split(" ").join("").length) errors.push("Please provide a description");
         if (description.length > 600) errors.push("Description cannot be over 600 characters long");
         if (!price) errors.push("Please provide a price range");
         if (!previewImageUrl) errors.push("Please provide a image");

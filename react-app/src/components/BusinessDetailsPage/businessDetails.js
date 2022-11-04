@@ -124,6 +124,9 @@ const BusinessDetails = () => {
         <img className='rating-details-showcase' src={starUnchecked}></img>
     </div>
 
+    if(!sessionUser){
+        history.push('/404')
+    }
 
     return (
         isLoaded && (

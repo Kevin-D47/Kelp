@@ -1,0 +1,59 @@
+
+.login-container-PNF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.inner-login-PNF {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 30rem;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    padding: 50px;
+}
+
+.logo-PNF{
+    width: 50px;
+    height: 80px;
+}
+
+.title-PNF{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.link-error-text{
+    font-size: 20px;
+    color: gray;
+}
+
+
+.link-error-text:hover{
+    text-decoration: underline;
+    color: #7eb312;
+}
+
+.login-bttn-PNF{
+    width: 150px;
+    border: 2px solid #7eb312;
+    border-radius: 5px;
+    padding: 8px;
+    background: #7eb312;
+    color: white;
+    font-size: 16px;
+}
+
+.login-bttn-PNF:hover {
+    cursor: pointer;
+    border: 2px solid #84bd11;
+    background: #84bd11;
+}
+
+.login-bttn-PNF:active {
+    transform: scale(.98);
+}

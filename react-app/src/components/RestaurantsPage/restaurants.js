@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllBusinessesThunk, getOneBusinessThunk } from "../../store/businesses";
-import { getBusinessReviewsThunk } from "../../store/reviews";
-import { NavLink } from 'react-router-dom'
+import { getAllBusinessesThunk} from "../../store/businesses";
+import { NavLink, useHistory } from 'react-router-dom'
 
 import imgNotFound from '../../icons/image-not-found.png'
 import starChecked from '../../icons/rating-checked.png'
@@ -14,6 +13,9 @@ import './restaurants.css'
 const GetAllBusinesses = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory()
+
+    const sessionUser = useSelector(state => state.session.user)
 
     const [isLoaded, setIsLoaded] = useState(false)
     let [ratingSum, setRatingSum] = useState(0);
@@ -58,6 +60,10 @@ const GetAllBusinesses = () => {
         <img className='rating-restraunts-showcase' src={starUnchecked}></img>
         <img className='rating-restraunts-showcase' src={starUnchecked}></img>
     </div>
+
+    if (!sessionUser) {
+        history.push('/404')
+    }
 
     return (
         isLoaded && (

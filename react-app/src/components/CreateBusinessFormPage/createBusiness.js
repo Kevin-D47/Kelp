@@ -101,7 +101,6 @@ const CreateBusinessForm = () => {
                                     placeholder=" Business Name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                // required
                                 />
                                 <input
                                     className="create-bus-input-field"
@@ -109,7 +108,7 @@ const CreateBusinessForm = () => {
                                     placeholder="Address"
                                     value={address}
                                     onChange={(e) => setAddress(e.target.value)}
-                                // required
+
                                 />
                             </div>
                             <div className="city-state-zip">
@@ -119,7 +118,6 @@ const CreateBusinessForm = () => {
                                     placeholder="City"
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
-                                // required
                                 />
                                 <input
                                     className="state-input-field"
@@ -127,15 +125,14 @@ const CreateBusinessForm = () => {
                                     placeholder="State"
                                     value={state}
                                     onChange={(e) => setState(e.target.value)}
-                                // required
                                 />
                                 <input
                                     className="zip-input-field"
                                     type="number"
+                                    min='0'
                                     placeholder="Zip Code"
                                     value={zip}
                                     onChange={(e) => setZip(e.target.value)}
-                                // required
                                 />
                             </div>
                             <div className="create-bus-input-field">
@@ -144,14 +141,13 @@ const CreateBusinessForm = () => {
                                     placeholder="Country"
                                     value={country}
                                     onChange={(e) => setCountry(e.target.value)}
-                                // required
                                 />
                                 <input
                                     type="number"
+                                    min='0'
                                     placeholder="Phone Number"
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
-                                // required
                                 />
                             </div>
                             <textarea
@@ -160,7 +156,6 @@ const CreateBusinessForm = () => {
                                 placeholder="Description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                            // required
                             />
                             <select
                                 className="price-input-field"
@@ -185,7 +180,6 @@ const CreateBusinessForm = () => {
                                     placeholder="Image URL"
                                     value={previewImageUrl}
                                     onChange={(e) => setPreviewImageUrl(e.target.value)}
-                                // required
                                 />
                             </div>
                         </div>

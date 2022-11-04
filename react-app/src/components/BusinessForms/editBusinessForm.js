@@ -106,14 +106,12 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                     placeholder="Name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                // required
                                 />
                                 <input
                                     type="text"
                                     placeholder="Address"
                                     value={address}
                                     onChange={(e) => setAddress(e.target.value)}
-                                // required
                                 />
                             </div>
                             <div className="city-state-zip">
@@ -123,7 +121,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                     placeholder="City"
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
-                                // required
+
                                 />
                                 <input
                                     className="state-input-field"
@@ -131,43 +129,37 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                     placeholder="State"
                                     value={state}
                                     onChange={(e) => setState(e.target.value)}
-                                // required
+
                                 />
                                 <input
                                     className="zip-input-field"
                                     type="number"
+                                    min='0'
                                     placeholder="Zip Code"
                                     value={zip}
                                     onChange={(e) => setZip(e.target.value)}
-                                // required
                                 />
                             </div>
-
                             <div className="create-bus-input-field">
                                 <input
                                     type="text"
                                     placeholder="Country"
                                     value={country}
                                     onChange={(e) => setCountry(e.target.value)}
-                                // required
                                 />
-
                                 <input
                                     type="number"
                                     placeholder="Phone Number"
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
-                                // required
                                 />
                             </div>
-
                             <textarea
                                 className="description-input-field"
                                 type="text"
                                 placeholder="Description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                            // required
                             />
                             <select
                                 className="price-input-field"
@@ -192,7 +184,6 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                     placeholder="Image URL"
                                     value={previewImageUrl}
                                     onChange={(e) => setPreviewImageUrl(e.target.value)}
-                                // required
                                 />
                             </div>
                             <div className="edit-bus-form-bttns-container">
@@ -200,7 +191,6 @@ const EditBusinessForm = ({ setShowUpdateBusiness }) => {
                                     id="edit-bus-form-bttn"
                                     className="create-bus-form-bttn"
                                     type="submit"
-                                    // onClick={handleSubmit}
                                     disabled={hasSubmitted && errors.length > 0}
                                 >Submit Business
                                 </button>

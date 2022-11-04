@@ -14,6 +14,7 @@ import GetAllBusinesses from './components/RestaurantsPage/restaurants';
 import CreateBusinessForm from './components/CreateBusinessFormPage/createBusiness';
 import BusinessDetails from './components/BusinessDetailsPage/businessDetails';
 import CreateReviewForm from './components/CreateReviewFormPage/creatReview';
+import { PageNotFound } from './components/UnkownPage/pageNotFound';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -64,6 +65,9 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+        <Route>
+          <PageNotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

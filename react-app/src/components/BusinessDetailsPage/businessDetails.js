@@ -152,7 +152,7 @@ const BusinessDetails = () => {
                     </div>
                     <div className='claimed-conatiner'>
                         <img className='check-mark' src={checkMark}></img>
-                        <div>Claimed</div>
+                        <div className='claimed-txt'>Claimed</div>
                     </div>
                 </div>
                 <div className='business-details-bttm-container'>
@@ -165,7 +165,7 @@ const BusinessDetails = () => {
                                             <img className='star-icon' src={starIcon}></img>
                                             <div>Write a review</div>
                                         </div>
-                                        <div style={{ fontSize: '12.5px', color: 'red' }}>Owners cannnot review their own business</div>
+                                        <div style={{ fontSize: '12.5px', color: 'red' }}>Owners cannot review their own business</div>
                                     </div>
                                 ) :
                                 disableCreateReview === false && sessionUser && (

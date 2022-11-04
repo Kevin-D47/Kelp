@@ -18,7 +18,7 @@
     z-index: 1;
     position: relative;
     object-fit: cover;
-    opacity: .6;
+    opacity: .8;
 }
 
 .business-details-header-container {
@@ -44,6 +44,7 @@
     align-items: center;
     gap: 20px;
     padding-top: 15px;
+    text-shadow: 2px 2px 10px black
 }
 
 .claimed-conatiner{
@@ -335,6 +336,11 @@
 }
 
 .business-details-bus-name{
-    width: 80rem;
+    width: 75rem;
     word-wrap: break-word;
+    text-shadow: 2px 2px 10px black
+}
+
+.claimed-txt{
+    text-shadow: 2px 2px 10px black
 }

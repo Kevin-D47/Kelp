@@ -1,12 +1,17 @@
 from datetime import datetime
-from .db import db
+
+# add environment and add_prefix-for_prod to existing import statement
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 
 class Business(db.Model):
     __tablename__ = 'businesses'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     address = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)

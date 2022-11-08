@@ -1,12 +1,17 @@
 from datetime import datetime
-from .db import db
+
+# add environment and add_prefix-for_prod to existing import statement
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Image(db.Model):
     __tablename__ = 'images'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    businessId = db.Column(db.Integer, db.ForeignKey("businesses.id"), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    businessId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
     imgUrl = db.Column(db.String, nullable=False)
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

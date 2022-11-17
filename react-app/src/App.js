@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+// import User from './components/User';
 import { authenticate } from './store/session';
 
 import HomePage from "./components/HomePage/home";
@@ -14,6 +14,7 @@ import GetAllBusinesses from './components/RestaurantsPage/restaurants';
 import CreateBusinessForm from './components/CreateBusinessFormPage/createBusiness';
 import BusinessDetails from './components/BusinessDetailsPage/businessDetails';
 import CreateReviewForm from './components/CreateReviewFormPage/creatReview';
+import User from './components/ProfilePage/user'
 import { PageNotFound } from './components/UnkownPage/pageNotFound';
 
 function App() {

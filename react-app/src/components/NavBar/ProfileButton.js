@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
 import brokenImg from '../../icons/broken-img-icon.png'
@@ -59,6 +59,11 @@ const ProfileButton = () => {
                         <div className="profile-list">
                             <div className="user-name-li">
                                 Hello&nbsp;<div className='drop-down-username'>{sessionUser.username}</div>
+                            </div>
+                            <div>
+                                <NavLink id="you-link" className="ExploreButtonNav" to={`/users/${sessionUser.id}`}>
+                                    About Me
+                                </NavLink>
                             </div>
                             <div className="hover-link logout-li" onClick={logout}>
                                 Log Out

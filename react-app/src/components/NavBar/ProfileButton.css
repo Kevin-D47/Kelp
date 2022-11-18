@@ -44,9 +44,15 @@ ul.profile-list {
     z-index: 4;
 }
 
+.about-me-li {
+    display: flex;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
 .logout-li {
     display: flex;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 16px;
 }
 
@@ -66,14 +72,14 @@ ul.profile-list {
 }
 
 .hover-link {
+    padding: 8px;
     padding-left: 3px;
     cursor: pointer;
 }
 
 .hover-link:hover {
     background-color: rgb(216, 207, 207);
-    margin-bottom: 20px;
-    padding-bottom: 5px;
+    border-radius: 5px;
     width: 100%;
     opacity: 0.8;
 }

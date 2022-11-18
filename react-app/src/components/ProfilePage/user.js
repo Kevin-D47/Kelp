@@ -6,6 +6,8 @@ import { getAllBusinessesThunk } from "../../store/businesses";
 import { getAllReviewsThunk } from "../../store/reviews";
 
 import { Modal } from '../../context/Modal';
+import EditBusinessForm from '../BusinessForms/editBusinessForm';
+import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
 import EditReviewForm from '../ReviewForms/editReviewForm';
 import DeleteReviewForm from '../ReviewForms/deleteReviewForm';
 
@@ -27,6 +29,8 @@ const User = () => {
     const [user, setUser] = useState({});
     const [tab, setTab] = useState(1);
     let [ratingSum, setRatingSum] = useState(0);
+    const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
+    const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
     const [currReview, setCurrReview] = useState(false)
     const [showUpdateReview, setShowUpdateReview] = useState(false)
     const [showDeleteReview, setShowDeleteReview] = useState(false)
@@ -52,7 +56,7 @@ const User = () => {
     const userReviewsArr = allReviewsArr.filter((review) => review.userId == userId);
 
     // console.log('All User Buniesses------',userBusinessesArr )
-    console.log('All User Reviews------', userReviewsArr)
+    // console.log('All User Reviews------', userReviewsArr)
 
     useEffect(() => {
         if (!userId) {
@@ -165,17 +169,39 @@ const User = () => {
                         {userBusinessesArr.map((business) => {
                             return (
                                 <div className="all-restraunts-container" key={business.id}>
-                                    <NavLink className="single-rest-container" to={`/businesses/${business.id}`}>
+                                    <div className="profile-single-rest-container">
                                         <div className="single-rest-container-left">
-                                            <img
-                                                className="restraunt-img"
-                                                src={business.previewImageUrl}
-                                                alt={imgNotFound}
-                                                onError={e => { e.currentTarget.src = imgNotFound }}
-                                            />
+                                            <NavLink to={`/businesses/${business.id}`}>
+                                                <img
+                                                    className="restraunt-img"
+                                                    src={business.previewImageUrl}
+                                                    alt={imgNotFound}
+                                                    onError={e => { e.currentTarget.src = imgNotFound }}
+                                                />
+                                            </NavLink>
                                         </div>
                                         <div className="single-rest-container-right">
-                                            <div className="restraunt-name">{business.name}</div>
+                                            <div className="profile-businesses-title-options">
+                                                <NavLink to={`/businesses/${business.id}`}>
+                                                    <div className="profile-restraunt-name">{business.name}</div>
+                                                </NavLink>
+                                                <div className='viewThisResult'>
+                                                    <div className='business-options-container'>
+                                                        <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateBusiness(true) }}></img>
+                                                        <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteBusiness(true) }}></img>
+                                                        {showUpdateBusiness && (
+                                                            <Modal onClose={() => setShowUpdateBusiness(false)}>
+                                                                <EditBusinessForm businessId={business.id} setShowUpdateBusiness={setShowUpdateBusiness} />
+                                                            </Modal>
+                                                        )}
+                                                        {showDeleteBusiness && (
+                                                            <Modal onClose={() => setShowDeleteBusiness(false)}>
+                                                                <DeleteBusinessForm businessId={business.id} setShowDeleteBusiness={setShowDeleteBusiness} />
+                                                            </Modal>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div className="restraunt-info-container">
                                                 {business.reviews.map((review) => {
                                                     { ratingSum += review.stars }
@@ -190,7 +216,7 @@ const User = () => {
                                             </div>
                                             <div className="restraunt-description">{business.description}</div>
                                         </div>
-                                    </NavLink>
+                                    </div>
                                 </div>
                             )
                         })}
@@ -211,7 +237,7 @@ const User = () => {
                                                                 <NavLink className='profile-review-business-link' to={`/businesses/${business.id}`}>{business.name}</NavLink>
                                                             </div>
                                                             <div className='viewThisResult'>
-                                                                <div className='review-options-container'>
+                                                                <div className='profile-review-options-container'>
                                                                     <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}></img>
                                                                     <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}></img>
                                                                     {showUpdateReview && (
@@ -254,7 +280,6 @@ const User = () => {
             </div>
         </div>
     )
-
 }
 
 export default User;

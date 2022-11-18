@@ -14,10 +14,8 @@ const PRICES = [
     "$$$$"
 ];
 
-const EditBusinessForm = ({ setShowUpdateBusiness }) => {
+const EditBusinessForm = ({ setShowUpdateBusiness, businessId }) => {
     const dispatch = useDispatch()
-
-    const { businessId } = useParams()
 
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id

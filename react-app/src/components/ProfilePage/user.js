@@ -55,9 +55,6 @@ const User = () => {
     const userBusinessesArr = allBusinessesArr.filter((business) => business.userId == userId);
     const userReviewsArr = allReviewsArr.filter((review) => review.userId == userId);
 
-    // console.log('All User Buniesses------',userBusinessesArr )
-    // console.log('All User Reviews------', userReviewsArr)
-
     useEffect(() => {
         if (!userId) {
             return;

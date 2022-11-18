@@ -1,31 +1,48 @@
-.profile-container{
+.profile-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.profile-banner-bg{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 15rem;
-    background-color: #f5f5f5;
-}
-
-.profile-header-container{
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.user-profile-pic{
-    width: 15rem;
-    height: 15rem;
+.profile-banner-bg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 12rem;
+    background-color: #f5f5f5;
+}
+
+.profile-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 35px;
+    margin-top: -8rem;
+    margin-left: -20rem;
+}
+
+.user-profile-pic {
+    width: 13rem;
+    height: 13rem;
     border-radius: 5px;
 }
 
-.user-profile-header-info{
+.user-profile-header-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: -3rem;
+}
+
+.user-profile-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.user-profile-header-info {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -33,23 +50,181 @@
     gap: 15px;
 }
 
-.profile-header-info{
+.profile-header-info {
     display: flex;
     align-items: center;
 }
 
-.business-icon{
+.business-icon {
     width: 26px;
     height: 26px;
+    margin-right: 8px;
 }
 
-.review-icon{
+.review-icon {
     width: 26px;
     height: 26px;
     border-radius: 5px;
+    margin-right: 8px;
 }
 
-.photo-icon{
+.photo-icon {
     width: 26px;
-    height: 26px;
+    height: 23px;
+    margin-right: 8px;
+}
+
+.user-profile-bottom-container {
+    display: flex;
+    width: 63rem;
+    margin-top: 20px;
+}
+
+.user-profile-tabs-container {
+    display: flex;
+    flex-direction: column;
+    width: 13rem;
+    height: 30rem;
+    padding-left: 10px;
+
+}
+
+.user-profile-info-right-container {
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    height: 30rem;
+    margin-left: 20px;
+    margin-top: -4rem;
+}
+
+.user-tabs-title-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.user-tab-buttons-top {
+    border-top: 1px solid lightgray;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+}
+
+.user-tab-buttons-mid {
+    border-top: 1px solid lightgray;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+}
+
+.user-tab-buttons-bottom {
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+}
+
+.user-tab-buttons-top:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+.user-tab-buttons-mid:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+.user-tab-buttons-bottom:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+
+.profile-overview{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 25px;
+}
+
+.profile-overview-name{
+    font-size: 20px;
+    font-weight: bold;
+    color: #7eb312;
+    margin-bottom: 10px;
+}
+
+.joined-date{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.profile-businesses-title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #7eb312;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.profile-reviews-tab{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 5px;
+}
+
+.profile-review-title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #7eb312;
+    margin-left: 10px;
+    margin-bottom: -10px;
+}
+
+.profile-review-business{
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile-review-business-link{
+    font-weight: bold;
+    color: black;
+}
+
+.profile-review-business-link:hover{
+    text-decoration: underline;
+    color: #7eb312;
+}
+
+.profile-review-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.profile-review-container:hover{
+    box-shadow: 0px 0px 6px rgb(195, 195, 195);
+    border-radius: 5px;
+}
+
+.profile-review-title-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.viewThisResult {
+    display: flex;
+}
+
+.profile-review-container .viewThisResult {
+    display: none;
+}
+
+.profile-review-container:hover .viewThisResult {
+    display: flex;
 }

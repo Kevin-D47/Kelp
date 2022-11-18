@@ -15,7 +15,9 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
 
     const dispatch = useDispatch()
 
-    const { businessId } = useParams()
+    // const { businessId } = useParams()
+
+    const businessId = currReview.businessId
 
     const sessionUser = useSelector(state => state.session.user)
     const userId = sessionUser.id

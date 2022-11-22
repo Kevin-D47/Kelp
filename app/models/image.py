@@ -13,6 +13,7 @@ class Image(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     businessId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
     imgUrl = db.Column(db.String, nullable=False)
+    description = db.Column(db.String(800), nullable=False)
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -24,6 +25,7 @@ class Image(db.Model):
             'userId': self.userId,
             'businessId': self.businessId,
             'imgUrl': self.imgUrl,
+            'description': self.description,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }

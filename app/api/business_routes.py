@@ -30,7 +30,7 @@ def get_business(id):
 def create_business():
     form = BusinessForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    
+
     if form.validate_on_submit():
         data = form.data
         new_business = Business(
@@ -197,7 +197,8 @@ def create_image(businessId):
             # userId=current_user.id,
             userId = data['userId'],
             businessId = data['businessId'],
-            imgUrl = data['imgUrl']
+            imgUrl = data['imgUrl'],
+            description = data['description']
         )
         db.session.add(new_image)
         db.session.commit()

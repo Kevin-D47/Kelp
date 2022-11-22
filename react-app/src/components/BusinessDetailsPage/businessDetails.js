@@ -7,9 +7,11 @@ import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
 import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
 import BusinessReviews from '../BusinessReviews/businessReviews';
+import BusinessImages from '../BusinessImagesModal/businessImages'
 
 import { getOneBusinessThunk } from '../../store/businesses';
 import { getBusinessReviewsThunk } from '../../store/reviews';
+import { getBusinessImagesThunk } from '../../store/images'
 import { getAllUsersThunk } from '../../store/users'
 
 import imgNotFound from '../../icons/image-not-found.png'
@@ -37,6 +39,9 @@ const BusinessDetails = () => {
     const allReviews = useSelector(state => state.reviews)
     const getAllReviewsArr = Object.values(allReviews)
 
+    const allImages = useSelector(state => state.images)
+    const getAllImagesArr = Object.values(allImages)
+
     const allUsers = useSelector(state => state.users)
     const allUsersArr = Object.values(allUsers)
 
@@ -44,6 +49,7 @@ const BusinessDetails = () => {
     const [showUpdateBusiness, setShowUpdateBusiness] = useState(false);
     const [showDeleteBusiness, setShowDeleteBusiness] = useState(false);
     const [disableCreateReview, setDisableCreateReview] = useState(false);
+    const [showAllBusinessImages, setShowAllBusinessImages] = useState(false);
 
     useEffect(() => {
         dispatch(getAllUsersThunk())
@@ -51,6 +57,7 @@ const BusinessDetails = () => {
 
     useEffect(() => {
         dispatch(getBusinessReviewsThunk(businessId))
+        dispatch(getBusinessImagesThunk(businessId))
         dispatch(getOneBusinessThunk(businessId)).then(() => setIsLoaded(true))
     }, [dispatch, businessId])
 
@@ -124,7 +131,7 @@ const BusinessDetails = () => {
         <img className='rating-details-showcase' src={starUnchecked}></img>
     </div>
 
-    if(!sessionUser){
+    if (!sessionUser) {
         history.push('/404')
     }
 
@@ -132,12 +139,18 @@ const BusinessDetails = () => {
         isLoaded && (
             <div className='business-details-container'>
                 <div className='business-images-container'>
-                    <img
-                        className='business-image'
-                        src={currBusiness.previewImageUrl}
-                        alt={imgNotFound}
-                        onError={e => { e.currentTarget.src = imgNotFound }}
-                    />
+                    {getAllImagesArr.map((image) => {
+                        return (
+                            <div>
+                                <img
+                                    className='business-image'
+                                    src={image.imgUrl}
+                                    alt={imgNotFound}
+                                    onError={e => { e.currentTarget.src = imgNotFound }}
+                                />
+                            </div>
+                        )
+                    })}
                 </div>
                 <div className='business-details-header-container'>
                     <div className='business-details-bus-name' style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
@@ -148,9 +161,12 @@ const BusinessDetails = () => {
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
                         </div>
                         <div>
-                            {/* <NavLink to= >
-                            <div className='all-photos-bttn'>See All Photos</div>
-                            </NavLink> */}
+                            <button className='all-photos-bttn' onClick={() => setShowAllBusinessImages(true)}>See All Photos</button>
+                            {showAllBusinessImages && (
+                                <Modal onClose={() => setShowAllBusinessImages(false)}>
+                                    <BusinessImages businessId={businessId} setShowAllBusinessImages={setShowAllBusinessImages} />
+                                </Modal>
+                            )}
                         </div>
                     </div>
                     <div className='claimed-conatiner'>
@@ -171,14 +187,14 @@ const BusinessDetails = () => {
                                         <div style={{ fontSize: '12.5px', color: 'red' }}>Owners cannot review their own business</div>
                                     </div>
                                 ) :
-                                disableCreateReview === false && sessionUser && (
-                                    <Link to={`/businesses/${businessId}/reviews/new`}>
-                                        <button className='review-bttn'>
-                                            <img className='star-icon' src={starIcon}></img>
-                                            Write a review
-                                        </button>
-                                    </Link>
-                                )}
+                                    disableCreateReview === false && sessionUser && (
+                                        <Link to={`/businesses/${businessId}/reviews/new`}>
+                                            <button className='review-bttn'>
+                                                <img className='star-icon' src={starIcon}></img>
+                                                Write a review
+                                            </button>
+                                        </Link>
+                                    )}
                                 {disableCreateReview && (
                                     <div className='review-diabled-container'>
                                         <div className='add-review-disable-bttn'>
@@ -188,11 +204,10 @@ const BusinessDetails = () => {
                                         <div style={{ fontSize: '12.5px', color: 'red' }}>You have already made a review</div>
                                     </div>
                                 )}
-
-                                {/* <button className='add-photo-bttn'>
+                                <button className='add-photo-bttn'>
                                     <img className='camera-icon' src={cameraIcon}></img>
                                     Add photo
-                                </button> */}
+                                </button>
                             </div>
                             <div className='description-container'>
                                 <div className='description-title'>About Business</div>

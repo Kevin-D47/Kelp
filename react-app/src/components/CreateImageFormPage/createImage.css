@@ -1,0 +1,53 @@
+.create-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.create-image-header {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.create-image-business-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #7eb312;
+}
+
+.create-image-business-title:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.title-add-photo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.create-image-form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 2px dashed gray;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.photo-frame {
+    width: 200px;
+    height: 200px;
+}

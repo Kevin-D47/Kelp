@@ -204,10 +204,12 @@ const BusinessDetails = () => {
                                         <div style={{ fontSize: '12.5px', color: 'red' }}>You have already made a review</div>
                                     </div>
                                 )}
-                                <button className='add-photo-bttn'>
-                                    <img className='camera-icon' src={cameraIcon}></img>
-                                    Add photo
-                                </button>
+                                <Link to={`/businesses/${businessId}/images/new`}>
+                                    <button className='add-photo-bttn'>
+                                        <img className='camera-icon' src={cameraIcon}></img>
+                                        Add photo
+                                    </button>
+                                </Link>
                             </div>
                             <div className='description-container'>
                                 <div className='description-title'>About Business</div>

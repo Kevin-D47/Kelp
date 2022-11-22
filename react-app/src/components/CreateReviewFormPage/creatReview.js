@@ -14,7 +14,7 @@ import starUnchecked from '../../icons/rating-unchecked.png'
 import './createReview.css'
 
 
-function CreateReviewForm() {
+const CreateReviewForm = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();

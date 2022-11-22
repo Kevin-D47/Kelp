@@ -4,6 +4,7 @@ import { NavLink, useParams } from "react-router-dom";
 
 import { getAllBusinessesThunk } from "../../store/businesses";
 import { getAllReviewsThunk } from "../../store/reviews";
+import { getAllImagesThunk } from "../../store/images";
 
 import { Modal } from '../../context/Modal';
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
@@ -47,13 +48,20 @@ const User = () => {
         dispatch(getAllReviewsThunk());
     }, [dispatch, showDeleteReview])
 
+    useEffect(() => {
+        dispatch(getAllImagesThunk());
+    }, [dispatch])
+
     const allBusinesses = useSelector((state) => state.businesses);
     const allReviews = useSelector((state) => state.reviews);
+    const allImages = useSelector((state) => state.images)
     const allBusinessesArr = Object.values(allBusinesses);
     const allReviewsArr = Object.values(allReviews);
+    const allImagesArr = Object.values(allImages)
 
     const userBusinessesArr = allBusinessesArr.filter((business) => business.userId == userId);
     const userReviewsArr = allReviewsArr.filter((review) => review.userId == userId);
+    const userImagesArr = allImagesArr.filter((image) => image.userId == userId)
 
     useEffect(() => {
         if (!userId) {
@@ -131,7 +139,7 @@ const User = () => {
                         </div>
                         <div className="profile-header-info">
                             <img className="photo-icon" src={photosIcon}></img>
-                            Photos Placeholder
+                            <div style={{ fontWeight: 'bold' }}>{userImagesArr.length}</div> &nbsp;Photos
                         </div>
                     </div>
                 </div>
@@ -269,8 +277,22 @@ const User = () => {
                         })}
                     </div> : ''
                     }
-                    {tab === 4 ? <div className="profile-overview">
-                        <div className="profile-overview-name">COMING SOON</div>
+                    {tab === 4 ? <div className="profile-reviews-tab">
+                        <div className="profile-image-title"> My Photos</div>
+                        <div className='profile-all-business-images-container'>
+                            {userImagesArr.map((image) => {
+                                return (
+                                    <div>
+                                        <img
+                                            className='single-business-image'
+                                            src={image.imgUrl}
+                                            alt={imgNotFound}
+                                            onError={e => { e.currentTarget.src = imgNotFound }}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div> : ''
                     }
                 </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 import { getBusinessImagesThunk, } from '../../store/images'
 import { getOneBusinessThunk } from '../../store/businesses';
@@ -7,6 +8,7 @@ import { getAllUsersThunk } from '../../store/users'
 
 import imgNotFound from '../../icons/image-not-found.png'
 import cameraIcon from "../../icons/camera-icon.png";
+import closeIcon from "../../icons/x-icon.png";
 
 import './businessImages.css'
 
@@ -40,12 +42,18 @@ const BusinessImages = ({ setShowAllBusinessImages, businessId }) => {
     return (
         isLoaded && (
             <div className='all-images-modal-container'>
+                <div className='close-all-images-modal-container'>
+                    <button className="close-all-images-modal" onClick={() => setShowAllBusinessImages(false)}>Close</button>
+                    <img className='close-icon' src={closeIcon} onClick={() => setShowAllBusinessImages(false)}></img>
+                </div>
                 <div className='all-images-header-container'>
                     <div className='all-images-business-title'>Photos from {currBusiness.name}</div>
-                    <button className='add-photo-bttn-modal'>
-                        <img className='camera-icon' src={cameraIcon}></img>
-                        Add photo
-                    </button>
+                    <Link to={`/businesses/${businessId}/images/new`}>
+                        <button className='add-photo-bttn-modal'>
+                            <img className='camera-icon' src={cameraIcon}></img>
+                            Add photo
+                        </button>
+                    </Link>
                 </div>
                 <div className='all-business-images-container'>
                     {getAllImageArr.map((image) => {

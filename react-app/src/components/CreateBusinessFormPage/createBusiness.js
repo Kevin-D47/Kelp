@@ -108,7 +108,6 @@ const CreateBusinessForm = () => {
                                     placeholder="Address"
                                     value={address}
                                     onChange={(e) => setAddress(e.target.value)}
-
                                 />
                             </div>
                             <div className="city-state-zip">

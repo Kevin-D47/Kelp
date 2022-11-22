@@ -225,7 +225,8 @@
     font-size: 20px;
     font-weight: bold;
     color: #7eb312;
-    margin-left: 10px;
+    margin-left: 25px;
+    margin-top: -5px;
     margin-bottom: -10px;
 }
 
@@ -290,4 +291,22 @@
 
 .profile-review-container:hover .viewThisResult {
     display: flex;
+}
+
+.profile-image-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #7eb312;
+    margin-left: 50px;
+    margin-top: -5px;
+    margin-bottom: -10px;
+}
+
+.profile-all-business-images-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 50rem;
+    margin-left: 3rem;
+    margin-bottom: 5rem;
 }

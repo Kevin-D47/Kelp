@@ -14,6 +14,7 @@ import GetAllBusinesses from './components/RestaurantsPage/restaurants';
 import CreateBusinessForm from './components/CreateBusinessFormPage/createBusiness';
 import BusinessDetails from './components/BusinessDetailsPage/businessDetails';
 import CreateReviewForm from './components/CreateReviewFormPage/creatReview';
+import CreateImageForm from './components/CreateImageFormPage/createImage';
 import User from './components/ProfilePage/user'
 import { PageNotFound } from './components/UnkownPage/pageNotFound';
 
@@ -36,6 +37,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/businesses/:businessId/images/new'>
+          <CreateImageForm />
+        </Route>
         <Route path='/businesses/:businessId/reviews/new'>
           <CreateReviewForm />
         </Route>

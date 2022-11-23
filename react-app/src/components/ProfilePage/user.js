@@ -147,10 +147,10 @@ const User = () => {
             <div className="user-profile-bottom-container">
                 <div className="user-profile-tabs-container">
                     <div className="user-tabs-title-name">{user.first_name}'s Profile</div>
-                    <div className="user-tab-buttons-top" onClick={() => setTab(1)}>Profile Overview</div>
-                    <div className="user-tab-buttons-mid" onClick={() => setTab(2)}>My Businesses</div>
-                    <div className="user-tab-buttons-mid" onClick={() => setTab(3)}>My Reviews</div>
-                    <div className="user-tab-buttons-bottom" onClick={() => setTab(4)}>My Photos</div>
+                    <div className={tab === 1 ? "user-tab-buttons-top active-tab-bg" : "user-tab-buttons-top"} onClick={() => setTab(1)}>Profile Overview</div>
+                    <div className={tab === 2 ? "user-tab-buttons-mid active-tab-bg" : "user-tab-buttons-mid"} onClick={() => setTab(2)}>My Businesses</div>
+                    <div className={tab === 3 ? "user-tab-buttons-mid active-tab-bg" : "user-tab-buttons-mid"} onClick={() => setTab(3)}>My Reviews</div>
+                    <div className={tab === 4 ? "user-tab-buttons-bottom active-tab-bg" : "user-tab-buttons-bottom"} onClick={() => setTab(4)}>My Photos</div>
                 </div>
                 <div className="user-profile-info-right-container">
                     {tab === 1 ? <div className="profile-overview">

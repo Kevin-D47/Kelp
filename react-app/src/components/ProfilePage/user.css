@@ -78,6 +78,7 @@
     display: flex;
     width: 63rem;
     margin-top: 20px;
+    margin-left: 75px;
 }
 
 .user-profile-tabs-container {
@@ -104,6 +105,10 @@
     margin-bottom: 20px;
 }
 
+.active-tab-bg{
+    background: lightgray;
+    border-left: 6px solid #7eb312;
+}
 
 .user-tab-buttons-top {
     border-top: 1px solid lightgray;
@@ -128,17 +133,17 @@
 }
 
 .user-tab-buttons-top:hover {
-    background: lightgray;
+    background: #f5f5f5;
     cursor: pointer;
 }
 
 .user-tab-buttons-mid:hover {
-    background: lightgray;
+    background: #f5f5f5;
     cursor: pointer;
 }
 
 .user-tab-buttons-bottom:hover {
-    background: lightgray;
+    background: #f5f5f5;
     cursor: pointer;
 }
 
@@ -252,6 +257,7 @@
     flex-direction: column;
     padding: 10px;
     border-bottom: 1px solid lightgray;
+    margin-left: 15px;
 }
 
 .profile-review-container:hover {

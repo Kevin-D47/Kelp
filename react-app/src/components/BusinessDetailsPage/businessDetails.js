@@ -34,6 +34,7 @@ const BusinessDetails = () => {
     const { businessId } = useParams()
 
     const sessionUser = useSelector(state => state.session.user)
+    
     const currBusiness = useSelector(state => state.businesses[businessId])
 
     const allReviews = useSelector(state => state.reviews)

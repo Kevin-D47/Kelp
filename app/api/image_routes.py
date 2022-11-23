@@ -5,7 +5,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 
 image_routes = Blueprint('images', __name__)
 
-# get all reviews
+# get all images
 @image_routes.route('/all')
 @login_required
 def get_all_images():
@@ -13,7 +13,7 @@ def get_all_images():
     images = {image.id: image.to_dict() for image in all_images}
     return images
 
-# specific review by id
+# specific image by id
 @image_routes.route('/<int:id>')
 @login_required
 def get_single_image(id):

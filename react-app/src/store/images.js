@@ -1,7 +1,8 @@
-const GET_ALL_IMAGES = '/reviews/getAllImages'
-const BUSINESS_IMAGES = 'reviews/getBusinessImages'
-const NEW_IMAGE = '/reviews/newImage'
-const DELETE_IMAGE = '/reviews/deleteImage'
+const GET_ALL_IMAGES = '/images/getAllImages'
+const GET_ONE_IMAGE = '/images/getOneImage'
+const BUSINESS_IMAGES = '/images/getBusinessImages'
+const NEW_IMAGE = '/images/newImage'
+const DELETE_IMAGE = '/images/deleteImage'
 
 
 // actions
@@ -13,6 +14,11 @@ const getAllImages = (images) => ({
 const getBusinessImages = (businessId) => ({
     type: BUSINESS_IMAGES,
     businessId
+})
+
+const getOneImage = (image) => ({
+    type: GET_ONE_IMAGE,
+    image
 })
 
 const newImage = (image) => ({
@@ -44,6 +50,16 @@ export const getBusinessImagesThunk = (businessId) => async (dispatch) => {
         const businessImages = await response.json();
         dispatch(getBusinessImages(businessImages));
         return businessImages;
+    }
+};
+
+export const getOneImageThunk = (businessId, imageId) => async (dispatch) => {
+    const response = await fetch(`/api/businesses/${businessId}/images/${imageId}`);
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(getOneImage(image));
+        return image;
     }
 };
 
@@ -83,6 +99,11 @@ const imageReducer = (state = initialState, action) => {
         }
         case BUSINESS_IMAGES: {
             const newState = { ...action.businessId }
+            return newState
+        }
+        case GET_ONE_IMAGE: {
+            const newState = { ...state }
+            newState[action.image.id] = action.image
             return newState
         }
         case NEW_IMAGE: {

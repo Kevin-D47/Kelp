@@ -1,9 +1,9 @@
 
 // types
 const GET_ALL_REVIEWS = '/reviews/getAllReviews'
-const BUSINESS_REVIEWS = 'reviews/getBusinessReviews'
+const BUSINESS_REVIEWS = '/reviews/getBusinessReviews'
 const NEW_REVIEW = '/reviews/newReview'
-const UPDATE_REVIEW = "businesses/updateReview";
+const UPDATE_REVIEW = "/businesses/updateReview";
 const DELETE_REVIEW = '/reviews/deleteReview'
 
 

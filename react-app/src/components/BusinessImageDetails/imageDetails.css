@@ -1,0 +1,110 @@
+.image-details-container {
+    display: flex;
+    flex-direction: row;
+    width: 80rem;
+    height: 38rem;
+}
+
+.image-details-container-left {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+}
+
+.image-details-options-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.back-to-photos-bttn {
+    width: 8rem;
+    height: 30px;
+    background: gray;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.back-to-photos-bttn:hover {
+    cursor: pointer;
+}
+
+.edit-delete-image-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-image-bttn {
+    width: 25px;
+    height: 25px;
+}
+
+.edit-image-bttn:hover {
+    cursor: pointer;
+}
+
+.delete-image-bttn {
+    width: 25px;
+    height: 25px;
+}
+
+.delete-image-bttn:hover {
+    cursor: pointer;
+}
+
+.detail-single-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 31.5rem;
+    padding: 2rem;
+    background: black;
+}
+
+.single-business-image-detail {
+    height: 100%;
+}
+
+.image-details-container-right {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    padding: 10px;
+    padding-left: 20px;
+    /* border: 2px solid blue; */
+}
+
+.image-details-business-title{
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    border-bottom: 2px solid lightgray;
+    margin-bottom: 30px;
+}
+
+.image-user-pic{
+    width: 45px;
+    height: 45px;
+    border-radius: 40px;
+}
+
+.image-detail-user-info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-detail-date{
+    padding-left: 10px;
+    font-size: 14px;
+}

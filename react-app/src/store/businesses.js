@@ -1,10 +1,10 @@
 
 // types
-const GET_ALL_BUSINESSES = "/businesses/getAllBusinesses";
-const GET_ONE_BUSINESS = "/businesses/getOneBusiness";
-const NEW_BUSINESS = "/businesses/newBusiness";
-const UPDATE_BUSINESS = "/businesses/updateBusiness";
-const DELETE_BUSINESS = "/businesses/deleteBusiness";
+const GET_ALL_BUSINESSES = "businesses/getAllBusinesses";
+const GET_ONE_BUSINESS = "businesses/getOneBusiness";
+const NEW_BUSINESS = "businesses/newBusiness";
+const UPDATE_BUSINESS = "businesses/updateBusiness";
+const DELETE_BUSINESS = "businesses/deleteBusiness";
 
 
 // actions

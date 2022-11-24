@@ -1,8 +1,8 @@
-const GET_ALL_IMAGES = '/images/getAllImages'
-const GET_ONE_IMAGE = '/images/getOneImage'
-const BUSINESS_IMAGES = '/images/getBusinessImages'
-const NEW_IMAGE = '/images/newImage'
-const DELETE_IMAGE = '/images/deleteImage'
+const GET_ALL_IMAGES = 'images/getAllImages'
+const GET_ONE_IMAGE = 'images/getOneImage'
+const BUSINESS_IMAGES = 'images/getBusinessImages'
+const NEW_IMAGE = 'images/newImage'
+const DELETE_IMAGE = 'images/deleteImage'
 
 
 // actions

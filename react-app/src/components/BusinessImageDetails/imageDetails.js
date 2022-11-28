@@ -16,6 +16,8 @@ import './imageDetails.css'
 
 const ImageDetails = ({ currImage, setDisplayAllImages, setShowAllBusinessImages }) => {
 
+    // TEST
+
     const dispatch = useDispatch()
     const history = useHistory()
 

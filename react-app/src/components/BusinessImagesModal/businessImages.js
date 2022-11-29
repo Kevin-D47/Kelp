@@ -61,7 +61,6 @@ const BusinessImages = ({ setShowAllBusinessImages, businessId }) => {
                                 </button>
                             </Link>
                         </div>
-
                         <div className='all-business-images-container'>
                             {getAllImageArr.map((image) => {
                                 return (
@@ -74,8 +73,6 @@ const BusinessImages = ({ setShowAllBusinessImages, businessId }) => {
                                                 onError={e => { e.currentTarget.src = imgNotFound }}
                                             />
                                         </div>
-
-
                                     </>
                                 )
                             })}

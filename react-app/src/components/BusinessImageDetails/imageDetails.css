@@ -108,3 +108,15 @@
     padding-left: 10px;
     font-size: 14px;
 }
+
+.image-details-edit-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 16.5rem;
+}
+
+.image-details-delete-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 16.5rem;
+}

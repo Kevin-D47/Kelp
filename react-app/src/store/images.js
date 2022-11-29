@@ -1,7 +1,10 @@
+
+// types
 const GET_ALL_IMAGES = 'images/getAllImages'
 const GET_ONE_IMAGE = 'images/getOneImage'
 const BUSINESS_IMAGES = 'images/getBusinessImages'
 const NEW_IMAGE = 'images/newImage'
+const UPDATE_IMAGE = "images/updateImage";
 const DELETE_IMAGE = 'images/deleteImage'
 
 
@@ -25,6 +28,11 @@ const newImage = (image) => ({
     type: NEW_IMAGE,
     image
 })
+
+const updateImage = (image) => ({
+    type: UPDATE_IMAGE,
+    image,
+});
 
 const deleteImage = (imageId) => ({
     type: DELETE_IMAGE,
@@ -76,6 +84,18 @@ export const createImageThunk = (userId, businessId, imgUrl, description) => asy
     }
 };
 
+export const updateImageThunk = (id, userId, businessId, imgUrl, description) => async (dispatch) => {
+    const response = await fetch(`/api/businesses/${businessId}/images/${id}/edit`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, userId, businessId, imgUrl, description })
+    })
+    if (response.ok) {
+        const editImage = await response.json()
+        dispatch(updateImage(editImage))
+    }
+}
+
 export const deleteImageThunk = (businessId, id) => async (dispatch) => {
     const response = await fetch(`/api/businesses/${businessId}/images/${id}/delete`, {
         method: "DELETE",
@@ -107,6 +127,11 @@ const imageReducer = (state = initialState, action) => {
             return newState
         }
         case NEW_IMAGE: {
+            const newState = { ...state }
+            newState[action.image.id] = action.image
+            return newState
+        }
+        case UPDATE_IMAGE: {
             const newState = { ...state }
             newState[action.image.id] = action.image
             return newState

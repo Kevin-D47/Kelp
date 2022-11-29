@@ -208,6 +208,27 @@ def create_image(businessId):
     # return render_template("test.html", form=form)
 
 
+# Edit a image
+@business_routes.route('/<int:businessId>/images/<int:id>/edit', methods=['GET','PUT'])
+@login_required
+def edit_image(businessId, id):
+    form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        editedImage = Image.query.get(id)
+        data = form.data
+        editedImage.userId = data['userId']
+        editedImage.businessId = data['businessId']
+        editedImage.imgUrl = data['imgUrl']
+        editedImage.description = data['description']
+
+        db.session.commit()
+        return editedImage.to_dict()
+    if form.errors:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 400
+    # return render_template("test.html", form=form)
+
+
 # Delete a image
 @business_routes.route('/<int:businessId>/images/<int:id>/delete', methods=['GET', 'DELETE'])
 @login_required

@@ -96,8 +96,8 @@ const CreateImageForm = () => {
                                     value={imgUrl}
                                     onChange={(e) => setImgUrl(e.target.value)}
                                 />
-                                <input
-                                    className="create-bus-input-field"
+                                <textarea
+                                    className="description-input-field"
                                     type="text"
                                     placeholder="Description"
                                     value={description}

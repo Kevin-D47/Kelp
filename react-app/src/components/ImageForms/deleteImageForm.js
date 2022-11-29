@@ -16,7 +16,7 @@ const DeleteImageForm = ({ businessId, currImage, setDisplayImageDetail, setDisp
   return (
     <div >
       <div className='delete-business-container'>
-        <h3>Warning! This Image will be deleted permently. Are you sure you want to proceed? </h3>
+        <h3>Warning! This photo will be deleted permently. Are you sure you want to proceed? </h3>
         <div className="delete-buttons-container">
           <button className="delete-business-button-yes" onClick={onSubmit}>YES</button>
           <button className="delete-business-button-no" onClick={() => setDisplayImageDetail(true)}>NO</button>

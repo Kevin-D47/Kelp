@@ -5,6 +5,8 @@ import { useParams, Redirect } from 'react-router-dom';
 
 import { updateImageThunk } from '../../store/images';
 
+import './editImageForm.css'
+
 const EditImageForm = ({ businessId, currImage, setDisplayImageDetail, setDisplayAllImages }) => {
 
     const dispatch = useDispatch()
@@ -58,8 +60,9 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail, setDispla
     return (
         <div className="create-image-container">
             <div className="create-image-wrapper">
-                <div className="create-image-header">
+                <div className="edit-image-header">
                     <div className="title-add-photo">Edit Photo</div>
+                    <div>Update your informations about your photo below.</div>
                 </div>
                 <div className="create-review-errors">
                     {hasSubmitted && errorList}
@@ -73,15 +76,15 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail, setDispla
                                 value={imgUrl}
                                 onChange={(e) => setImgUrl(e.target.value)}
                             />
-                            <input
-                                className="create-bus-input-field"
+                            <textarea
+                                className="description-input-field"
                                 type="text"
                                 placeholder="Description"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                             />
                         </div>
-                        <div className="create-review-submit-container">
+                        <div className="edit-photo-submit-container">
                             <button
                                 className="create-bus-form-bttn"
                                 type="submit"
@@ -89,8 +92,9 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail, setDispla
                             >
                                 Submit Image
                             </button>
+                             <button className="edit-photo-button-no" onClick={() => setDisplayImageDetail(true)}>NO</button>
                         </div>
-                        <button className="delete-business-button-no" onClick={() => setDisplayImageDetail(true)}>NO</button>
+
                     </form>
                 </div>
             </div>

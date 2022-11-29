@@ -5,6 +5,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 
 import { getOneImageThunk } from '../../store/images';
 
+import EditImageForm from '../ImageForms/editImageForm';
 import DeleteImageForm from '../ImageForms/deleteImageForm';
 
 import imgNotFound from '../../icons/image-not-found.png'
@@ -14,7 +15,6 @@ import deleteButton from '../../icons/delete-icon.png'
 import closeIcon from "../../icons/x-icon.png";
 
 import './imageDetails.css'
-import EditImageForm from '../ImageForms/editImageForm';
 
 
 const ImageDetails = ({ currImage, setDisplayAllImages, setShowAllBusinessImages }) => {
@@ -99,22 +99,18 @@ const ImageDetails = ({ currImage, setDisplayAllImages, setShowAllBusinessImages
                 }
                 {displayImageDetail === 'editImage' ?
                     <div className='image-details-edit-container'>
-                        <div className='image-details-edit-container-top'>
-                            <div className='close-all-images-modal-container'>
-                                <button className="close-all-images-modal" onClick={() => setShowAllBusinessImages(false)}>Close</button>
-                                <img className='close-icon' src={closeIcon} onClick={() => setShowAllBusinessImages(false)}></img>
-                            </div>
+                        <div className='close-edit-photo-modal-container'>
+                            <button className="close-all-images-modal" onClick={() => setShowAllBusinessImages(false)}>Close</button>
+                            <img className='close-icon' src={closeIcon} onClick={() => setShowAllBusinessImages(false)}></img>
                         </div>
-                        <div className='image-details-edit-container-bottom'>
-                            <div>
-                                <EditImageForm businessId={currBusiness.id} currImage={currImage} setDisplayImageDetail={setDisplayImageDetail} setDisplayAllImages={setDisplayAllImages} />
-                            </div>
+                        <div>
+                            <EditImageForm businessId={currBusiness.id} currImage={currImage} setDisplayImageDetail={setDisplayImageDetail} setDisplayAllImages={setDisplayAllImages} />
                         </div>
                     </div> : ""
                 }
                 {displayImageDetail === 'deleteImage' ?
                     <div className='image-details-delete-container'>
-                        <div className='close-all-images-modal-container'>
+                        <div className='close-delete-photo-modal-container'>
                             <button className="close-all-images-modal" onClick={() => setShowAllBusinessImages(false)}>Close</button>
                             <img className='close-icon' src={closeIcon} onClick={() => setShowAllBusinessImages(false)}></img>
                         </div>
@@ -123,13 +119,11 @@ const ImageDetails = ({ currImage, setDisplayAllImages, setShowAllBusinessImages
                                 <DeleteImageForm businessId={currBusiness.id} currImage={currImage} setDisplayImageDetail={setDisplayImageDetail} setDisplayAllImages={setDisplayAllImages} />
                             </div>
                         </div>
-                    </div> : ''
+                    </div> : ""
                 }
             </div >
         )
     )
-
-
 }
 
 export default ImageDetails

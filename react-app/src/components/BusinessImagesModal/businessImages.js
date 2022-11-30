@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { getBusinessImagesThunk, } from '../../store/images'
 import { getOneBusinessThunk } from '../../store/businesses';
 import { getAllUsersThunk } from '../../store/users'
 
-import { Modal } from '../../context/Modal';
 import ImageDetails from '../BusinessImageDetails/imageDetails';
 
 import imgNotFound from '../../icons/image-not-found.png'
@@ -31,6 +30,7 @@ const BusinessImages = ({ setShowAllBusinessImages, businessId }) => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [displayAllImages, setDisplayAllImages] = useState(false)
     const [currImage, setCurrImage] = useState(false)
+
 
     useEffect(() => {
         dispatch(getAllUsersThunk())
@@ -65,7 +65,7 @@ const BusinessImages = ({ setShowAllBusinessImages, businessId }) => {
                             {getAllImageArr.map((image) => {
                                 return (
                                     <>
-                                        <div single-business-image onClick={() => { setDisplayAllImages(!displayAllImages); setCurrImage(image) }}>
+                                        <div single-business-image onClick={() => { setCurrImage(image); setDisplayAllImages(!displayAllImages) }}>
                                             <img
                                                 className='single-business-image'
                                                 src={image.imgUrl}

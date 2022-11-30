@@ -1,0 +1,53 @@
+.user-image-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 82rem;
+    height: 40rem;
+}
+
+.user-edit-delete-image-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.user-close-all-images-modal-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.user-close-all-images-modal {
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    color: gray;
+    background: white;
+    border: 1px solid white;
+}
+
+.user-close-delete-photo-modal-container{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 73rem;
+    margin-right: -9px;
+}
+
+.user-close-edit-photo-modal-container{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 73rem;
+    margin-right: -9px;
+}
+
+.user-close-all-images-modal:hover{
+    cursor: pointer;
+}

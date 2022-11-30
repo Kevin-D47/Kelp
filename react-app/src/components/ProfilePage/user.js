@@ -11,6 +11,7 @@ import EditBusinessForm from '../BusinessForms/editBusinessForm';
 import DeleteBusinessForm from '../BusinessForms/deleteBusinessForm';
 import EditReviewForm from '../ReviewForms/editReviewForm';
 import DeleteReviewForm from '../ReviewForms/deleteReviewForm';
+import UserImageDetails from "../UserImageDetails/userImageDetails";
 
 import businessIcon from '../../icons/business-icon.png'
 import reviewsIcon from '../../icons/rating-checked.png'
@@ -35,6 +36,8 @@ const User = () => {
     const [currReview, setCurrReview] = useState(false)
     const [showUpdateReview, setShowUpdateReview] = useState(false)
     const [showDeleteReview, setShowDeleteReview] = useState(false)
+    const [showUserImageDetails, setShowUserImageDetails] = useState(false)
+    const [currUserImage, setCurrUserImage] = useState(false)
 
     const { userId } = useParams();
 
@@ -284,11 +287,17 @@ const User = () => {
                                 return (
                                     <div>
                                         <img
+                                            onClick={() => { setShowUserImageDetails(true); setCurrUserImage(image) }}
                                             className='single-business-image'
                                             src={image.imgUrl}
                                             alt={imgNotFound}
                                             onError={e => { e.currentTarget.src = imgNotFound }}
                                         />
+                                        {showUserImageDetails && (
+                                            <Modal onClose={() =>setShowUserImageDetails(false)}>
+                                                <UserImageDetails businessId={image.businessId} image={currUserImage} setShowUserImageDetails={setShowUserImageDetails} />
+                                            </Modal>
+                                        )}
                                     </div>
                                 )
                             })}

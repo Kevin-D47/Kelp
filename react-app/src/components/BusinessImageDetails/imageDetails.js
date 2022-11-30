@@ -16,7 +16,6 @@ import closeIcon from "../../icons/x-icon.png";
 
 import './imageDetails.css'
 
-
 const ImageDetails = ({ currImage, setDisplayAllImages, setShowAllBusinessImages }) => {
 
     const dispatch = useDispatch()

@@ -5,13 +5,9 @@ import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 import { updateImageThunk } from '../../store/images';
 
-import './editImageForm.css'
-
-const EditImageForm = ({ businessId, currImage, setDisplayImageDetail }) => {
+const UserEditImageForm = ({ businessId, currImage, setDisplayUserImageDetails }) => {
 
     const dispatch = useDispatch()
-
-    const history = useHistory()
 
     const id = currImage.id
 
@@ -95,9 +91,8 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail }) => {
                             >
                                 Submit Image
                             </button>
-                            <button className="edit-photo-button-no" onClick={() => setDisplayImageDetail(true)}>NO</button>
+                            <button className="edit-photo-button-no" onClick={() => setDisplayUserImageDetails(true)}>NO</button>
                         </div>
-
                     </form>
                 </div>
             </div>
@@ -105,4 +100,4 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail }) => {
     )
 }
 
-export default EditImageForm
+export default UserEditImageForm

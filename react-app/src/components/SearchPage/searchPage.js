@@ -86,7 +86,7 @@ const SearchPage = () => {
                             <img className="logo-PNF" src={kelpLogo}></img>
                             <div className="title-PNF">No Results Found</div>
                             <div className="link-error">
-                                <NavLink to="/restaurants" className='link-error-text'>Click here to go back to all businesses page</NavLink>
+                                <NavLink to="/restaurants" className='link-error-text'>Click here to go back to all restraunt results</NavLink>
                             </div>
                         </div>
                     </div>

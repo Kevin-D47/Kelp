@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllBusinessesThunk} from "../../store/businesses";
+import { getAllBusinessesThunk } from "../../store/businesses";
 import { NavLink, useHistory } from 'react-router-dom'
 
 import imgNotFound from '../../icons/image-not-found.png'
@@ -69,8 +69,9 @@ const GetAllBusinesses = () => {
         isLoaded && (
             <div className="restraunts-container">
                 <div className="restraunts-wrapper">
-                    <h2>The Best Seafood Restaurants to visit</h2>
-                    <h3>Results</h3>
+                    <div className="result-header-container">
+                        <h2>The Best Seafood Restaurants to visit</h2>
+                    </div>
                     {allBusinessesArr.map((business) => {
                         return (
                             <div className="all-restraunts-container" key={business.id}>

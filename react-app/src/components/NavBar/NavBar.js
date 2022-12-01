@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom';
 import { getAllUsersThunk } from '../../store/users';
 import { getAllBusinessesThunk } from '../../store/businesses';
 
+import SearchBar from '../SearchBar/searchBar';
+
 import * as sessionActions from "../../store/session";
 
 import ProfileButton from './ProfileButton'
@@ -45,6 +47,9 @@ const NavBar = () => {
           <NavLink to='/restaurants'>
             <img className='nav-logo' src={kelpLogo}></img>
           </NavLink>
+        </div>
+        <div>
+          <SearchBar/>
         </div>
         <div className='nav-right-container-auth'>
           <div className='profile-createBus-container-auth'>

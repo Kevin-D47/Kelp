@@ -1,0 +1,15 @@
+
+.search-result-header-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 30rem;
+}
+
+.search-header{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

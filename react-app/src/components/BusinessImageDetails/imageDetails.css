@@ -69,10 +69,13 @@
     height: 31.5rem;
     padding: 2rem;
     background: black;
+    box-shadow: 0px 0px 6px rgb(195, 195, 195);
 }
 
 .single-business-image-detail {
-    height: 100%;
+    max-width: 60rem;
+    min-height: 35.5rem;
+    max-height: 35.5rem;
 }
 
 .image-details-container-right {

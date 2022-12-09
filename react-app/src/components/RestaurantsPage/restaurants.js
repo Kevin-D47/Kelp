@@ -7,6 +7,11 @@ import imgNotFound from '../../icons/image-not-found.png'
 import starChecked from '../../icons/rating-checked.png'
 import starUnchecked from '../../icons/rating-unchecked.png'
 
+import githubIcon from '../../icons/github-icon.png'
+import linkedinIcon from '../../icons/linkedin-icon.png'
+import kelpLogo from '../../icons/Kelp-logo.png'
+import kelpTitleLogo from '../../icons/kelp-logo-title.png'
+
 import './restaurants.css'
 
 
@@ -105,6 +110,40 @@ const GetAllBusinesses = () => {
                         )
                     })}
                 </div>
+                <div className="hompage-footer-container">
+                <div className='hompage-footer-wrapper'>
+                    <div className="about-footer-container">
+                        <div style={{ fontSize: '20px', fontWeight: 'bold' }}>About</div>
+                        <a className="footer-link" href="https://github.com/Kevin-D47/Kelp" target="_blank">
+                            <img className='footer-icon' src={githubIcon}></img>
+                            <div className="kelp-github-repo">Kelp Github Repository</div>
+                        </a>
+                    </div>
+                    <div className="developer-footer-container">
+                        <div style={{ fontSize: '20px', fontWeight: 'bold' }}>Developer</div>
+                        <div style={{ fontWeight: '500' }}>Kevin Duong</div>
+                        <div className='kevin-links'>
+                            <a className="footer-link" href="https://www.linkedin.com/in/kevin-duong-513341216/" target="_blank">
+                                <img className='footer-icon' src={linkedinIcon}></img>
+                                <div className="kelp-github-repo">LinkedIn</div>
+                            </a>
+                            <a className="footer-link" href="https://github.com/Kevin-D47" target="_blank">
+                                <img className='footer-icon' src={githubIcon}></img>
+                                <div className="kelp-github-repo">Github</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div className='copyright-container'>
+                    <div>Copyright © 2022 Kelp Inc. Kelp,</div> &nbsp;
+                    <img className='coyright-icon' src={kelpTitleLogo}></img>
+                    <div>,</div> &nbsp;
+                    <img className='coyright-icon-2' src={kelpLogo}></img> &nbsp;
+                    <div>and related marks are registered trademarks of Kelp.</div>
+                </div>
+
+            </div>
             </div>
         )
     )

@@ -62,20 +62,25 @@ const BusinessImages = ({ setShowAllBusinessImages, businessId }) => {
                             </Link>
                         </div>
                         <div className='all-business-images-container'>
-                            {getAllImageArr.map((image) => {
-                                return (
-                                    <>
-                                        <div single-business-image onClick={() => { setCurrImage(image); setDisplayAllImages(!displayAllImages) }}>
-                                            <img
-                                                className='single-business-image'
-                                                src={image.imgUrl}
-                                                alt={imgNotFound}
-                                                onError={e => { e.currentTarget.src = imgNotFound }}
-                                            />
-                                        </div>
-                                    </>
-                                )
-                            })}
+                            {getAllImageArr.length === 0 ?
+                                <div className='bus-image-no-data-info-wrapper bus-image-modal-no-data-info'>
+                                    <div style={{ fontSize: '24px', fontWeight: 'bold' }} >No photos have been posted for this business yet</div>
+                                    <Link className='no-photo-add-link' to={`/businesses/${businessId}/images/new`}>Be the first to post a photo click here</Link>
+                                </div> :
+                                getAllImageArr.map((image) => {
+                                    return (
+                                        <>
+                                            <div single-business-image onClick={() => { setCurrImage(image); setDisplayAllImages(!displayAllImages) }}>
+                                                <img
+                                                    className='single-business-image'
+                                                    src={image.imgUrl}
+                                                    alt={imgNotFound}
+                                                    onError={e => { e.currentTarget.src = imgNotFound }}
+                                                />
+                                            </div>
+                                        </>
+                                    )
+                                })}
                         </div>
                     </div> :
                     <div>

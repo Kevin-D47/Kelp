@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link, useHistory, NavLink } from "react-router-dom";
 
 import { Modal } from "../../context/Modal";
 import EditBusinessForm from '../BusinessForms/editBusinessForm';
@@ -34,7 +34,7 @@ const BusinessDetails = () => {
     const { businessId } = useParams()
 
     const sessionUser = useSelector(state => state.session.user)
-    
+
     const currBusiness = useSelector(state => state.businesses[businessId])
 
     const allReviews = useSelector(state => state.reviews)
@@ -140,18 +140,25 @@ const BusinessDetails = () => {
         isLoaded && (
             <div className='business-details-container'>
                 <div className='business-images-container'>
-                    {getAllImagesArr.map((image) => {
-                        return (
-                            <div>
-                                <img
-                                    className='business-image'
-                                    src={image.imgUrl}
-                                    alt={imgNotFound}
-                                    onError={e => { e.currentTarget.src = imgNotFound }}
-                                />
+                    {getAllImagesArr.length === 0 ?
+                        <div className='bus-image-no-data-container'>
+                            <div className='bus-image-no-data-info-wrapper'>
+                                <div style={{ fontSize: '24px', fontWeight:'bold'}} >No photos have been posted for this business yet</div>
+                                <Link className='no-photo-add-link' to={`/businesses/${businessId}/images/new`}>Be the first to post a photo click here</Link>
                             </div>
-                        )
-                    })}
+                        </div> :
+                        getAllImagesArr.map((image) => {
+                            return (
+                                <div>
+                                    <img
+                                        className='business-image'
+                                        src={image.imgUrl}
+                                        alt={imgNotFound}
+                                        onError={e => { e.currentTarget.src = imgNotFound }}
+                                    />
+                                </div>
+                            )
+                        })}
                 </div>
                 <div className='business-details-header-container'>
                     <div className='business-details-bus-name' style={{ fontSize: '46px', color: 'white', fontWeight: 'bold' }}>{currBusiness.name}</div>
@@ -291,11 +298,10 @@ const BusinessDetails = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         )
     )
-
-
 }
 
 export default BusinessDetails

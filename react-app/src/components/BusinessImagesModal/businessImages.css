@@ -69,6 +69,10 @@
     background-color: lightgray;
 }
 
+.add-photo-bttn-modal:active {
+    transform: scale(.98);
+}
+
 .all-business-images-container {
     display: flex;
     justify-content: left;
@@ -90,4 +94,8 @@
 
 .single-business-image:hover{
     cursor: pointer;
+}
+
+.bus-image-modal-no-data-info{
+    margin-left: 23rem;
 }

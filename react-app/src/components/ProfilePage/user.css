@@ -316,3 +316,32 @@
     margin-left: 3rem;
     margin-bottom: 5rem;
 }
+
+.user-no-businesses-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 5rem;
+}
+
+.user-link-create-business{
+    color: #7eb312;
+}
+
+.user-link-create-business:hover{
+    text-decoration: underline;
+}
+
+
+.user-no-data-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.user-no-data-photos{
+    margin-left: 17rem;
+}

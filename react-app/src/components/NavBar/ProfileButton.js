@@ -60,11 +60,9 @@ const ProfileButton = () => {
                             <div className="user-name-li">
                                 Hello&nbsp;<div className='drop-down-username'>{sessionUser.username}</div>
                             </div>
-                            <div className="hover-link about-me-li">
-                                <NavLink style={{color:'black'}} to={`/users/${sessionUser.id}`}>
-                                    About Me
-                                </NavLink>
-                            </div>
+                            <NavLink className="hover-link about-me-li" style={{ color: 'black' }} to={`/users/${sessionUser.id}`}>
+                                About Me
+                            </NavLink>
                             <div className="hover-link logout-li" onClick={logout}>
                                 Log Out
                             </div>

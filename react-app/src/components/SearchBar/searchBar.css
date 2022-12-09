@@ -28,6 +28,13 @@
     flex: 1;
 }
 
+.search-bar-input:focus {
+    border-style: 1px solid #7eb312;
+    outline-style:  1px solid #7eb312;
+    outline-color:  #7eb312;
+    box-shadow:  #7eb312;
+}
+
 .searchBar-button-container {
     display: flex;
     align-items: center;

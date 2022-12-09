@@ -26,8 +26,6 @@ import './user.css'
 
 const User = () => {
 
-    let createdAtDate;
-
     const [user, setUser] = useState({});
     const [tab, setTab] = useState(1);
     let [ratingSum, setRatingSum] = useState(0);
@@ -77,6 +75,8 @@ const User = () => {
         })();
     }, [userId]);
 
+
+    let createdAtDate;
 
     if (user.id == userId) {
         const createdAtObject = user.created_at;
@@ -174,133 +174,147 @@ const User = () => {
                     }
                     {tab === 2 ? <div className="profile-businesses-tab">
                         <div className="profile-businesses-title">My Businesses</div>
-                        {userBusinessesArr.map((business) => {
-                            return (
-                                <div className="all-restraunts-container" key={business.id}>
-                                    <div className="profile-single-rest-container">
-                                        <div className="single-rest-container-left">
-                                            <NavLink to={`/businesses/${business.id}`}>
-                                                <img
-                                                    className="restraunt-img"
-                                                    src={business.previewImageUrl}
-                                                    alt={imgNotFound}
-                                                    onError={e => { e.currentTarget.src = imgNotFound }}
-                                                />
-                                            </NavLink>
-                                        </div>
-                                        <div className="single-rest-container-right">
-                                            <div className="profile-businesses-title-options">
+                        {userBusinessesArr.length === 0 ?
+                            <div className="user-no-businesses-container">
+                                <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'gray' }}>You do not own any businesses</div>
+                                <NavLink className='user-link-create-business' to='/new'>add your business click here</NavLink>
+                            </div> :
+                            userBusinessesArr.map((business) => {
+                                return (
+                                    <div className="all-restraunts-container" key={business.id}>
+                                        <div className="profile-single-rest-container">
+                                            <div className="single-rest-container-left">
                                                 <NavLink to={`/businesses/${business.id}`}>
-                                                    <div className="profile-restraunt-name">{business.name}</div>
+                                                    <img
+                                                        className="restraunt-img"
+                                                        src={business.previewImageUrl}
+                                                        alt={imgNotFound}
+                                                        onError={e => { e.currentTarget.src = imgNotFound }}
+                                                    />
                                                 </NavLink>
-                                                <div className='viewThisResult'>
-                                                    <div className='business-options-container'>
-                                                        <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateBusiness(true) }}></img>
-                                                        <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteBusiness(true) }}></img>
-                                                        {showUpdateBusiness && (
-                                                            <Modal onClose={() => setShowUpdateBusiness(false)}>
-                                                                <EditBusinessForm businessId={business.id} setShowUpdateBusiness={setShowUpdateBusiness} />
-                                                            </Modal>
-                                                        )}
-                                                        {showDeleteBusiness && (
-                                                            <Modal onClose={() => setShowDeleteBusiness(false)}>
-                                                                <DeleteBusinessForm businessId={business.id} setShowDeleteBusiness={setShowDeleteBusiness} />
-                                                            </Modal>
-                                                        )}
+                                            </div>
+                                            <div className="single-rest-container-right">
+                                                <div className="profile-businesses-title-options">
+                                                    <NavLink to={`/businesses/${business.id}`}>
+                                                        <div className="profile-restraunt-name">{business.name}</div>
+                                                    </NavLink>
+                                                    <div className='viewThisResult'>
+                                                        <div className='business-options-container'>
+                                                            <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateBusiness(true) }}></img>
+                                                            <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteBusiness(true) }}></img>
+                                                            {showUpdateBusiness && (
+                                                                <Modal onClose={() => setShowUpdateBusiness(false)}>
+                                                                    <EditBusinessForm businessId={business.id} setShowUpdateBusiness={setShowUpdateBusiness} />
+                                                                </Modal>
+                                                            )}
+                                                            {showDeleteBusiness && (
+                                                                <Modal onClose={() => setShowDeleteBusiness(false)}>
+                                                                    <DeleteBusinessForm businessId={business.id} setShowDeleteBusiness={setShowDeleteBusiness} />
+                                                                </Modal>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div className="restraunt-info-container">
+                                                    {business.reviews.map((review) => {
+                                                        { ratingSum += review.stars }
+                                                    })}
+                                                    {!(ratingSum / business.reviews.length) ? <div>{emptyRating}</div> : <div className="single-rest-avgRating-containter"> {ratingCount(Math.round(ratingSum / business.reviews.length))}</div>}
+                                                    <div>{business.reviews.length} Reviews</div>
+                                                    <div>{business.price}</div>
+                                                </div>
+                                                <div className="ratingSum-hide">{ratingSum = 0}</div>
+                                                <div className="restraunt-location">
+                                                    {business.city}, {business.state}
+                                                </div>
+                                                <div className="restraunt-description">{business.description}</div>
                                             </div>
-                                            <div className="restraunt-info-container">
-                                                {business.reviews.map((review) => {
-                                                    { ratingSum += review.stars }
-                                                })}
-                                                {!(ratingSum / business.reviews.length) ? <div>{emptyRating}</div> : <div className="single-rest-avgRating-containter"> {ratingCount(Math.round(ratingSum / business.reviews.length))}</div>}
-                                                <div>{business.reviews.length} Reviews</div>
-                                                <div>{business.price}</div>
-                                            </div>
-                                            <div className="ratingSum-hide">{ratingSum = 0}</div>
-                                            <div className="restraunt-location">
-                                                {business.city}, {business.state}
-                                            </div>
-                                            <div className="restraunt-description">{business.description}</div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
+                                )
+                            })}
                     </div> : ''
                     }
                     {tab === 3 ? <div className="profile-reviews-tab">
                         <div className="profile-review-title"> My Reviews</div>
-                        {userReviewsArr.map((review) => {
-                            return (
-                                <>
-                                    {allBusinessesArr.map((business) => {
-                                        return (
-                                            <>
-                                                {business.id === review.businessId ?
-                                                    <div className='profile-review-container'>
-                                                        <div className="profile-review-title-options">
-                                                            <div className="profile-review-business">Review from&nbsp;
-                                                                <NavLink className='profile-review-business-link' to={`/businesses/${business.id}`}>{business.name}</NavLink>
-                                                            </div>
-                                                            <div className='viewThisResult'>
-                                                                <div className='profile-review-options-container'>
-                                                                    <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}></img>
-                                                                    <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}></img>
-                                                                    {showUpdateReview && (
-                                                                        <Modal onClose={() => setShowUpdateReview(false)}>
-                                                                            <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
-                                                                        </Modal>
-                                                                    )}
-                                                                    {showDeleteReview && (
-                                                                        <Modal onClose={() => setShowDeleteReview(false)}>
-                                                                            <DeleteReviewForm businessId={currReview.businessId} currReview={currReview} setShowDeleteReview={setShowDeleteReview} />
-                                                                        </Modal>
-                                                                    )}
+                        {userReviewsArr.length === 0 ?
+                            <div className="user-no-data-container" style={{ fontSize: '20px', fontWeight: 'bold', color: 'gray' }}>
+                                You have no reviews
+                            </div> :
+                            userReviewsArr.map((review) => {
+                                return (
+                                    <>
+                                        {allBusinessesArr.map((business) => {
+                                            return (
+                                                <>
+                                                    {business.id === review.businessId ?
+                                                        <div className='profile-review-container'>
+                                                            <div className="profile-review-title-options">
+                                                                <div className="profile-review-business">Review from&nbsp;
+                                                                    <NavLink className='profile-review-business-link' to={`/businesses/${business.id}`}>{business.name}</NavLink>
+                                                                </div>
+                                                                <div className='viewThisResult'>
+                                                                    <div className='profile-review-options-container'>
+                                                                        <img className='edit-review-bttn' src={editButton} onClick={() => { setShowUpdateReview(true); setCurrReview(review) }}></img>
+                                                                        <img className='delete-review-bttn' src={deleteButton} onClick={() => { setShowDeleteReview(true); setCurrReview(review) }}></img>
+                                                                        {showUpdateReview && (
+                                                                            <Modal onClose={() => setShowUpdateReview(false)}>
+                                                                                <EditReviewForm currReview={currReview} setShowUpdateReview={setShowUpdateReview} />
+                                                                            </Modal>
+                                                                        )}
+                                                                        {showDeleteReview && (
+                                                                            <Modal onClose={() => setShowDeleteReview(false)}>
+                                                                                <DeleteReviewForm businessId={currReview.businessId} currReview={currReview} setShowDeleteReview={setShowDeleteReview} />
+                                                                            </Modal>
+                                                                        )}
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div className='review-rating-date'>
-                                                            <div className='rating-showcase-container'>
-                                                                {ratingCount(review.stars)}
+                                                            <div className='review-rating-date'>
+                                                                <div className='rating-showcase-container'>
+                                                                    {ratingCount(review.stars)}
+                                                                </div>
+                                                                <div>{review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
                                                             </div>
-                                                            <div>{review.created_at.slice(8, 11)} {review.created_at.slice(5, 7)}, {review.created_at.slice(12, 16)}</div>
-                                                        </div>
-                                                        <div className='review'>
-                                                            {review.review}
-                                                        </div>
-                                                    </div> : ""
-                                                }
-                                            </>
-                                        )
-                                    })}
-                                </>
-                            )
-                        })}
+                                                            <div className='review'>
+                                                                {review.review}
+                                                            </div>
+                                                        </div> : ""
+                                                    }
+                                                </>
+                                            )
+                                        })}
+                                    </>
+                                )
+                            })}
+
                     </div> : ''
                     }
                     {tab === 4 ? <div className="profile-reviews-tab">
                         <div className="profile-image-title"> My Photos</div>
                         <div className='profile-all-business-images-container'>
-                            {userImagesArr.map((image) => {
-                                return (
-                                    <div>
-                                        <img
-                                            onClick={() => { setShowUserImageDetails(true); setCurrUserImage(image) }}
-                                            className='single-business-image'
-                                            src={image.imgUrl}
-                                            alt={imgNotFound}
-                                            onError={e => { e.currentTarget.src = imgNotFound }}
-                                        />
-                                        {showUserImageDetails && (
-                                            <Modal onClose={() =>setShowUserImageDetails(false)}>
-                                                <UserImageDetails businessId={image.businessId} image={currUserImage} setShowUserImageDetails={setShowUserImageDetails} />
-                                            </Modal>
-                                        )}
-                                    </div>
-                                )
-                            })}
+                            {userImagesArr.length === 0 ?
+                                <div className="user-no-data-container user-no-data-photos" style={{ fontSize: '20px', fontWeight: 'bold', color: 'gray' }}>
+                                    You have no photos
+                                </div> :
+                                userImagesArr.map((image) => {
+                                    return (
+                                        <div>
+                                            <img
+                                                onClick={() => { setShowUserImageDetails(true); setCurrUserImage(image) }}
+                                                className='single-business-image'
+                                                src={image.imgUrl}
+                                                alt={imgNotFound}
+                                                onError={e => { e.currentTarget.src = imgNotFound }}
+                                            />
+                                            {showUserImageDetails && (
+                                                <Modal onClose={() => setShowUserImageDetails(false)}>
+                                                    <UserImageDetails businessId={image.businessId} image={currUserImage} setShowUserImageDetails={setShowUserImageDetails} />
+                                                </Modal>
+                                            )}
+                                        </div>
+                                    )
+                                })}
                         </div>
                     </div> : ''
                     }

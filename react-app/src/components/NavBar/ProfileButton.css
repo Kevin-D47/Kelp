@@ -34,7 +34,7 @@ ul.profile-list {
     flex-direction: column;
     position: absolute;
     width: 12rem;
-    height: 8.5rem;
+    height: 10.5rem;
     background-color: white;
     box-shadow: 0px 0px 6px rgb(195, 195, 195);
     top: 80%;

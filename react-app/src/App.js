@@ -16,6 +16,7 @@ import CreateReviewForm from './components/CreateReviewFormPage/creatReview';
 import CreateImageForm from './components/CreateImageFormPage/createImage';
 import User from './components/ProfilePage/user'
 import SearchPage from './components/SearchPage/searchPage';
+import { AboutDevPage } from "./components/DeveloperPage/developer";
 import { PageNotFound } from './components/UnkownPage/pageNotFound';
 
 function App() {
@@ -37,7 +38,10 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-      <Route path="/search/:searchTerm" exact={true}>
+        <Route exact path='/aboutDev'>
+          <AboutDevPage />
+        </Route>
+        <Route path="/search/:searchTerm" exact={true}>
           <SearchPage />
         </Route>
         <Route path='/businesses/:businessId/images/new'>

@@ -61,7 +61,7 @@ def upgrade():
                     sa.Column('userId', sa.Integer(), nullable=False),
                     sa.Column('businessId', sa.Integer(), nullable=False),
                     sa.Column('imgUrl', sa.String(), nullable=False),
-                    sa.Column('description', sa.String(
+                    sa.Column("description", sa.String(
                         length=800), nullable=False),
                     sa.Column('created_at', sa.DateTime(), nullable=False),
                     sa.Column('updated_at', sa.DateTime(), nullable=False),

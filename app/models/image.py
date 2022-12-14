@@ -25,7 +25,7 @@ class Image(db.Model):
             'userId': self.userId,
             'businessId': self.businessId,
             'imgUrl': self.imgUrl,
-            'description': self.description,
+            "description": self.description,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }

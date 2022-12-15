@@ -14,4 +14,5 @@ class BusinessForm(FlaskForm):
     description = TextAreaField("Description", validators=[DataRequired()])
     price = StringField("Price", validators=[DataRequired()])
     previewImageUrl = StringField("PreviewImage", validators=[DataRequired()])
+    type = StringField("Type", validators=[DataRequired()])
     submit = SubmitField("Submit")

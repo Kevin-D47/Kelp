@@ -55,11 +55,11 @@ export const getOneBusinessThunk = (businessId) => async (dispatch) => {
     }
 };
 
-export const createBusinessThunk = (userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl) => async (dispatch) => {
+export const createBusinessThunk = (userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, type) => async (dispatch) => {
     const response = await fetch("/api/businesses/new", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl })
+        body: JSON.stringify({ userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, type})
     });
     if (response.ok) {
         const createBusiness = await response.json();
@@ -68,11 +68,11 @@ export const createBusinessThunk = (userId, address, city, state, country, zip, 
     }
 };
 
-export const updateBusinessThunk = (businessId, userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl) => async (dispatch) => {
+export const updateBusinessThunk = (businessId, userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, type) => async (dispatch) => {
     const response = await fetch(`/api/businesses/${businessId}/edit`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl }),
+        body: JSON.stringify({ userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, type}),
     });
     if (response.ok) {
         const updatedbusiness = await response.json();

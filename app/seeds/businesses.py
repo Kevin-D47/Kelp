@@ -14,7 +14,8 @@ def seed_businesses():
         description='We serve only the finest dishes that the ocean has to offer. All our seafood dishes are finely prepared with only the freshest and most exquisite ingredients from the seas.',
         phone=9175271337,
         price='$$$$',
-        previewImageUrl='https://www.gannett-cdn.com/presto/2021/11/18/NPPP/d0eb8abd-a8b6-4607-92b6-2ebd9ff513eb-Corvina_Gerard_Roncal_1.jpg'
+        previewImageUrl='https://www.gannett-cdn.com/presto/2021/11/18/NPPP/d0eb8abd-a8b6-4607-92b6-2ebd9ff513eb-Corvina_Gerard_Roncal_1.jpg',
+        type ='All'
     )
 
     business_2 = Business(
@@ -28,7 +29,8 @@ def seed_businesses():
         description='Our fresh caught fish is always served alongside live music. Come sea the liviest bands and food we have to offer in town. ',
         phone=2093059328,
         price='$$$',
-        previewImageUrl='https://s3-media0.fl.yelpcdn.com/bphoto/Zg95QGwmay_PpgV0Xecb6A/o.jpg'
+        previewImageUrl='https://s3-media0.fl.yelpcdn.com/bphoto/Zg95QGwmay_PpgV0Xecb6A/o.jpg',
+        type ='Fish'
     )
 
     business_3 = Business(
@@ -42,7 +44,8 @@ def seed_businesses():
         description='Here you can find the biggest most shredded mussles. We work hard to build to get our mussles pumped and juiciest around.',
         phone=4083401294,
         price='$$',
-        previewImageUrl='https://www.washingtonpost.com/resizer/S0uE7ze24z1spZwWS_XsFyN5YBc=/arc-anglerfish-washpost-prod-washpost/public/E37EMGFVZYI6ZA2YECVBMNK7WQ.jpg'
+        previewImageUrl='https://www.washingtonpost.com/resizer/S0uE7ze24z1spZwWS_XsFyN5YBc=/arc-anglerfish-washpost-prod-washpost/public/E37EMGFVZYI6ZA2YECVBMNK7WQ.jpg',
+        type ='Clams, Oysters, and Scallops'
     )
 
     business_4 = Business(
@@ -56,7 +59,8 @@ def seed_businesses():
         description='Owned and ran by a decendent of legenday samurai clan. Here you can find the most authentic omakase experience with an sharp edge.',
         phone=6789513096,
         price='$$$$',
-        previewImageUrl='https://media.blogto.com/articles/20170503-japango-09.jpg?w=1200&cmd=resize_then_crop&height=630&quality=70'
+        previewImageUrl='https://media.blogto.com/articles/20170503-japango-09.jpg?w=1200&cmd=resize_then_crop&height=630&quality=70',
+        type ='Fish'
     )
 
 
@@ -71,7 +75,8 @@ def seed_businesses():
         description='Come get a quick bite at the famous under the sea burger spot. Our tasy Krabby Patties made with our seceret ingriedient prepared by our famous square yellow chef, will have you coming back for more.',
         phone=2800931122,
         price='$',
-        previewImageUrl='https://images.spot.im/v1/production/sleaikuscaczuzq1ivdn'
+        previewImageUrl='https://images.spot.im/v1/production/sleaikuscaczuzq1ivdn',
+        type='Other'
     )
 
     business_6 = Business(
@@ -85,7 +90,8 @@ def seed_businesses():
         description='We honestly think our seafood boils are too good to share with others. We rather keep them for ourselves but since so many beg for our tasty seafood here you go.',
         phone=5046149001,
         price='$$',
-        previewImageUrl='https://wallpapercave.com/wp/wp5116626.jpg'
+        previewImageUrl='https://wallpapercave.com/wp/wp5116626.jpg',
+        type ='Crabs, Lobsters, and Shrimp'
     )
 
     business_7 = Business(
@@ -99,7 +105,8 @@ def seed_businesses():
         description='Discovery some of the most exotic seafood options you have never tried before. Come take a sharkful bite out of our unique and massively delicious dishes',
         phone=7276803020,
         price='$$$',
-        previewImageUrl='https://media.istockphoto.com/photos/octopus-picture-id1324632301?b=1&k=20&m=1324632301&s=170667a&w=0&h=45KkZRjC19LMbQh5ewcPI0MQHnuTtaBZmav2cfe0kxE='
+        previewImageUrl='https://media.istockphoto.com/photos/octopus-picture-id1324632301?b=1&k=20&m=1324632301&s=170667a&w=0&h=45KkZRjC19LMbQh5ewcPI0MQHnuTtaBZmav2cfe0kxE=',
+        type='All'
     )
 
 

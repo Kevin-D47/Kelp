@@ -22,6 +22,7 @@ class Business(db.Model):
     description = db.Column(db.String(800), nullable=False)
     price = db.Column(db.String, nullable=False)
     previewImageUrl = db.Column(db.String, nullable=False)
+    type = db.Column(db.String, nullable=False)
     # timestamps
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -45,6 +46,7 @@ class Business(db.Model):
             'description': self.description,
             'price': self.price,
             'previewImageUrl': self.previewImageUrl,
+            'type': self.type,
             # timestamps
             'created_at': self.created_at,
             'updated_at': self.updated_at,

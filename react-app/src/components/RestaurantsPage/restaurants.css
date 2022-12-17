@@ -143,12 +143,19 @@
     margin-right: 3rem;
 }
 
+.filter-header{
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 10px;
+}
+
 .price-filter-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 25px;
-    width: 15rem;
+    width: 17rem;
     border-bottom: 1px solid lightgray;
     padding-top: 10px;
     padding-bottom: 20px;
@@ -207,19 +214,19 @@
     border-radius: 0px 10px 10px 0px;
 }
 
-.price-active-filter-bg-first{
+.price-active-filter-bg-first {
     background: #7eb312;
     color: white;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 0px 0px 10px;
 }
 
-.price-active-filter-bg-mid{
+.price-active-filter-bg-mid {
     background: #7eb312;
     color: white;
 }
 
 
-.price-active-filter-bg-last{
+.price-active-filter-bg-last {
     background: #7eb312;
     color: white;
     border-radius: 0px 10px 10px 0px;
@@ -229,21 +236,22 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 15rem;
-    height: 15rem;
+    width: 16rem;
+    height: 12rem;
     border-bottom: 1px solid lightgray;
     padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+    padding-left: 10px;
 }
-
 
 .clear-filter-buttons-inactive {
     display: flex;
     justify-content: right;
-    color: gray;
+    color: lightgray;
+    pointer-events: none;
 }
 
-.clear-filter-buttons-active{
+.clear-filter-buttons-active {
     display: flex;
     justify-content: right;
     color: #7eb312;
@@ -254,34 +262,43 @@
     text-decoration: underline;
 }
 
-.type-filter-option-container{
+.type-filter-option-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    width: 15rem;
+    width: 18rem;
 }
 
-
-
-.filter-type-buttons{
-    width: 15px;
-    height: 15px;
-    border: 2px solid  gray;
-    border-radius: 20px;
-    background:  white;
+.filter-type-buttons {
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    background: white;
 }
 
-.filter-type-buttons:hover{
-    width: 15px;
-    height: 15px;
-    border: 2px solid  gray;
-    border-radius: 20px;
-    background:  gray;
+.filter-type-buttons:hover {
+    background: lightgray;
     cursor: pointer;
 }
 
-.type-active-filter-bg{
+.type-active-filter-bg {
     background: #7eb312;
-    border: 2px solid  #7eb312;
+    border: 1px solid #7eb312;
+}
+
+.fa-check{
+    color: white;
+}
+
+.restraunt-filter-no-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 40rem;
+    border-radius: 5px;
 }

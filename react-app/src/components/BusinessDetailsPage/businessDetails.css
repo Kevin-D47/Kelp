@@ -1,7 +1,7 @@
 .business-details-container {
     display: flex;
     flex-direction: column;
-    height:100%;
+    height: 100%;
 }
 
 .business-images-container {
@@ -41,7 +41,7 @@
     gap: 20px;
 }
 
-.business-details-header-info-inner{
+.business-details-header-info-inner {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -50,16 +50,21 @@
     text-shadow: 2px 2px 10px black
 }
 
-.claimed-conatiner{
+.business-details-header-info-bottom {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 10px;
+    gap: 10px;
+}
+
+.claimed-container {
+    display: flex;
+    flex-direction: row;
     font-size: 20px;
     color: #1c6fc7;
 }
 
-.check-mark{
+.check-mark {
     width: 20px;
     height: 20px;
     margin-right: 10px;
@@ -88,7 +93,7 @@
     transform: scale(.98);
 }
 
-.business-details-bttm-container{
+.business-details-bttm-container {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -96,21 +101,21 @@
     margin-top: 4.5rem;
 }
 
-.business-details-bttm-wrapper{
+.business-details-bttm-wrapper {
     display: flex;
     flex-direction: row;
     width: 70rem;
     height: 100%;
 }
 
-.business-details-bttm-left{
+.business-details-bttm-left {
     display: flex;
     flex-direction: column;
     width: 45rem;
     height: 50rem;
 }
 
-.upload-bttn-container{
+.upload-bttn-container {
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -145,19 +150,19 @@
     transform: scale(.98);
 }
 
-.star-icon{
+.star-icon {
     width: 28px;
     height: 28px;
     margin-right: 6px;
 }
 
-.star-icon-black{
+.star-icon-black {
     width: 22px;
     height: 22px;
     margin-right: 6px;
 }
 
-.review-diabled-container{
+.review-diabled-container {
     display: flex;
     flex-direction: column;
 }
@@ -203,25 +208,25 @@
     transform: scale(.98);
 }
 
-.camera-icon{
+.camera-icon {
     width: 25px;
     height: 25px;
     margin-right: 10px;
 }
 
-.reviews-container{
+.reviews-container {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.business-details-bttm-right{
+.business-details-bttm-right {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
 }
 
-.owner-options{
+.owner-options {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -230,14 +235,14 @@
     margin-top: 2rem;
 }
 
-.owner-options-bttns{
+.owner-options-bttns {
     display: flex;
     flex-direction: row;
     gap: 10px;
     margin-top: 20px;
 }
 
-.business-phone-location{
+.business-phone-location {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -246,7 +251,7 @@
     margin-top: 2rem;
 }
 
-.details-phone{
+.details-phone {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -255,13 +260,13 @@
     border-bottom: 2px solid lightgrey;
 }
 
-.directions-title{
+.directions-title {
     font-size: 18px;
     color: #017a97;
     margin-top: 15px;
 }
 
-.details-location{
+.details-location {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -273,12 +278,12 @@
     border-bottom: 2px solid lightgrey;
 }
 
-.phone-sign-icon{
+.phone-sign-icon {
     width: 25px;
     height: 25px;
 }
 
-.reviews-header-info{
+.reviews-header-info {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -286,7 +291,7 @@
     margin-bottom: 30px;
 }
 
-.avg-rating-placeholder{
+.avg-rating-placeholder {
     font-size: 26px;
     border: 1px solid red;
     width: 12rem;
@@ -294,7 +299,7 @@
     justify-content: center;
 }
 
-.avg-rating-placeholder-2{
+.avg-rating-placeholder-2 {
     font-size: 26px;
     color: black;
     border: 1px solid red;
@@ -305,7 +310,7 @@
     align-items: center;
 }
 
-.description-container{
+.description-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -315,50 +320,68 @@
     margin-bottom: 2rem;
 }
 
-.description-title{
+.description-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
-.details-overall-rating{
+.details-overall-rating {
     display: flex;
     flex-direction: row;
     gap: 8px;
 }
 
-.rating-details-showcase{
+.rating-details-showcase {
     width: 50px;
     height: 50px;
     border-radius: 5px;
 }
 
-.business-details-owner-name{
+.business-details-owner-name {
     width: 32rem;
     word-wrap: break-word;
 }
 
-.business-details-description{
+.business-details-description {
     width: 40rem;
     word-wrap: break-word;
 }
 
-.business-address{
+.business-details-type-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.details-type-header {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.details-type {
+    font-size: 16px;
+    font-weight: bold;
+    color: #7eb312;
+}
+
+.business-address {
     width: 16rem;
     word-wrap: break-word;
 }
 
-.business-details-bus-name{
+.business-details-bus-name {
     width: 75rem;
     word-wrap: break-word;
     text-shadow: 2px 2px 10px black
 }
 
-.claimed-txt{
+.claimed-txt {
     text-shadow: 2px 2px 10px black
 }
 
-.bus-image-no-data-container{
+.bus-image-no-data-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -368,7 +391,7 @@
     width: 100%
 }
 
-.bus-image-no-data-info-wrapper{
+.bus-image-no-data-info-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -377,11 +400,18 @@
     margin-bottom: 8rem;
 }
 
-.no-photo-add-link{
+.no-photo-add-link {
     font-weight: bold;
     color: #7eb312;
 }
 
-.no-photo-add-link:hover{
+.no-photo-add-link:hover {
     text-decoration: underline;
+}
+
+.owner-disable-review-alert {
+    font-size: 12.5px;
+    color: red;
+    width: 11rem;
+    word-wrap: break-word;
 }

@@ -73,8 +73,8 @@ const SearchPage = () => {
 
     if (!filteredBusinesses.length) {
         return (
-            <div className="restraunts-container">
-                <div className="restraunts-wrapper">
+            <div className="search-restraunts-container">
+                <div className="search-restraunts-wrapper">
                     <div className="search-result-header-container">
                         <h2 className="search-header">
                             Search results for
@@ -95,8 +95,8 @@ const SearchPage = () => {
         )
     } else {
         return (
-            <div className="restraunts-container">
-                <div className="restraunts-wrapper">
+            <div className="search-restraunts-container">
+                <div className="search-restraunts-wrapper">
                     <div className="search-result-header-container">
                         <h2 className="search-header">
                             Search results for

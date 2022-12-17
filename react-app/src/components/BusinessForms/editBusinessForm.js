@@ -14,6 +14,15 @@ const PRICES = [
     "$$$$"
 ];
 
+const TYPES = [
+    'All',
+    'Fish',
+    'Crabs, Lobsters, and Shrimp',
+    'Clams, Oysters, and Scallops',
+    'Squid, Octopus, and Cuttlefish',
+    'Other'
+]
+
 const EditBusinessForm = ({ setShowUpdateBusiness, businessId }) => {
     const dispatch = useDispatch()
 
@@ -32,6 +41,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness, businessId }) => {
     const [description, setDescription] = useState(formInfo.description);
     const [price, setPrice] = useState(formInfo.price);
     const [previewImageUrl, setPreviewImageUrl] = useState(formInfo.previewImageUrl);
+    const [type, setType] = useState(formInfo.type);
 
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -55,10 +65,10 @@ const EditBusinessForm = ({ setShowUpdateBusiness, businessId }) => {
         if (description.length > 600) errors.push("Description cannot be over 600 characters long");
         if (!price) errors.push("Please provide a price range");
         if (!previewImageUrl) errors.push("Please provide a image");
-
+        if (!type) errors.push("Please provide a type of seafood");
 
         return setErrors(errors);
-    }, [address, city, state, country, zip, name, description, phone, price, previewImageUrl]);
+    }, [address, city, state, country, zip, name, description, phone, price, previewImageUrl, type]);
 
 
     if (sessionUser === null) {
@@ -73,7 +83,7 @@ const EditBusinessForm = ({ setShowUpdateBusiness, businessId }) => {
 
         if (errors.length > 0) return alert('There was an error with your submission, Please recheck your inputs')
 
-        dispatch(updateBusinessThunk(businessId, userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl))
+        dispatch(updateBusinessThunk(businessId, userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, type))
         setShowUpdateBusiness(false)
     }
 
@@ -173,6 +183,23 @@ const EditBusinessForm = ({ setShowUpdateBusiness, businessId }) => {
                                         value={price}
                                     >
                                         {price}
+                                    </option>
+                                ))}
+                            </select>
+                            <select
+                                className="price-input-field"
+                                value={type}
+                                onChange={(e) => setType(e.target.value)}
+                            >
+                                <option selected disabled value="">
+                                    Select a Type of Seafood
+                                </option>
+                                {TYPES.map(type => (
+                                    <option
+                                        key={type}
+                                        value={type}
+                                    >
+                                        {type}
                                     </option>
                                 ))}
                             </select>

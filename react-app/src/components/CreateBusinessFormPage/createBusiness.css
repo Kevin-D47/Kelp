@@ -1,6 +1,8 @@
 .create-business-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
 }
@@ -98,6 +100,9 @@
 .price-input-field {
     width: 33.5rem;
     height: 2rem;
+    border: .1rem solid black;
+    border-radius: 3px;
+    font-size: 1rem;
 }
 
 .create-bus-form-bttn {

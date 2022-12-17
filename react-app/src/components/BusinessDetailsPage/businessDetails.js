@@ -146,7 +146,7 @@ const BusinessDetails = () => {
                     {getAllImagesArr.length === 0 ?
                         <div className='bus-image-no-data-container'>
                             <div className='bus-image-no-data-info-wrapper'>
-                                <div style={{ fontSize: '24px', fontWeight:'bold'}} >No photos have been posted for this business yet</div>
+                                <div style={{ fontSize: '24px', fontWeight: 'bold' }} >No photos have been posted for this business yet</div>
                                 <Link className='no-photo-add-link' to={`/businesses/${businessId}/images/new`}>Be the first to post a photo click here</Link>
                             </div>
                         </div> :
@@ -169,8 +169,8 @@ const BusinessDetails = () => {
                         <div className='business-details-header-info-inner'>
                             {!avgRating ? <div>{emptyRating}</div> : <div className='details-overall-rating'>{ratingCount(roundedAvgRating)}</div>}
                             <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{numOfReviews} reviews</div>
-                            <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
                         </div>
+
                         <div>
                             <button className='all-photos-bttn' onClick={() => setShowAllBusinessImages(true)}>See All Photos</button>
                             {showAllBusinessImages && (
@@ -180,9 +180,15 @@ const BusinessDetails = () => {
                             )}
                         </div>
                     </div>
-                    <div className='claimed-conatiner'>
-                        <img className='check-mark' src={checkMark}></img>
-                        <div className='claimed-txt'>Claimed</div>
+                    <div className='business-details-header-info-bottom'>
+                        <div className='claimed-container'>
+                            <img className='check-mark' src={checkMark}></img>
+                            <div className='claimed-txt'>Claimed</div>
+                        </div>
+                        <div style={{ fontSize: '30px', color: 'white', fontWeight: 'bold' }}>•</div>
+                        <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.price}</div>
+                        <div style={{ fontSize: '30px', color: 'white', fontWeight: 'bold' }}>•</div>
+                        <div style={{ fontSize: '20px', color: 'white', fontWeight: 'bold' }}>{currBusiness.type}</div>
                     </div>
                 </div>
                 <div className='business-details-bttm-container'>
@@ -195,7 +201,7 @@ const BusinessDetails = () => {
                                             <img className='star-icon' src={starIcon}></img>
                                             <div>Write a review</div>
                                         </div>
-                                        <div style={{ fontSize: '12.5px', color: 'red' }}>Owners cannot review their own business</div>
+                                        <div className='owner-disable-review-alert'>Owners cannot review their own business</div>
                                     </div>
                                 ) :
                                     disableCreateReview === false && sessionUser && (
@@ -249,6 +255,10 @@ const BusinessDetails = () => {
                                     })}
                                 </div>
                                 <div className='business-details-description'>{currBusiness.description}</div>
+                                <div className='business-details-type-container'>
+                                    <div className='details-type-header'>Type of Seafood Served:</div>
+                                    <div className='details-type'>{currBusiness.type}</div>
+                                </div>
                             </div>
                             <div className='reviews-container'>
                                 <h2>Recommended Reviews</h2>

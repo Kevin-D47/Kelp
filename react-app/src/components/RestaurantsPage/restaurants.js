@@ -97,41 +97,54 @@ const GetAllBusinesses = () => {
             <div className="restraunts-container">
                 <div className="restraunts-wrapper">
                     <div className="filter-container">
+                        <div className="filter-header">Filters</div>
                         <div className={filterPrice === 'allResultsPrice' ? "clear-filter-buttons-inactive" : "clear-filter-buttons-active"} onClick={() => setFilterPrice('allResultsPrice')}>clear price filter</div>
-                        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>Price:</div>
+                        <div style={{ fontWeight: 'bold', fontSize: '16px' }}>Price:</div>
                         <div className="price-filter-container">
                             <div className="price-filter-options">
                                 <div className={filterPrice === '$' ? "filter-price-buttons-first price-active-filter-bg-first" : "filter-price-buttons-first"} onClick={() => setFilterPrice('$')}>$</div>
-                                <div className={filterPrice === '$$' ? "filter-price-buttons-mid price-active-filter-b-mid" : "filter-price-buttons-mid"} onClick={() => setFilterPrice('$$')}>$$</div>
+                                <div className={filterPrice === '$$' ? "filter-price-buttons-mid price-active-filter-bg-mid" : "filter-price-buttons-mid"} onClick={() => setFilterPrice('$$')}>$$</div>
                                 <div className={filterPrice === '$$$' ? "filter-price-buttons-mid price-active-filter-bg-mid" : "filter-price-buttons-mid"} onClick={() => setFilterPrice('$$$')}>$$$</div>
                                 <div className={filterPrice === '$$$$' ? "filter-price-buttons-last price-active-filter-bg-last" : "filter-price-buttons-last"} onClick={() => setFilterPrice('$$$$')}>$$$$</div>
                             </div>
                         </div>
                         <div className={filterType === 'allResultsType' ? "clear-filter-buttons-inactive" : "clear-filter-buttons-active"} onClick={() => setFilterType('allResultsType')}>clear type filter</div>
-                        <div style={{ fontWeight: 'bold', fontSize: '18px' }}>Type:</div>
+                        <div style={{ fontWeight: 'bold', fontSize: '16px' }}>Type:</div>
                         <div className="type-filter-container">
                             <div className="type-filter-option-container">
-                                <button className={filterType === 'all' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('All')}>&nbsp;</button>
+                                <button className={filterType === 'All' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('All')}>
+                                    {filterType === 'All' ? <i className="filter-checkmark" class="fa-solid fa-check"></i> : <div>&nbsp;</div>}
+                                </button>
                                 <div>All</div>
                             </div>
                             <div className="type-filter-option-container">
-                                <button className={filterType === 'fish' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Fish')}>&nbsp;</button>
+                                <button className={filterType === 'Fish' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Fish')}>
+                                    {filterType === 'Fish' ? <i className="filter-checkmark" class="fa-solid fa-check"></i> : <div>&nbsp;</div>}
+                                </button>
                                 <div>Fish</div>
                             </div>
                             <div className="type-filter-option-container">
-                                <button className={filterType === 'crustaceans' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Crabs, Lobsters, and Shrimp')}>&nbsp;</button>
+                                <button className={filterType === 'Crabs, Lobsters, and Shrimp' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Crabs, Lobsters, and Shrimp')}>
+                                    {filterType === 'Crabs, Lobsters, and Shrimp' ? <i className="filter-checkmark" class="fa-solid fa-check"></i> : <div>&nbsp;</div>}
+                                </button>
                                 <div>Crabs, Lobsters, and Shrimp</div>
                             </div>
                             <div className="type-filter-option-container">
-                                <button className={filterType === 'mollusks' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Clams, Oysters, and Scallops')}>&nbsp;</button>
+                                <button className={filterType === 'Clams, Oysters, and Scallops' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Clams, Oysters, and Scallops')}>
+                                    {filterType === 'Clams, Oysters, and Scallops' ? <i className="filter-checkmark" class="fa-solid fa-check"></i> : <div>&nbsp;</div>}
+                                </button>
                                 <div>Clams, Oysters, and Scallops</div>
                             </div>
                             <div className="type-filter-option-container">
-                                <button className={filterType === 'cephalopods' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Squid, Octopus, and Cuttlefish')}>&nbsp;</button>
+                                <button className={filterType === 'Squid, Octopus, and Cuttlefish' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Squid, Octopus, and Cuttlefish')}>
+                                    {filterType === 'Squid, Octopus, and Cuttlefish' ? <i className="filter-checkmark" class="fa-solid fa-check"></i> : <div>&nbsp;</div>}
+                                </button>
                                 <div>Squid, Octopus, and Cuttlefish</div>
                             </div>
                             <div className="type-filter-option-container">
-                                <button className={filterType === 'other' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Other')}>&nbsp;</button>
+                                <button className={filterType === 'Other' ? "filter-type-buttons type-active-filter-bg" : "filter-type-buttons"} onClick={() => setFilterType('Other')}>
+                                    {filterType === 'Other' ? <i className="filter-checkmark" class="fa-solid fa-check"></i> : <div>&nbsp;</div>}
+                                </button>
                                 <div>Other</div>
                             </div>
                         </div>
@@ -140,42 +153,52 @@ const GetAllBusinesses = () => {
                         <div className="result-header-container">
                             <h2>The Best Seafood Restaurants to visit</h2>
                         </div>
-                        {priceBusinessesArr.length === 0 ? <div>No results</div> : priceBusinessesArr.map((business) => {
-                            return (
-                                <div className="all-restraunts-container" key={business.id}>
-                                    <NavLink className="single-rest-container" to={`/businesses/${business.id}`}>
-                                        <div className="single-rest-container-left">
-                                            <img
-                                                className="restraunt-img"
-                                                src={business.previewImageUrl}
-                                                alt={imgNotFound}
-                                                onError={e => { e.currentTarget.src = imgNotFound }}
-                                            />
+                        {priceBusinessesArr.length === 0 ?
+                            <div className="restraunts-container">
+                                <div className="restraunts-wrapper">
+                                    <div className="login-container-PNF">
+                                        <div className="restraunt-filter-no-data-container">
+                                            <img className="logo-PNF" src={kelpLogo}></img>
+                                            <div className="title-PNF">No Results Found</div>
                                         </div>
-                                        <div className="single-rest-container-right">
-                                            <div className="restraunt-name">{business.name}</div>
-                                            <div className="restraunt-info-container">
-                                                {business.reviews.map((review) => {
-                                                    { ratingSum += review.stars }
-                                                })}
-                                                {!(ratingSum / business.reviews.length) ? <div>{emptyRating}</div> : <div className="single-rest-avgRating-containter"> {ratingCount(Math.round(ratingSum / business.reviews.length))}</div>}
-                                                <div>{business.reviews.length} Reviews</div>
-                                                <div>{business.price}</div>
-                                            </div>
-                                            <div className="ratingSum-hide">{ratingSum = 0}</div>
-                                            <div className="restraunt-location">
-                                                {business.city}, {business.state}
-                                            </div>
-                                            <div className="restraunt-description">{business.description}</div>
-                                            <div className="restraunt-type-container">Type of Seafood: <div className="restraunt-type">{business.type}</div></div>
-                                        </div>
-                                    </NavLink>
+                                    </div>
                                 </div>
-                            )
-                        })}
+                            </div> :
+                            priceBusinessesArr.map((business) => {
+                                return (
+                                    <div className="all-restraunts-container" key={business.id}>
+                                        <NavLink className="single-rest-container" to={`/businesses/${business.id}`}>
+                                            <div className="single-rest-container-left">
+                                                <img
+                                                    className="restraunt-img"
+                                                    src={business.previewImageUrl}
+                                                    alt={imgNotFound}
+                                                    onError={e => { e.currentTarget.src = imgNotFound }}
+                                                />
+                                            </div>
+                                            <div className="single-rest-container-right">
+                                                <div className="restraunt-name">{business.name}</div>
+                                                <div className="restraunt-info-container">
+                                                    {business.reviews.map((review) => {
+                                                        { ratingSum += review.stars }
+                                                    })}
+                                                    {!(ratingSum / business.reviews.length) ? <div>{emptyRating}</div> : <div className="single-rest-avgRating-containter"> {ratingCount(Math.round(ratingSum / business.reviews.length))}</div>}
+                                                    <div>{business.reviews.length} Reviews</div>
+                                                    <div>{business.price}</div>
+                                                </div>
+                                                <div className="ratingSum-hide">{ratingSum = 0}</div>
+                                                <div className="restraunt-location">
+                                                    {business.city}, {business.state}
+                                                </div>
+                                                <div className="restraunt-description">{business.description}</div>
+                                                <div className="restraunt-type-container">Type of Seafood: <div className="restraunt-type">{business.type}</div></div>
+                                            </div>
+                                        </NavLink>
+                                    </div>
+                                )
+                            })}
                     </div>
                 </div>
-
                 <div className="hompage-footer-container">
                     <div className='hompage-footer-wrapper'>
                         <div className="about-footer-container">

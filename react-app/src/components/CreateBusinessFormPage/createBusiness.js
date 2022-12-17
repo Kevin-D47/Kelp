@@ -15,6 +15,15 @@ const PRICES = [
     "$$$$"
 ];
 
+const TYPES = [
+    'All',
+    'Fish',
+    'Crabs, Lobsters, and Shrimp',
+    'Clams, Oysters, and Scallops',
+    'Squid, Octopus, and Cuttlefish',
+    'Other'
+]
+
 const CreateBusinessForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -32,6 +41,7 @@ const CreateBusinessForm = () => {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [previewImageUrl, setPreviewImageUrl] = useState("");
+    const [type, setType] = useState('');
 
     const [errors, setErrors] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -56,10 +66,11 @@ const CreateBusinessForm = () => {
         if (description.length > 600) errors.push("Description cannot be over 600 characters long");
         if (!price) errors.push("Please provide a price range");
         if (!previewImageUrl) errors.push("Please provide a image");
+        if (!type) errors.push("Please provide a type of seafood");
 
 
         return setErrors(errors);
-    }, [address, city, state, country, zip, name, description, phone, price, previewImageUrl]);
+    }, [address, city, state, country, zip, name, description, phone, price, previewImageUrl, type]);
 
 
     if (sessionUser === null) {
@@ -69,19 +80,21 @@ const CreateBusinessForm = () => {
 
     async function onSubmit(e) {
         e.preventDefault();
+
         setHasSubmitted(true);
-        if (errors.length > 0) {
-            return alert(
-                "There was an error with your submission, Please recheck your inputs"
-            );
-        }
+
+        // if (errors.length > 0) {
+        //     return alert(
+        //         "There was an error with your submission, Please recheck your inputs"
+        //     );
+        // }
 
         function loadImage(previewImageUrl) {
             return previewImageUrl;
         }
 
         if (loadImage(previewImageUrl)) {
-            dispatch(createBusinessThunk(userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl))
+            dispatch(createBusinessThunk(userId, address, city, state, country, zip, name, description, phone, price, previewImageUrl, type))
                 .then(() => dispatch(getAllBusinessesThunk()));
             history.push("/restaurants");
         }
@@ -170,6 +183,23 @@ const CreateBusinessForm = () => {
                                         value={price}
                                     >
                                         {price}
+                                    </option>
+                                ))}
+                            </select>
+                            <select
+                                className="price-input-field"
+                                value={type}
+                                onChange={(e) => setType(e.target.value)}
+                            >
+                                <option selected disabled value="">
+                                    Select a Type of Seafood
+                                </option>
+                                {TYPES.map(type => (
+                                    <option
+                                        key={type}
+                                        value={type}
+                                    >
+                                        {type}
                                     </option>
                                 ))}
                             </select>

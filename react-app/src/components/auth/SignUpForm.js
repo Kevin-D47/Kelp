@@ -51,17 +51,17 @@ const SignUpForm = () => {
 
     setHasSubmitted(true);
 
-    if (errors.length > 0) {
-      return alert(
-        "There was an error with your submission, Please recheck your inputs"
-      );
-    }
+    // if (errors.length > 0) {
+    //   return alert(
+    //     "There was an error with your submission, Please recheck your inputs"
+    //   );
+    // }
 
     if (!email.includes("@")) {
       return setErrors(["Please enter a valid email address"]);
     }
 
-    if (password === repeatPassword) {
+    if (password === repeatPassword && errors.length === 0) {
       const data = await dispatch(
         signUp(username, first_name, last_name, email, profileImageUrl, password)
       );

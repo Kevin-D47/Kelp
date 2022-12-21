@@ -47,11 +47,11 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail }) => {
 
         setHasSubmitted(true)
 
-        if (errors.length > 0) return alert('There was an error with your submission, Please recheck your inputs')
-
-        dispatch(updateImageThunk(id, userId, businessId, imgUrl, description))
-
-        window.location.reload()
+        if (errors.length === 0) {
+            dispatch(updateImageThunk(id, userId, businessId, imgUrl, description))
+            
+            window.location.reload()
+        }
     };
 
 

@@ -56,13 +56,13 @@ const CreateImageForm = () => {
 
         setHasSubmitted(true)
 
-        if (errors.length > 0) {
-            return alert("There was an error with your submission, Please recheck your inputs");
-        }
+        // if (errors.length > 0) {
+        //     return alert("There was an error with your submission, Please recheck your inputs");
+        // }
 
         const createdImage = dispatch(createImageThunk(userId, businessId, imgUrl, description));
 
-        if (createdImage) {
+        if (createdImage && errors.length === 0) {
             history.push(`/businesses/${businessId}`);
         }
     };
@@ -104,7 +104,7 @@ const CreateImageForm = () => {
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
                             </div>
-                            <div className="create-review-submit-container">
+                            <div className="create-image-submit-container">
                                 <button
                                     className="create-bus-form-bttn"
                                     type="submit"

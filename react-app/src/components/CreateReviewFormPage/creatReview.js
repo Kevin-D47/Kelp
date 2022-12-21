@@ -78,13 +78,13 @@ const CreateReviewForm = () => {
 
         setHasSubmitted(true)
 
-        if (errors.length > 0) {
-            return alert("There was an error with your submission, Please recheck your inputs");
-        }
+        // if (errors.length > 0) {
+        //     return alert("There was an error with your submission, Please recheck your inputs");
+        // }
 
         const createdReview = dispatch(createReviewThunk(userId, businessId, review, stars));
 
-        if (createdReview) {
+        if (createdReview && errors.length === 0) {
             history.push(`/businesses/${businessId}`);
         }
     };
@@ -128,55 +128,58 @@ const CreateReviewForm = () => {
                                 <div className="back-to">back to</div><div className="currBus-name">{currBusiness.name}</div>
                             </NavLink>
                         </div>
-
-                        <div className="create-review-header-container">
-                            <div className="create-review-form-title">Create a Review</div>
-                            <div>Create a review by filling out the inputs below.</div>
-                        </div>
-                        <div className="create-review-errors">
-                            {hasSubmitted && errorList}
-                        </div>
-                        <form className="create-review-form" onSubmit={onSubmit}>
-                            <div className="create-rating-container">
-                                <div class="star-wrapper">
-                                    <div onClick={() => setStars(1)} value='5'>
-                                        {stars >= 1 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                        <div className="create-review-form-container">
+                            <div className="create-review-header-container">
+                                <div className="create-review-form-title">Create a Review</div>
+                                <div>Create a review by filling out the inputs below.</div>
+                            </div>
+                            <div className="create-review-errors">
+                                {hasSubmitted && errorList}
+                            </div>
+                            <form className="create-review-form" onSubmit={onSubmit}>
+                                <div className="create-rating-container">
+                                    <div class="star-wrapper">
+                                        <div onClick={() => setStars(1)} value='5'>
+                                            {stars >= 1 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                        </div>
+                                        <div onClick={() => setStars(2)} value={stars}>
+                                            {stars >= 2 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                        </div>
+                                        <div onClick={() => setStars(3)} value={stars}>
+                                            {stars >= 3 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                        </div>
+                                        <div onClick={() => setStars(4)} value={stars}>
+                                            {stars >= 4 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                        </div>
+                                        <div onClick={() => setStars(5)} value={stars}>
+                                            {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
+                                        </div>
                                     </div>
-                                    <div onClick={() => setStars(2)} value={stars}>
-                                        {stars >= 2 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                                    </div>
-                                    <div onClick={() => setStars(3)} value={stars}>
-                                        {stars >= 3 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                                    </div>
-                                    <div onClick={() => setStars(4)} value={stars}>
-                                        {stars >= 4 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                                    </div>
-                                    <div onClick={() => setStars(5)} value={stars}>
-                                        {stars >= 5 ? <img className="rating-size" src={starChecked} /> : <img className="rating-size" src={starUnchecked} />}
-                                    </div>
+                                    <div style={{ fontSize: '20px' }}>Select your rating</div>
                                 </div>
-                                <div style={{ fontSize: '20px' }}>Select your rating</div>
-                            </div>
-                            <div className="create-review-input-container">
-                                <div className='create-review-input-title'>Review:</div>
-                                <textarea
-                                    className="create-review-input"
-                                    type="text"
-                                    placeholder="What was it like to stay here?"
-                                    value={review}
-                                    onChange={(e) => setReview(e.target.value)}
-                                />
-                            </div>
-                            <div className="create-review-submit-container">
-                                <button
-                                    className="create-review-form-button"
-                                    type="submit"
-                                    disabled={hasSubmitted && errors.length > 0}
-                                >
-                                    Submit Review
-                                </button>
-                            </div>
-                        </form>
+                                <div className="create-review-input-container">
+                                    <div className='create-review-input-title'>Review:</div>
+                                    <textarea
+                                        className="create-review-input"
+                                        type="text"
+                                        placeholder="What was it like to stay here?"
+                                        value={review}
+                                        onChange={(e) => setReview(e.target.value)}
+                                    />
+                                </div>
+                                <div className="create-review-submit-container">
+                                    <button
+                                        className="create-review-form-button"
+                                        type="submit"
+                                        disabled={hasSubmitted && errors.length > 0}
+                                    >
+                                        Submit Review
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
                     </div>
                     <div className="create-review-container-right">
                         <div style={{ fontSize: "24px", fontWeight: '400' }}>Recent Reviews</div>

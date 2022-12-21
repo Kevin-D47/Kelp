@@ -43,11 +43,13 @@ const UserEditImageForm = ({ businessId, currImage, setDisplayUserImageDetails }
 
         setHasSubmitted(true)
 
-        if (errors.length > 0) return alert('There was an error with your submission, Please recheck your inputs')
+        if (errors.length === 0) {
+            dispatch(updateImageThunk(id, userId, businessId, imgUrl, description))
 
-        dispatch(updateImageThunk(id, userId, businessId, imgUrl, description))
+            window.location.reload()
+        }
 
-        window.location.reload()
+
     };
 
 
@@ -91,9 +93,10 @@ const UserEditImageForm = ({ businessId, currImage, setDisplayUserImageDetails }
                             >
                                 Submit Image
                             </button>
-                            <button className="edit-photo-button-no" onClick={() => setDisplayUserImageDetails(true)}>NO</button>
+                            <button className="edit-photo-button-no" onClick={() => setDisplayUserImageDetails(false)}>NO</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

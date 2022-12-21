@@ -60,10 +60,10 @@ const EditReviewForm = ({ currReview, setShowUpdateReview }) => {
 
         setHasSubmitted(true)
 
-        if (errors.length > 0) return alert('There was an error with your submission, Please recheck your inputs')
-
-        dispatch(updateReviewThunk(currReview.id, userId, businessId, review, stars))
-        setShowUpdateReview(false)
+        if (errors.length === 0) {
+            dispatch(updateReviewThunk(currReview.id, userId, businessId, review, stars))
+            setShowUpdateReview(false)
+        }
     }
 
     const errorList = errors.map((error) => (

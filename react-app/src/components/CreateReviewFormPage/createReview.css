@@ -26,6 +26,13 @@
     margin-left: 10rem;
 }
 
+.create-review-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -4rem;
+}
+
 .create-review-header-container {
     display: flex;
     flex-direction: column;

@@ -53,6 +53,7 @@
     height: 250px;
     border-radius: 200px;
     margin-top: 15px;
+    object-fit: cover;
 }
 
 .me-container-right{

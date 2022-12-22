@@ -3,7 +3,7 @@ import React from "react";
 import githubIcon from '../../icons/github-icon.png'
 import linkedIcon from '../../icons/linkedin-icon.png'
 import angelListIcon from '../../icons/angellist-icon.png'
-import KevPic from '../../icons/KevD-Profile-Image.png'
+import KevPic from '../../icons/kev-profile-pic.jpg'
 
 import "./developer.css";
 

@@ -228,6 +228,7 @@ const User = () => {
                                                     {business.city}, {business.state}
                                                 </div>
                                                 <div className="restraunt-description">{business.description}</div>
+                                                <div className="restraunt-type-container">Type of Seafood: <div className="restraunt-type">{business.type}</div></div>
                                             </div>
                                         </div>
                                     </div>

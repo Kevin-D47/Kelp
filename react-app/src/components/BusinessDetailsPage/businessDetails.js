@@ -139,6 +139,10 @@ const BusinessDetails = () => {
         history.push('/404')
     }
 
+    if (currBusiness === undefined) {
+        history.push('/404')
+    }
+
     return (
         isLoaded && (
             <div className='business-details-container'>

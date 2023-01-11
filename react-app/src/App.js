@@ -38,16 +38,16 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route exact path='/aboutDev'>
+        <Route path='/aboutDev' exact={true}>
           <AboutDevPage />
         </Route>
         <Route path="/search/:searchTerm" exact={true}>
           <SearchPage />
         </Route>
-        <Route path='/businesses/:businessId/images/new'>
+        <Route path='/businesses/:businessId/images/new' exact={true}>
           <CreateImageForm />
         </Route>
-        <Route path='/businesses/:businessId/reviews/new'>
+        <Route path='/businesses/:businessId/reviews/new' exact={true}>
           <CreateReviewForm />
         </Route>
         <Route path="/businesses/:businessId" exact={true}>
@@ -74,7 +74,7 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true}>
           <h1>My Home Page</h1>
         </ProtectedRoute>
         <Route>

@@ -78,7 +78,7 @@ function App() {
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
         <Route>
-          <PageNotFound path='*' />
+          <PageNotFound path='/404' />
         </Route>
         <Redirect to="/404" />
       </Switch>

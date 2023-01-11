@@ -140,7 +140,7 @@ const BusinessDetails = () => {
     }
 
     if (currBusiness === undefined) {
-        history.push('/404')
+        history.push('/restaurants')
     }
 
     return (

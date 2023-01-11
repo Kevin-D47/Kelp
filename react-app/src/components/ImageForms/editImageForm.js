@@ -7,7 +7,7 @@ import { updateImageThunk } from '../../store/images';
 
 import './editImageForm.css'
 
-const EditImageForm = ({ businessId, currImage, setDisplayImageDetail }) => {
+const EditImageForm = ({ businessId, currImage, setDisplayImageDetail, setShowAllBusinessImages }) => {
 
     const dispatch = useDispatch()
 
@@ -49,7 +49,7 @@ const EditImageForm = ({ businessId, currImage, setDisplayImageDetail }) => {
 
         if (errors.length === 0) {
             dispatch(updateImageThunk(id, userId, businessId, imgUrl, description))
-            
+
             window.location.reload()
         }
     };

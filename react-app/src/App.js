@@ -77,9 +77,7 @@ function App() {
         {/* <ProtectedRoute path='/' exact={true}>
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
-        <Route path='/404'>
-          <PageNotFound  />
-        </Route>
+        <Route path='/404' component={PageNotFound}/>
         <Redirect to="/404" />
       </Switch>
     </BrowserRouter>

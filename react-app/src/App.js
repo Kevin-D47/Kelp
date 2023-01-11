@@ -77,8 +77,8 @@ function App() {
         {/* <ProtectedRoute path='/' exact={true}>
           <h1>My Home Page</h1>
         </ProtectedRoute> */}
-        <Route>
-          <PageNotFound path='/404' />
+        <Route path='/404'>
+          <PageNotFound  />
         </Route>
         <Redirect to="/404" />
       </Switch>

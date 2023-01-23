@@ -139,9 +139,10 @@ const BusinessDetails = () => {
         history.push('/404')
     }
 
-    if (currBusiness === undefined) {
-        history.push('/restaurants')
-    }
+    // // conficts with edit Image: redirects to 404 page after editing a image
+    // if (currBusiness === undefined) {
+    //     history.push('/404')
+    // }
 
     return (
         isLoaded && (
